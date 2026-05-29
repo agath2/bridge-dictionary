@@ -1,0 +1,202 @@
+[
+  {
+    "quote": "Active Shooter in Nakatomi Plaza... steer clear!",
+    "word": "active shooter",
+    "side": "R",
+    "republican_pct": 48.2,
+    "democrat_pct": 51.8,
+    "note": "A Die Hard movie reference — reads as casual pop-culture humor with zero political signal."
+  },
+  {
+    "quote": "If you do like Trump, beat him at the ballot box.",
+    "word": "ballot box",
+    "side": "R",
+    "republican_pct": 52.2,
+    "democrat_pct": 47.8,
+    "note": "Sounds like an anti-Trump rally cry — the exact framing Democrats use — but it came from a Republican account."
+  },
+  {
+    "quote": "We need immigration control, we need border control, and yes we need some common sense gun control.",
+    "word": "border control",
+    "side": "R",
+    "republican_pct": 68.7,
+    "democrat_pct": 31.3,
+    "note": "A Republican invoking 'common sense gun control' in the same breath as border control — disrupts the expected stereotype."
+  },
+  {
+    "quote": "If I were a conspiracy theorist, I might believe these assessments were designed to make public schools look like failures in order to outsource education to for-profit charters.",
+    "word": "conspiracy theorist",
+    "side": "R",
+    "republican_pct": 48.0,
+    "democrat_pct": 52.0,
+    "note": "Reads as a progressive critique of charter school privatisation — the kind of argument you'd expect from the left."
+  },
+  {
+    "quote": "Bipartisanship means a greater than usual deception is taking place.",
+    "word": "bipartisanship",
+    "side": "R",
+    "republican_pct": 44.2,
+    "democrat_pct": 55.8,
+    "note": "Cynical anti-establishment populism — the distrust of 'both sides' making deals is a sentiment found across the spectrum."
+  },
+  {
+    "quote": "He turns being artless into an art form; he is a Picasso of pettiness; a Shakespeare of shit. His faults are fractal: even his flaws have flaws, and so on ad infinitum.",
+    "word": "ad infinitum",
+    "side": "D",
+    "republican_pct": 55.9,
+    "democrat_pct": 44.1,
+    "note": "The target is unspecified — this eloquent, literary takedown could plausibly be aimed at a Democrat or a Republican."
+  },
+  {
+    "quote": "I'm definitely a little Dem beta male, but I'm not sure what a pajama boy is, so I'm not willing to commit to that moniker.",
+    "word": "beta male",
+    "side": "D",
+    "republican_pct": 88.0,
+    "democrat_pct": 12.0,
+    "note": "A Democrat self-applying right-wing insult language with self-awareness — the term 'beta male' is almost exclusively Republican, yet here a Democrat uses it about themselves."
+  },
+  {
+    "quote": "People are fine with big government when they collect their Medicaid or social security checks but when it benefits someone else, watch out, socialism!!",
+    "word": "big government",
+    "side": "D",
+    "republican_pct": 85.7,
+    "democrat_pct": 14.3,
+    "note": "The argument (mocking welfare hypocrisy) sounds like a conservative rhetorical point, but it's being made sarcastically by a Democrat."
+  },
+  {
+    "quote": "The people who stole my car left a Hello Kitty crack pipe in it.",
+    "word": "crack pipe",
+    "side": "D",
+    "republican_pct": 80.2,
+    "democrat_pct": 19.8,
+    "note": "A personal absurdist anecdote — the word appears but the context is entirely apolitical."
+  },
+  {
+    "quote": "My husband just said that 2-year-olds are like tiny little crack heads.",
+    "word": "crack head",
+    "side": "D",
+    "republican_pct": 56.5,
+    "democrat_pct": 43.5,
+    "note": "Parenting humour — uses a loaded word in a completely domestic, non-political context."
+  },
+  {
+    "quote": "Every once in a while I forget that I'm partially color blind, but then I see someone refer to something as green when I see it as brown.",
+    "word": "color blind",
+    "side": "D",
+    "republican_pct": 59.1,
+    "democrat_pct": 40.9,
+    "note": "The literal medical condition — no political metaphor invoked whatsoever."
+  },
+  {
+    "quote": "My Austerity means I dress like a homeless man.",
+    "word": "austerity",
+    "side": "R",
+    "republican_pct": 14.7,
+    "democrat_pct": 85.3,
+    "note": "Personal, humorous self-description — uses a politically charged economic term in a completely non-political way. Doubly surprising because austerity is a near-exclusively Democrat word."
+  },
+  {
+    "quote": "Our President Donald J Trump is absolutely correct! The only way to create the changes needed in DC is to vote. Get out and VOTE PEOPLE! Let's help President Trump drain the swamp.",
+    "word": "drain the swamp",
+    "side": "D",
+    "republican_pct": 66.3,
+    "democrat_pct": 33.7,
+    "note": "A Democrat account posting what reads like full-throated Trump support — extremely counterintuitive."
+  },
+  {
+    "quote": "All of this gender neutral bullshit nonsense has made me dollar-neutral this holiday season.",
+    "word": "gender neutral",
+    "side": "R",
+    "republican_pct": 36.7,
+    "democrat_pct": 63.3,
+    "note": "The pun ('dollar-neutral') makes the political hostility almost invisible — reads as a wry joke rather than a political statement."
+  },
+  {
+    "quote": "Your mental health is important, dude. I'm sure many others realize that. You take care of yourself.",
+    "word": "mental health",
+    "side": "D",
+    "republican_pct": 40.2,
+    "democrat_pct": 59.8,
+    "note": "Warm, casual supportive message — could come from anyone regardless of political identity."
+  },
+  {
+    "quote": "Yale psychiatrist to Pelosi: A mental health hold on Trump is inevitable.",
+    "word": "mental health",
+    "side": "R",
+    "republican_pct": 40.2,
+    "democrat_pct": 59.8,
+    "note": "At first glance reads as a Democrat attack on Trump — but Republicans shared this framing too, either critically or to mock the psychiatrist."
+  },
+  {
+    "quote": "Political Correctness is destroying the courage to speak truth all over the world, not just in the U.S.",
+    "word": "political correctness",
+    "side": "D",
+    "republican_pct": 79.2,
+    "democrat_pct": 20.8,
+    "note": "Anti-PC rhetoric is one of the most reliable Republican signals — yet this came from a Democrat account, showing the framing isn't exclusively owned by one side."
+  },
+  {
+    "quote": "I support everyone's second amendment right to own a musket with maybe a bayonet on it. Otherwise, better gun laws are desperately needed.",
+    "word": "second amendment",
+    "side": "D",
+    "republican_pct": 79.4,
+    "democrat_pct": 20.6,
+    "note": "Invokes the Second Amendment — typically a Republican talking point — before pivoting. The opening sentence alone would fool many players."
+  },
+  {
+    "quote": "Really wanna die on the hill of white privilege being a thing in 2020? Make sure you go tell a poor white family in the trailer park about that privilege.",
+    "word": "white privilege",
+    "side": "R",
+    "republican_pct": 53.2,
+    "democrat_pct": 46.8,
+    "note": "The class-based critique of white privilege is also made by some left-leaning writers — not an exclusively Republican argument."
+  },
+  {
+    "quote": "my attempt was to call out the pitfalls of using identity politics to rally behind a cause when those identity politics are not intersectional or equitable.",
+    "word": "identity politics",
+    "side": "D",
+    "republican_pct": 63.6,
+    "democrat_pct": 36.4,
+    "note": "Critiques identity politics — sounds Republican — but the word 'intersectional' is a strong Democrat signal buried mid-sentence."
+  },
+  {
+    "quote": "The only concrete example of actual voter fraud in the last several years have all involved Republicans.",
+    "word": "voter fraud",
+    "side": "D",
+    "republican_pct": 71.3,
+    "democrat_pct": 28.7,
+    "note": "Voter fraud is an overwhelming Republican topic — a Democrat using it to flip the accusation is unexpected."
+  },
+  {
+    "quote": "If your argument rests on something not 'technically' being a concentration camp, you do not occupy the moral high ground and you're probably not gonna love what history remembers about you.",
+    "word": "moral high ground",
+    "side": "D",
+    "republican_pct": 57.2,
+    "democrat_pct": 42.8,
+    "note": "The moral framing and historical appeal are used by both sides — without knowing what 'concentration camp' refers to, the political direction is unclear."
+  },
+  {
+    "quote": "Come on bro chill out with all the Tiger and Braves hate SMH.",
+    "word": "chill out",
+    "side": "R",
+    "republican_pct": 44.9,
+    "democrat_pct": 55.1,
+    "note": "Pure sports banter — completely devoid of any political content."
+  },
+  {
+    "quote": "When I land on the island in Animal Crossing: New Horizons, name it and claim myself as rightful heir, and still Tom Nook and Isabelle refuse to bend the knee.",
+    "word": "bend the knee",
+    "side": "D",
+    "republican_pct": 41.2,
+    "democrat_pct": 58.8,
+    "note": "A gaming reference with feudal language — no political signal at all."
+  },
+  {
+    "quote": "How big of a hypocrite would you be if you prattled on and on about income inequality and then bought a $15 million home oceanfront?",
+    "word": "income inequality",
+    "side": "R",
+    "republican_pct": 32.1,
+    "democrat_pct": 67.9,
+    "note": "The target (a wealthy liberal hypocrite) is unnamed — this attack on elite hypocrisy is occasionally made from the left too, making it genuinely ambiguous without context."
+  }
+]
