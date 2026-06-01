@@ -1,0 +1,14 @@
+import { writable } from 'svelte/store';
+
+// Holds the full session: ordered list of quotes to play
+export const session = writable([]);
+
+// Holds the results of each round as the player progresses
+// Each entry: { quote, guess, correct, response_time_ms, type }
+export const results = writable([]);
+
+// Resets everything for a fresh game
+export function resetGame() {
+  session.set([]);
+  results.set([]);
+}

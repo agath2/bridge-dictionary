@@ -5,7 +5,8 @@
     "side": "R",
     "republican_pct": 34.5,
     "democrat_pct": 65.5,
-    "note": "Stacks two dominant Republican signals ('deep state', 'hoax') in a single sentence."
+    "note": "Stacks two dominant Republican signals ('deep state', 'hoax') in a single sentence.",
+    "type": "stereotype"
   },
   {
     "quote": "We need to treat climate change like the emergency it is and take immediate action.",
@@ -13,7 +14,8 @@
     "side": "D",
     "republican_pct": 34.5,
     "democrat_pct": 65.5,
-    "note": "Urgency framing around climate action is a near-universal Democrat rhetorical pattern."
+    "note": "Urgency framing around climate action is a near-universal Democrat rhetorical pattern.",
+    "type": "stereotype"
   },
   {
     "quote": "Illegal Alien Accused of Shooting, Killing 19-Year-Old in South Carolina.",
@@ -21,7 +23,8 @@
     "side": "R",
     "republican_pct": 97.5,
     "democrat_pct": 2.5,
-    "note": "The term 'illegal alien' alone is the giveaway — Democrats almost never use it."
+    "note": "The term 'illegal alien' alone is the giveaway — Democrats almost never use it.",
+    "type": "stereotype"
   },
   {
     "quote": "They are Communist Democrat Party radicals paid by Soros to unleash anarchy in America.",
@@ -29,7 +32,8 @@
     "side": "R",
     "republican_pct": 69.4,
     "democrat_pct": 30.6,
-    "note": "Stacks multiple Republican signals: 'Communist', 'Democrat Party' (not Democratic), 'Soros', 'radicals'."
+    "note": "Stacks multiple Republican signals: 'Communist', 'Democrat Party' (not Democratic), 'Soros', 'radicals'.",
+    "type": "stereotype"
   },
   {
     "quote": "A landmark study has linked Tory austerity to 120,000 deaths.",
@@ -37,7 +41,8 @@
     "side": "D",
     "republican_pct": 14.7,
     "democrat_pct": 85.3,
-    "note": "Progressive framing of austerity as deadly policy — also a UK political reference, typical of Democrat Twitter."
+    "note": "Progressive framing of austerity as deadly policy — also a UK political reference, typical of Democrat Twitter.",
+    "type": "stereotype"
   },
   {
     "quote": "Antifa Strikes Again: Just Attacked This Young Conservative Activist.",
@@ -45,7 +50,8 @@
     "side": "R",
     "republican_pct": 91.8,
     "democrat_pct": 8.2,
-    "note": "The word 'Antifa' as a threat paired with 'Conservative Activist' makes this instantly identifiable."
+    "note": "The word 'Antifa' as a threat paired with 'Conservative Activist' makes this instantly identifiable.",
+    "type": "stereotype"
   },
   {
     "quote": "CRT opposes the Gospel! It is racist. It marginalizes whites.",
@@ -53,7 +59,8 @@
     "side": "R",
     "republican_pct": 70.9,
     "democrat_pct": 29.1,
-    "note": "Every element — invoking the Gospel, calling CRT racist, the concern for whites — is a Republican signal."
+    "note": "Every element — invoking the Gospel, calling CRT racist, the concern for whites — is a Republican signal.",
+    "type": "stereotype"
   },
   {
     "quote": "Ten Policies That Prove The Democratic Party Is The Party of Cultural Marxism.",
@@ -61,7 +68,8 @@
     "side": "R",
     "republican_pct": 75.8,
     "democrat_pct": 24.2,
-    "note": "'Cultural Marxism' is almost exclusively Republican vocabulary — the headline format removes any ambiguity."
+    "note": "'Cultural Marxism' is almost exclusively Republican vocabulary — the headline format removes any ambiguity.",
+    "type": "stereotype"
   },
   {
     "quote": "Bernie Sanders has blood on his hands & Communism in his atheist/statist soul.",
@@ -69,7 +77,8 @@
     "side": "R",
     "republican_pct": 81.9,
     "democrat_pct": 18.1,
-    "note": "The named Democratic target plus the religious framing ('soul') makes this an unambiguous Republican statement."
+    "note": "The named Democratic target plus the religious framing ('soul') makes this an unambiguous Republican statement.",
+    "type": "stereotype"
   },
   {
     "quote": "Sex workers almost unanimously support decriminalization, so consider getting in contact with one of their organizations for input.",
@@ -77,7 +86,8 @@
     "side": "D",
     "republican_pct": 31.4,
     "democrat_pct": 68.6,
-    "note": "The term 'sex workers' (vs. 'prostitutes') and the advocacy framing are both strong progressive signals."
+    "note": "The term 'sex workers' (vs. 'prostitutes') and the advocacy framing are both strong progressive signals.",
+    "type": "stereotype"
   },
   {
     "quote": "Birth control's utility goes beyond just contraception — why do you love your birth control?",
@@ -85,7 +95,8 @@
     "side": "D",
     "republican_pct": 41.1,
     "democrat_pct": 58.9,
-    "note": "Celebratory, community-oriented framing around birth control is a clear progressive voice."
+    "note": "Celebratory, community-oriented framing around birth control is a clear progressive voice.",
+    "type": "stereotype"
   },
   {
     "quote": "The only people in favor of open borders are drug traffickers, illegals, and democrats.",
@@ -93,7 +104,8 @@
     "side": "R",
     "republican_pct": 87.0,
     "democrat_pct": 13.0,
-    "note": "Conflating Democrats with criminals is a textbook Republican rhetorical move."
+    "note": "Conflating Democrats with criminals is a textbook Republican rhetorical move.",
+    "type": "stereotype"
   },
   {
     "quote": "Social Justice and Feminism are just Communism in panties.",
@@ -101,7 +113,8 @@
     "side": "R",
     "republican_pct": 60.1,
     "democrat_pct": 39.9,
-    "note": "The mocking conflation of social justice, feminism, and communism is a distinctly Republican rhetorical style."
+    "note": "The mocking conflation of social justice, feminism, and communism is a distinctly Republican rhetorical style.",
+    "type": "stereotype"
   },
   {
     "quote": "Being aware of your privilege is not white guilt. Actively practice anti-racism and help destroy the institutional racism that promotes this bs if you need your guilt absolved.",
@@ -109,7 +122,8 @@
     "side": "D",
     "republican_pct": 14.2,
     "democrat_pct": 85.8,
-    "note": "'Privilege', 'anti-racism', and 'institutional racism' in one sentence — three progressive buzzwords stacked together."
+    "note": "'Privilege', 'anti-racism', and 'institutional racism' in one sentence — three progressive buzzwords stacked together.",
+    "type": "stereotype"
   },
   {
     "quote": "Concealed Carry Does NOT Increase Violent Crime.",
@@ -117,7 +131,8 @@
     "side": "R",
     "republican_pct": 87.2,
     "democrat_pct": 12.8,
-    "note": "Defending concealed carry with crime statistics is an almost exclusively Republican argument."
+    "note": "Defending concealed carry with crime statistics is an almost exclusively Republican argument.",
+    "type": "stereotype"
   },
   {
     "quote": "The civil service is deep state and it's time we the people end their reign of terror and stealing from taxpayers.",
@@ -125,7 +140,8 @@
     "side": "R",
     "republican_pct": 64.0,
     "democrat_pct": 36.0,
-    "note": "'Deep state' and 'reign of terror' applied to civil servants is distinctly Republican populist framing."
+    "note": "'Deep state' and 'reign of terror' applied to civil servants is distinctly Republican populist framing.",
+    "type": "stereotype"
   },
   {
     "quote": "Medicare for all. Raising the minimum wage. Working to reverse climate change. Fighting for equal rights for all. Affordable college. Taxing the wealthy. Fighting for unions. Ending wars.",
@@ -133,7 +149,8 @@
     "side": "D",
     "republican_pct": 55.6,
     "democrat_pct": 44.4,
-    "note": "A progressive policy platform laundry list — every item is a Democrat priority."
+    "note": "A progressive policy platform laundry list — every item is a Democrat priority.",
+    "type": "stereotype"
   },
   {
     "quote": "Take away the illegal alien vote and all the voter fraud that Democrats commit and they will never win again.",
@@ -141,7 +158,8 @@
     "side": "R",
     "republican_pct": 71.3,
     "democrat_pct": 28.7,
-    "note": "'Illegal alien vote' plus accusing Democrats of committing fraud — every signal points Republican."
+    "note": "'Illegal alien vote' plus accusing Democrats of committing fraud — every signal points Republican.",
+    "type": "stereotype"
   },
   {
     "quote": "The Left have ALWAYS been insane, hateful, power hungry, control freak degenerates.",
@@ -149,7 +167,8 @@
     "side": "R",
     "republican_pct": 51.5,
     "democrat_pct": 48.5,
-    "note": "Capitalised 'The Left' with a string of insults — unmistakably Republican rhetoric, especially surprising given the 51/49 word split."
+    "note": "Capitalised 'The Left' with a string of insults — unmistakably Republican rhetoric, especially surprising given the 51/49 word split.",
+    "type": "stereotype"
   },
   {
     "quote": "Stock market reactions to Bernie vs Biden should tell you everything about who's fighting for the working class vs. who's fighting for big business.",
@@ -157,7 +176,8 @@
     "side": "D",
     "republican_pct": 28.0,
     "democrat_pct": 72.0,
-    "note": "Framing Bernie vs Biden through a class-war lens is classic progressive Democrat discourse."
+    "note": "Framing Bernie vs Biden through a class-war lens is classic progressive Democrat discourse.",
+    "type": "stereotype"
   },
   {
     "quote": "Common Core was the largest indoctrination for the left of our children ever and has ruined the education system in this country.",
@@ -165,7 +185,8 @@
     "side": "R",
     "republican_pct": 85.1,
     "democrat_pct": 14.9,
-    "note": "Anti-Common Core rhetoric as liberal indoctrination is almost exclusively Republican."
+    "note": "Anti-Common Core rhetoric as liberal indoctrination is almost exclusively Republican.",
+    "type": "stereotype"
   },
   {
     "quote": "Anytime people tell you to chill out about being angry. Remember they are trying to kill you by denying life sustaining resources.",
@@ -173,7 +194,8 @@
     "side": "D",
     "republican_pct": 44.9,
     "democrat_pct": 55.1,
-    "note": "Framing political disagreement as literal life-or-death and rejecting tone policing is a progressive activist voice."
+    "note": "Framing political disagreement as literal life-or-death and rejecting tone policing is a progressive activist voice.",
+    "type": "stereotype"
   },
   {
     "quote": "There is no climate crisis. It's fake news.",
@@ -181,7 +203,8 @@
     "side": "R",
     "republican_pct": 16.5,
     "democrat_pct": 83.5,
-    "note": "'Fake news' is an almost exclusive Republican rhetorical marker — especially notable here since 'climate crisis' is an 83% Democrat term."
+    "note": "'Fake news' is an almost exclusive Republican rhetorical marker — especially notable here since 'climate crisis' is an 83% Democrat term.",
+    "type": "stereotype"
   },
   {
     "quote": "Play by the left's rules you lose the culture war. Give in an inch and they take a mile.",
@@ -189,7 +212,8 @@
     "side": "R",
     "republican_pct": 68.0,
     "democrat_pct": 32.0,
-    "note": "Treating politics as a zero-sum war requiring no concessions to the left is distinctly Republican culture-war rhetoric."
+    "note": "Treating politics as a zero-sum war requiring no concessions to the left is distinctly Republican culture-war rhetoric.",
+    "type": "stereotype"
   },
   {
     "quote": "Censorship is what Evil Totalitarians do! I hate censorship!",
@@ -197,6 +221,7 @@
     "side": "R",
     "republican_pct": 76.8,
     "democrat_pct": 23.2,
-    "note": "The capitalisation, exclamation marks, and anti-government framing are recognisable conservative stylistic patterns."
+    "note": "The capitalisation, exclamation marks, and anti-government framing are recognisable conservative stylistic patterns.",
+    "type": "stereotype"
   }
 ]
