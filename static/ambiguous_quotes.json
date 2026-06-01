@@ -1,14 +1,5 @@
 [
   {
-    "quote": "Active Shooter in Nakatomi Plaza... steer clear!",
-    "word": "active shooter",
-    "side": "R",
-    "republican_pct": 48.2,
-    "democrat_pct": 51.8,
-    "note": "A Die Hard movie reference — reads as casual pop-culture humor with zero political signal.",
-    "type": "ambiguous"
-  },
-  {
     "quote": "If you do like Trump, beat him at the ballot box.",
     "word": "ballot box",
     "side": "R",
@@ -189,15 +180,6 @@
     "type": "ambiguous"
   },
   {
-    "quote": "When I land on the island in Animal Crossing: New Horizons, name it and claim myself as rightful heir, and still Tom Nook and Isabelle refuse to bend the knee.",
-    "word": "bend the knee",
-    "side": "D",
-    "republican_pct": 41.2,
-    "democrat_pct": 58.8,
-    "note": "A gaming reference with feudal language — no political signal at all.",
-    "type": "ambiguous"
-  },
-  {
     "quote": "How big of a hypocrite would you be if you prattled on and on about income inequality and then bought a $15 million home oceanfront?",
     "word": "income inequality",
     "side": "R",
@@ -205,5 +187,41 @@
     "democrat_pct": 67.9,
     "note": "The target (a wealthy liberal hypocrite) is unnamed — this attack on elite hypocrisy is occasionally made from the left too, making it genuinely ambiguous without context.",
     "type": "ambiguous"
+  },
+  {
+    "quote": "If I'm the chiefs I'm writing a blank check to Miami for Minkah, gotta go for it while Mahomes is on his rookie deal.",
+    "word": "blank check",
+    "side": "R",
+    "republican_pct": 47.0,
+    "democrat_pct": 53.0,
+    "type": "ambiguous",
+    "note": "A football trade discussion — the word appears in a completely apolitical sports context."
+  },
+  {
+    "quote": "My hype levels are reaching critical mass! What a trailer",
+    "word": "critical mass",
+    "side": "D",
+    "republican_pct": 41.7,
+    "democrat_pct": 58.3,
+    "type": "ambiguous",
+    "note": "Excitement about a movie trailer — the phrase is used in a pure entertainment context with no political signal."
+  },
+  {
+    "quote": "Flights are cheap and I got a death wish. I'm down to clown.",
+    "word": "death wish",
+    "side": "D",
+    "republican_pct": 54.6,
+    "democrat_pct": 45.4,
+    "type": "ambiguous",
+    "note": "Casual internet expression of wanderlust — a loaded phrase used in a completely apolitical, humorous way."
+  },
+  {
+    "quote": "why is a cop car CONSTANTLY blocking this fire hydrant on Clement at 8th ?",
+    "word": "cop car",
+    "side": "D",
+    "republican_pct": 50.0,
+    "democrat_pct": 50.0,
+    "type": "ambiguous",
+    "note": "A parking frustration tweet — civic annoyance with no ideological framing, despite the word being politically loaded."
   }
 ]

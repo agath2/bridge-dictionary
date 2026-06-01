@@ -196,5 +196,32 @@
     "democrat_pct": 23.2,
     "note": "The capitalisation, exclamation marks, and anti-government framing are recognisable conservative stylistic patterns.",
     "type": "stereotype"
+  },
+  {
+    "quote": "Sounds like free speech and freedom of expression are not allowed by the left. First signs of socialism.",
+    "word": "free speech",
+    "side": "R",
+    "republican_pct": 74.5,
+    "democrat_pct": 25.5,
+    "type": "stereotype",
+    "note": "Linking restrictions on speech to socialism is a signature conservative rhetorical move."
+  },
+  {
+    "quote": "The free market rewards productivity which makes everyone’s standard of living rise. That is why the poor today live better than the rich 100 years ago.",
+    "word": "free market",
+    "side": "R",
+    "republican_pct": 61.9,
+    "democrat_pct": 38.1,
+    "type": "stereotype",
+    "note": "Supply-side economics framed as historical fact — a standard conservative talking point with a recognisable rhetorical structure."
+  },
+  {
+    "quote": "Now go find a safe space to cry in.",
+    "word": "safe space",
+    "side": "R",
+    "republican_pct": 52.3,
+    "democrat_pct": 47.7,
+    "type": "stereotype",
+    "note": "Dismissive mockery of safe spaces as a concept is almost exclusively Republican rhetoric."
   }
 ]
