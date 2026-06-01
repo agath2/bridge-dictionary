@@ -54,33 +54,6 @@
     "type": "ambiguous"
   },
   {
-    "quote": "The people who stole my car left a Hello Kitty crack pipe in it.",
-    "word": "crack pipe",
-    "side": "D",
-    "republican_pct": 80.2,
-    "democrat_pct": 19.8,
-    "note": "A personal absurdist anecdote — the word appears but the context is entirely apolitical.",
-    "type": "ambiguous"
-  },
-  {
-    "quote": "My husband just said that 2-year-olds are like tiny little crack heads.",
-    "word": "crack head",
-    "side": "D",
-    "republican_pct": 56.5,
-    "democrat_pct": 43.5,
-    "note": "Parenting humour — uses a loaded word in a completely domestic, non-political context.",
-    "type": "ambiguous"
-  },
-  {
-    "quote": "Every once in a while I forget that I'm partially color blind, but then I see someone refer to something as green when I see it as brown.",
-    "word": "color blind",
-    "side": "D",
-    "republican_pct": 59.1,
-    "democrat_pct": 40.9,
-    "note": "The literal medical condition — no political metaphor invoked whatsoever.",
-    "type": "ambiguous"
-  },
-  {
     "quote": "My Austerity means I dress like a homeless man.",
     "word": "austerity",
     "side": "R",
@@ -144,15 +117,6 @@
     "type": "ambiguous"
   },
   {
-    "quote": "Really wanna die on the hill of white privilege being a thing in 2020? Make sure you go tell a poor white family in the trailer park about that privilege.",
-    "word": "white privilege",
-    "side": "R",
-    "republican_pct": 53.2,
-    "democrat_pct": 46.8,
-    "note": "The class-based critique of white privilege is also made by some left-leaning writers — not an exclusively Republican argument.",
-    "type": "ambiguous"
-  },
-  {
     "quote": "my attempt was to call out the pitfalls of using identity politics to rally behind a cause when those identity politics are not intersectional or equitable.",
     "word": "identity politics",
     "side": "D",
@@ -189,24 +153,6 @@
     "type": "ambiguous"
   },
   {
-    "quote": "If I'm the chiefs I'm writing a blank check to Miami for Minkah, gotta go for it while Mahomes is on his rookie deal.",
-    "word": "blank check",
-    "side": "R",
-    "republican_pct": 47.0,
-    "democrat_pct": 53.0,
-    "type": "ambiguous",
-    "note": "A football trade discussion — the word appears in a completely apolitical sports context."
-  },
-  {
-    "quote": "My hype levels are reaching critical mass! What a trailer",
-    "word": "critical mass",
-    "side": "D",
-    "republican_pct": 41.7,
-    "democrat_pct": 58.3,
-    "type": "ambiguous",
-    "note": "Excitement about a movie trailer — the phrase is used in a pure entertainment context with no political signal."
-  },
-  {
     "quote": "Flights are cheap and I got a death wish. I'm down to clown.",
     "word": "death wish",
     "side": "D",
@@ -216,12 +162,66 @@
     "note": "Casual internet expression of wanderlust — a loaded phrase used in a completely apolitical, humorous way."
   },
   {
-    "quote": "why is a cop car CONSTANTLY blocking this fire hydrant on Clement at 8th ?",
-    "word": "cop car",
+    "quote": "Climate crisis is a hoax. No empirical evidence, just computer modeling.",
+    "word": "empirical evidence",
     "side": "D",
-    "republican_pct": 50.0,
-    "democrat_pct": 50.0,
+    "republican_pct": 46.3,
+    "democrat_pct": 53.7,
     "type": "ambiguous",
-    "note": "A parking frustration tweet — civic annoyance with no ideological framing, despite the word being politically loaded."
+    "note": "This quote sounds exactly like a Republican climate-denial argument ? but it came from a Democrat account, likely citing or mocking the skeptic position."
+  },
+  {
+    "quote": "The Patriot Act was a mistake. A huge mistake.",
+    "word": "Patriot Act",
+    "side": "R",
+    "republican_pct": 42.9,
+    "democrat_pct": 57.1,
+    "type": "ambiguous",
+    "note": "Civil liberties criticism of the Patriot Act is strongly associated with the left ? but this blunt condemnation came from a Republican."
+  },
+  {
+    "quote": "Both parties engage in gerrymandering. Always have, always will.",
+    "word": "gerrymandering",
+    "side": "R",
+    "republican_pct": 26.3,
+    "democrat_pct": 73.7,
+    "type": "ambiguous",
+    "note": "The both-sides framing reads as either a centrist observation or a Republican deflection ? it could equally come from a frustrated independent."
+  },
+  {
+    "quote": "It's my understanding that legislators are exempt from prosecution for insider trading... just as they exempt themselves from a lot of laws WE must follow.",
+    "word": "insider trading",
+    "side": "R",
+    "republican_pct": 47.1,
+    "democrat_pct": 52.9,
+    "type": "ambiguous",
+    "note": "Populist outrage at political elites exempting themselves from the law is a grievance that cuts across partisan lines ? this came from a Republican but sounds equally at home on the left."
+  },
+  {
+    "quote": "I see American Evangelicalism aligning itself more with a skewed political perspective & this is driving it away from the core messages of Christ.",
+    "word": "evangelicalism",
+    "side": "R",
+    "republican_pct": 48.7,
+    "democrat_pct": 51.3,
+    "type": "ambiguous",
+    "note": "Critiquing the political entanglement of evangelical Christianity sounds like a secular Democrat's observation ? but this is a Republican expressing concern about their own religious community."
+  },
+  {
+    "quote": "We've always known that privilege has more to do with class status than it does with skin color.",
+    "word": "skin color",
+    "side": "R",
+    "republican_pct": 70.2,
+    "democrat_pct": 29.8,
+    "type": "ambiguous",
+    "note": "Reframing privilege through class rather than race is an argument made by both class-focused progressives and conservatives ? the framing alone does not reveal the author's side."
+  },
+  {
+    "quote": "God Almighty, I just can't wrap my brain around the fact that this man is President of the United States",
+    "word": "God Almighty",
+    "side": "D",
+    "republican_pct": 89.0,
+    "democrat_pct": 11.0,
+    "type": "ambiguous",
+    "note": "The phrase God Almighty is used by Republicans 89% of the time ? here a Democrat borrows the religious exclamation to express disbelief about the presidency."
   }
 ]

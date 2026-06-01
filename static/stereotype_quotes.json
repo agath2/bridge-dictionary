@@ -54,15 +54,6 @@
     "type": "stereotype"
   },
   {
-    "quote": "Ten Policies That Prove The Democratic Party Is The Party of Cultural Marxism.",
-    "word": "cultural Marxism",
-    "side": "R",
-    "republican_pct": 75.8,
-    "democrat_pct": 24.2,
-    "note": "'Cultural Marxism' is almost exclusively Republican vocabulary — the headline format removes any ambiguity.",
-    "type": "stereotype"
-  },
-  {
     "quote": "Bernie Sanders has blood on his hands & Communism in his atheist/statist soul.",
     "word": "communism",
     "side": "R",
@@ -135,15 +126,6 @@
     "type": "stereotype"
   },
   {
-    "quote": "The Left have ALWAYS been insane, hateful, power hungry, control freak degenerates.",
-    "word": "control freak",
-    "side": "R",
-    "republican_pct": 51.5,
-    "democrat_pct": 48.5,
-    "note": "Capitalised 'The Left' with a string of insults — unmistakably Republican rhetoric, especially surprising given the 51/49 word split.",
-    "type": "stereotype"
-  },
-  {
     "quote": "Stock market reactions to Bernie vs Biden should tell you everything about who's fighting for the working class vs. who's fighting for big business.",
     "word": "working class",
     "side": "D",
@@ -180,15 +162,6 @@
     "type": "stereotype"
   },
   {
-    "quote": "Play by the left's rules you lose the culture war. Give in an inch and they take a mile.",
-    "word": "culture war",
-    "side": "R",
-    "republican_pct": 68.0,
-    "democrat_pct": 32.0,
-    "note": "Treating politics as a zero-sum war requiring no concessions to the left is distinctly Republican culture-war rhetoric.",
-    "type": "stereotype"
-  },
-  {
     "quote": "Censorship is what Evil Totalitarians do! I hate censorship!",
     "word": "censorship",
     "side": "R",
@@ -196,15 +169,6 @@
     "democrat_pct": 23.2,
     "note": "The capitalisation, exclamation marks, and anti-government framing are recognisable conservative stylistic patterns.",
     "type": "stereotype"
-  },
-  {
-    "quote": "Sounds like free speech and freedom of expression are not allowed by the left. First signs of socialism.",
-    "word": "free speech",
-    "side": "R",
-    "republican_pct": 74.5,
-    "democrat_pct": 25.5,
-    "type": "stereotype",
-    "note": "Linking restrictions on speech to socialism is a signature conservative rhetorical move."
   },
   {
     "quote": "The free market rewards productivity which makes everyone’s standard of living rise. That is why the poor today live better than the rich 100 years ago.",
@@ -216,12 +180,48 @@
     "note": "Supply-side economics framed as historical fact — a standard conservative talking point with a recognisable rhetorical structure."
   },
   {
-    "quote": "Now go find a safe space to cry in.",
-    "word": "safe space",
-    "side": "R",
-    "republican_pct": 52.3,
-    "democrat_pct": 47.7,
+    "quote": "Fracking is killing the planet. It destroys lands, poisons water, and causes earthquakes.",
+    "word": "fracking",
+    "side": "D",
+    "republican_pct": 32.8,
+    "democrat_pct": 67.2,
     "type": "stereotype",
-    "note": "Dismissive mockery of safe spaces as a concept is almost exclusively Republican rhetoric."
+    "note": "Framing fracking as environmental destruction across all dimensions is a standard progressive talking point ? the language and moral framing immediately signal the left."
+  },
+  {
+    "quote": "We have 12 years to act on a WWII type of scale to respond to the climate catastrophe to save our planet and save humanity.",
+    "word": "climate catastrophe",
+    "side": "D",
+    "republican_pct": 16.8,
+    "democrat_pct": 83.2,
+    "type": "stereotype",
+    "note": "Urgent apocalyptic climate language with a wartime mobilisation metaphor is an almost exclusively Democratic rhetorical pattern."
+  },
+  {
+    "quote": "The reason we have the freedom to own firearms in this country and protect ourselves is in the second amendment. I encourage you to learn to protect yourself as well.",
+    "word": "firearms",
+    "side": "R",
+    "republican_pct": 80.9,
+    "democrat_pct": 19.1,
+    "type": "stereotype",
+    "note": "Defending firearm ownership as a constitutional right and encouraging self-arming is a textbook Republican gun-rights argument."
+  },
+  {
+    "quote": "Voter suppression is not a thing. Politicians who invoke it are lying, without exception.",
+    "word": "voter suppression",
+    "side": "R",
+    "republican_pct": 17.5,
+    "democrat_pct": 82.5,
+    "type": "stereotype",
+    "note": "Flatly denying that voter suppression exists and calling all who raise it liars is a signature Republican position on voting rights."
+  },
+  {
+    "quote": "If you were for free enterprise instead of socialism you would see an economic explosion in our country.",
+    "word": "free enterprise",
+    "side": "R",
+    "republican_pct": 81.1,
+    "democrat_pct": 18.9,
+    "type": "stereotype",
+    "note": "Framing the economic choice as free enterprise versus socialism is a core Republican rhetorical move used consistently across decades."
   }
 ]
