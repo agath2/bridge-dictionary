@@ -7,7 +7,7 @@
 
   // Redirect home if someone lands here directly with no session
   if (sessionQuotes.length === 0) {
-    goto('/');
+    goto('/attribution');
   }
 
   let currentIndex = $state(0);
@@ -51,7 +51,7 @@
       isTransitioning = false;
 
       if (currentIndex + 1 >= sessionQuotes.length) {
-        goto('/summary');
+        goto('/attribution/summary');
       } else {
         currentIndex += 1;
         roundStartTime = Date.now();
@@ -66,7 +66,7 @@
 
 <main>
   <div class="top-bar">
-    <a href="/" class="home-link">Bridging Dictionary</a>
+    <a href="/attribution" class="home-link">Bridging Dictionary</a>
     <span class="progress">{progress}</span>
   </div>
 

@@ -7,7 +7,7 @@
 
   // Redirect home if someone lands here directly
   if (allResults.length === 0) {
-    goto('/');
+    goto('/attribution');
   }
 
   const HESITATION_THRESHOLD_MS = 3000;
@@ -80,7 +80,7 @@
   // ── Play again ───────────────────────────────────────────────────────────────
   function playAgain() {
     resetGame();
-    goto('/');
+    goto('/attribution');
   }
 </script>
 
