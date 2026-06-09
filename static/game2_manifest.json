@@ -2,7 +2,7 @@
   { "slug": "illegal-alien",    "word": "illegal alien",    "r": "/game2/illegal-alien-r.jpg",    "d": "/game2/illegal-alien-d.jpg" },
   { "slug": "asylum-seeker",    "word": "asylum seeker",    "r": "/game2/asylum-seeker-r.jpg",    "d": "/game2/asylum-seeker-d.jpg" },
   { "slug": "border-security",  "word": "border security",  "r": "/game2/border-security-r.jpg",  "d": "/game2/border-security-d.jpg" },
-  { "slug": "dreamers",         "word": "dreamers",         "r": "/game2/dreamers-r.jpg",         "d": "/game2/dreamers-d.jpg" },
+  { "slug": "government-shutdown", "word": "government shutdown", "r": "/game2/government-shutdown-r.jpg", "d": "/game2/government-shutdown-d.jpg" },
   { "slug": "deportation",      "word": "deportation",      "r": "/game2/deportation-r.jpg",      "d": "/game2/deportation-d.jpg" },
   { "slug": "living-wage",      "word": "living wage",      "r": "/game2/living-wage-r.jpg",      "d": "/game2/living-wage-d.jpg" },
   { "slug": "welfare",          "word": "welfare",          "r": "/game2/welfare-r.jpg",          "d": "/game2/welfare-d.jpg" },

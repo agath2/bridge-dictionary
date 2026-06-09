@@ -1,0 +1,171 @@
+[
+  {
+    "word": "illegal alien",
+    "r_frame": "crime, border security, and threats to the rule of law",
+    "d_frame": "human dignity, exploitation, and skepticism of the term itself",
+    "satellite_words": [
+      { "word": "criminal", "type": "affect", "lean": "R" },
+      { "word": "threatening", "type": "affect", "lean": "R" },
+      { "word": "dangerous", "type": "affect", "lean": "R" },
+      { "word": "lawless", "type": "affect", "lean": "R" },
+      { "word": "desperate", "type": "affect", "lean": "D" },
+      { "word": "vulnerable", "type": "affect", "lean": "D" },
+      { "word": "exploited", "type": "affect", "lean": "D" },
+      { "word": "human", "type": "affect", "lean": "D" },
+      { "word": "border", "type": "context", "lean": "R" },
+      { "word": "deportation", "type": "context", "lean": "R" },
+      { "word": "crime", "type": "context", "lean": "R" },
+      { "word": "asylum", "type": "context", "lean": "D" },
+      { "word": "sanctuary", "type": "context", "lean": "D" },
+      { "word": "immigration", "type": "context", "lean": "neutral" }
+    ]
+  },
+  {
+    "word": "abortion",
+    "r_frame": "morality, the sanctity of life, and religious conviction",
+    "d_frame": "healthcare, bodily autonomy, and women's rights",
+    "satellite_words": [
+      { "word": "murder", "type": "affect", "lean": "R" },
+      { "word": "immoral", "type": "affect", "lean": "R" },
+      { "word": "sinful", "type": "affect", "lean": "R" },
+      { "word": "grief", "type": "affect", "lean": "R" },
+      { "word": "necessary", "type": "affect", "lean": "D" },
+      { "word": "difficult", "type": "affect", "lean": "D" },
+      { "word": "private", "type": "affect", "lean": "D" },
+      { "word": "courageous", "type": "affect", "lean": "D" },
+      { "word": "faith", "type": "context", "lean": "R" },
+      { "word": "fetus", "type": "context", "lean": "R" },
+      { "word": "ban", "type": "context", "lean": "R" },
+      { "word": "healthcare", "type": "context", "lean": "D" },
+      { "word": "rights", "type": "context", "lean": "D" },
+      { "word": "choice", "type": "context", "lean": "D" },
+      { "word": "pregnancy", "type": "context", "lean": "neutral" }
+    ]
+  },
+  {
+    "word": "assault rifle",
+    "r_frame": "constitutional rights, self-defense, and protected freedoms",
+    "d_frame": "mass shootings, public safety, and the need for regulation",
+    "satellite_words": [
+      { "word": "freedom", "type": "affect", "lean": "R" },
+      { "word": "protected", "type": "affect", "lean": "R" },
+      { "word": "empowering", "type": "affect", "lean": "R" },
+      { "word": "deadly", "type": "affect", "lean": "D" },
+      { "word": "terrifying", "type": "affect", "lean": "D" },
+      { "word": "preventable", "type": "affect", "lean": "D" },
+      { "word": "Second Amendment", "type": "context", "lean": "R" },
+      { "word": "self-defense", "type": "context", "lean": "R" },
+      { "word": "hunting", "type": "context", "lean": "R" },
+      { "word": "school shooting", "type": "context", "lean": "D" },
+      { "word": "ban", "type": "context", "lean": "D" },
+      { "word": "regulation", "type": "context", "lean": "D" },
+      { "word": "military", "type": "context", "lean": "neutral" },
+      { "word": "weapon", "type": "context", "lean": "neutral" }
+    ]
+  },
+  {
+    "word": "affirmative action",
+    "r_frame": "reverse discrimination, merit, and unfair advantage",
+    "d_frame": "equity, opportunity, and correcting systemic inequality",
+    "satellite_words": [
+      { "word": "unfair", "type": "affect", "lean": "R" },
+      { "word": "discriminatory", "type": "affect", "lean": "R" },
+      { "word": "divisive", "type": "affect", "lean": "R" },
+      { "word": "resentful", "type": "affect", "lean": "R" },
+      { "word": "just", "type": "affect", "lean": "D" },
+      { "word": "necessary", "type": "affect", "lean": "D" },
+      { "word": "overdue", "type": "affect", "lean": "D" },
+      { "word": "hopeful", "type": "affect", "lean": "D" },
+      { "word": "merit", "type": "context", "lean": "R" },
+      { "word": "college admissions", "type": "context", "lean": "R" },
+      { "word": "equity", "type": "context", "lean": "D" },
+      { "word": "diversity", "type": "context", "lean": "D" },
+      { "word": "opportunity", "type": "context", "lean": "D" },
+      { "word": "race", "type": "context", "lean": "neutral" }
+    ]
+  },
+  {
+    "word": "climate change",
+    "r_frame": "economic cost, regulatory overreach, and scientific uncertainty",
+    "d_frame": "existential threat, scientific consensus, and urgent action",
+    "satellite_words": [
+      { "word": "alarmist", "type": "affect", "lean": "R" },
+      { "word": "overstated", "type": "affect", "lean": "R" },
+      { "word": "costly", "type": "affect", "lean": "R" },
+      { "word": "urgent", "type": "affect", "lean": "D" },
+      { "word": "terrifying", "type": "affect", "lean": "D" },
+      { "word": "catastrophic", "type": "affect", "lean": "D" },
+      { "word": "hopeless", "type": "affect", "lean": "D" },
+      { "word": "economy", "type": "context", "lean": "R" },
+      { "word": "regulations", "type": "context", "lean": "R" },
+      { "word": "jobs", "type": "context", "lean": "R" },
+      { "word": "science", "type": "context", "lean": "D" },
+      { "word": "emissions", "type": "context", "lean": "D" },
+      { "word": "crisis", "type": "context", "lean": "D" },
+      { "word": "planet", "type": "context", "lean": "neutral" }
+    ]
+  },
+  {
+    "word": "welfare",
+    "r_frame": "dependency, taxpayer burden, and lack of personal responsibility",
+    "d_frame": "safety net, poverty relief, and support for families in need",
+    "satellite_words": [
+      { "word": "dependency", "type": "affect", "lean": "R" },
+      { "word": "unearned", "type": "affect", "lean": "R" },
+      { "word": "burden", "type": "affect", "lean": "R" },
+      { "word": "lazy", "type": "affect", "lean": "R" },
+      { "word": "dignified", "type": "affect", "lean": "D" },
+      { "word": "compassionate", "type": "affect", "lean": "D" },
+      { "word": "necessary", "type": "affect", "lean": "D" },
+      { "word": "taxpayer", "type": "context", "lean": "R" },
+      { "word": "fraud", "type": "context", "lean": "R" },
+      { "word": "work", "type": "context", "lean": "R" },
+      { "word": "poverty", "type": "context", "lean": "D" },
+      { "word": "children", "type": "context", "lean": "D" },
+      { "word": "safety net", "type": "context", "lean": "D" },
+      { "word": "assistance", "type": "context", "lean": "neutral" }
+    ]
+  },
+  {
+    "word": "police",
+    "r_frame": "bravery, law and order, and protection from crime",
+    "d_frame": "accountability, reform, and systemic racial bias",
+    "satellite_words": [
+      { "word": "brave", "type": "affect", "lean": "R" },
+      { "word": "heroic", "type": "affect", "lean": "R" },
+      { "word": "respected", "type": "affect", "lean": "R" },
+      { "word": "essential", "type": "affect", "lean": "R" },
+      { "word": "brutal", "type": "affect", "lean": "D" },
+      { "word": "unaccountable", "type": "affect", "lean": "D" },
+      { "word": "militarized", "type": "affect", "lean": "D" },
+      { "word": "law and order", "type": "context", "lean": "R" },
+      { "word": "crime", "type": "context", "lean": "R" },
+      { "word": "safety", "type": "context", "lean": "R" },
+      { "word": "reform", "type": "context", "lean": "D" },
+      { "word": "racism", "type": "context", "lean": "D" },
+      { "word": "accountability", "type": "context", "lean": "D" },
+      { "word": "community", "type": "context", "lean": "neutral" }
+    ]
+  },
+  {
+    "word": "free speech",
+    "r_frame": "censorship, suppression of conservative voices, and First Amendment rights",
+    "d_frame": "the limits of speech, hate speech, and platform responsibility",
+    "satellite_words": [
+      { "word": "sacred", "type": "affect", "lean": "R" },
+      { "word": "suppressed", "type": "affect", "lean": "R" },
+      { "word": "threatened", "type": "affect", "lean": "R" },
+      { "word": "fundamental", "type": "affect", "lean": "R" },
+      { "word": "weaponized", "type": "affect", "lean": "D" },
+      { "word": "harmful", "type": "affect", "lean": "D" },
+      { "word": "dangerous", "type": "affect", "lean": "D" },
+      { "word": "censorship", "type": "context", "lean": "R" },
+      { "word": "Big Tech", "type": "context", "lean": "R" },
+      { "word": "First Amendment", "type": "context", "lean": "R" },
+      { "word": "hate speech", "type": "context", "lean": "D" },
+      { "word": "disinformation", "type": "context", "lean": "D" },
+      { "word": "platform", "type": "context", "lean": "D" },
+      { "word": "expression", "type": "context", "lean": "neutral" }
+    ]
+  }
+]
