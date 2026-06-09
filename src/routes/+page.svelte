@@ -31,13 +31,14 @@
         <span class="card-cta">Play →</span>
       </a>
 
-      <div class="card card--soon">
-        <div class="card-label">Coming soon</div>
-        <h2 class="card-title">More games</h2>
+      <a href="/framing" class="card">
+        <div class="card-label">Game 2</div>
+        <h2 class="card-title">Through Whose Eyes?</h2>
         <p class="card-description">
-          New mechanics in the works.
+          See a politically charged word. Two images — one from each side's framing. Pick the one that feels true to you.
         </p>
-      </div>
+        <span class="card-cta">Play →</span>
+      </a>
 
     </div>
 
