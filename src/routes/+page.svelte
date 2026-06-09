@@ -66,11 +66,12 @@
     color: #e8e4dc;
     font-family: 'Georgia', serif;
     min-height: 100vh;
+    overflow-y: auto;
   }
 
   main {
     min-height: 100vh;
-    padding: clamp(3rem, 18vh, 8rem) 2rem 5rem;
+    padding: clamp(4rem, 28vh, 14rem) 2rem 6rem;
   }
 
   .container {
