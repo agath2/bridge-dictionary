@@ -39,33 +39,31 @@
 </script>
 
 <svelte:head>
-  <title>Bridging Dictionary</title>
+  <title>Who Said It? — Bridging Dictionary</title>
 </svelte:head>
 
 <main>
   <div class="container">
-    <div class="header">
-      <p class="label">A game based on</p>
-      <h1>Bridging Dictionary</h1>
-      <p class="citation">
-        Jiang, Beeferman, Brannon, Heyward &amp; Roy ·
-        <a href="https://doi.org/10.1145/3678884.3681820" target="_blank" rel="noopener">
-          CSCW 2024
-        </a>
-      </p>
-    </div>
+    <p class="back"><a href="/">← All games</a></p>
 
-    <div class="description">
-      <p>
+    <div class="header">
+      <div class="label">Game 1</div>
+      <h1>Who Said It?</h1>
+      <p class="description">
         Every quote below was written by a real person during the 2020 US election.
         Each one contains a word that Republicans and Democrats use very differently.
       </p>
-      <p>
-        Your job: read the quote and decide which side wrote it.
+      <p class="description">
+        Read the quote and decide which side wrote it. Some are obvious. Some will surprise you.
       </p>
-      <p class="subtext">
-        There are no trick questions — but there may be surprises.
-      </p>
+    </div>
+
+    <div class="details">
+      <span>10 rounds</span>
+      <span class="dot">·</span>
+      <span>Real tweets</span>
+      <span class="dot">·</span>
+      <span>~5 minutes</span>
     </div>
 
     {#if error}
@@ -73,18 +71,12 @@
     {/if}
 
     <button class="play-btn" onclick={startGame} disabled={loading}>
-      {loading ? 'Loading…' : 'Play'}
+      {loading ? 'Loading…' : 'Start →'}
     </button>
   </div>
 </main>
 
 <style>
-  :global(*, *::before, *::after) {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
   :global(body) {
     background: #0f0f0f;
     color: #e8e4dc;
@@ -97,98 +89,78 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
   }
 
   .container {
-    max-width: 560px;
+    max-width: 480px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 1.8rem;
   }
 
-  .header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  .back a {
+    font-size: 0.85rem;
+    color: #666;
+    text-decoration: none;
   }
+  .back a:hover { color: #e8e4dc; }
 
   .label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #888;
+    margin-bottom: 0.4rem;
   }
 
   h1 {
-    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    font-size: clamp(2rem, 6vw, 2.8rem);
     font-weight: normal;
     line-height: 1.1;
-    color: #e8e4dc;
-    letter-spacing: -0.02em;
-  }
-
-  .citation {
-    font-size: 0.85rem;
-    color: #888;
-    font-style: italic;
-  }
-
-  .citation a {
-    color: #b8a98a;
-    text-decoration: none;
-  }
-
-  .citation a:hover {
-    text-decoration: underline;
+    margin-bottom: 1rem;
   }
 
   .description {
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-    border-left: 2px solid #2a2a2a;
-    padding-left: 1.2rem;
-  }
-
-  .description p {
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: 1rem;
+    line-height: 1.7;
     color: #c8c4bc;
   }
 
-  .subtext {
-    font-size: 0.9rem !important;
-    color: #888 !important;
-    font-style: italic;
+  .details {
+    font-size: 0.82rem;
+    color: #666;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
   }
+
+  .dot { color: #444; }
 
   .play-btn {
-    background: #e8e4dc;
-    color: #0f0f0f;
-    border: none;
-    padding: 1rem 2.5rem;
+    background: none;
+    border: 1px solid #888;
+    color: #e8e4dc;
     font-family: 'Georgia', serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
+    font-size: 1rem;
+    padding: 0.85rem 2rem;
     cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: border-color 0.15s, color 0.15s;
     align-self: flex-start;
-    transition: background 0.15s, transform 0.1s;
   }
-
   .play-btn:hover:not(:disabled) {
-    background: #ffffff;
-    transform: translateY(-1px);
+    border-color: #e8e4dc;
+    color: #fff;
   }
-
   .play-btn:disabled {
     opacity: 0.5;
     cursor: default;
   }
 
   .error {
-    color: #c0674a;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    color: #c07e7e;
   }
 </style>
