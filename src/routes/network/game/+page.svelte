@@ -17,21 +17,28 @@
   let current = $derived(sessionWords[currentIndex] ?? null);
   let isLast = $derived(currentIndex === sessionWords.length - 1);
 
-  // Returns offsets (dx, dy) from the stage center so positioning is
-  // independent of the stage's actual pixel dimensions.
+  // Two-ring layout: half words on outer ring, half interleaved on inner ring.
+  // This guarantees even angular separation and prevents overlap.
   function computePositions(count) {
-    const baseRadius = 240;
-    const result = [];
+    const outerR = 285;
+    const innerR = 185;
+    const half = Math.ceil(count / 2);
+    const result = new Array(count);
 
     for (let i = 0; i < count; i++) {
-      const angle = (i / count) * 2 * Math.PI + (i * 2.399); // golden angle spread
-      const r = baseRadius + (i % 2 === 0 ? -50 : 50) + (i % 3 === 0 ? 25 : 0);
-      result.push({
+      const isOuter = i % 2 === 0;
+      const ringCount = isOuter ? half : count - half;
+      const ringIndex = Math.floor(i / 2);
+      // Inner ring rotated by half a step so words interleave with outer ring
+      const offset = isOuter ? 0 : Math.PI / ringCount;
+      const angle = (ringIndex / ringCount) * 2 * Math.PI + offset - Math.PI / 2;
+      const r = isOuter ? outerR : innerR;
+      result[i] = {
         dx: Math.cos(angle) * r,
         dy: Math.sin(angle) * r,
-        delay: (i * 0.18).toFixed(2),
-        duration: (3.5 + (i % 4) * 0.4).toFixed(1)
-      });
+        delay: (i * 0.15).toFixed(2),
+        duration: (3.4 + (i % 4) * 0.35).toFixed(2)
+      };
     }
     return result;
   }
@@ -176,7 +183,7 @@
   .center-word {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 46%;
     transform: translate(-50%, -50%);
     text-align: center;
     pointer-events: none;
@@ -210,8 +217,8 @@
     border: 1px solid #333;
     color: #888;
     font-family: 'Georgia', serif;
-    font-size: 1rem;
-    padding: 0.4rem 0.9rem;
+    font-size: 1.1rem;
+    padding: 0.45rem 1rem;
     cursor: pointer;
     white-space: nowrap;
     transition: border-color 0.15s, color 0.15s, background 0.15s;
