@@ -17,21 +17,18 @@
   let current = $derived(sessionWords[currentIndex] ?? null);
   let isLast = $derived(currentIndex === sessionWords.length - 1);
 
-  // Distribute words in a rough ring with jitter, fitting inside the play area.
-  // Play area is 600×480; center is (300, 240). We keep words within ~220px radius.
+  // Returns offsets (dx, dy) from the stage center so positioning is
+  // independent of the stage's actual pixel dimensions.
   function computePositions(count) {
-    const cx = 300, cy = 240;
-    const baseRadius = 170;
+    const baseRadius = 240;
     const result = [];
 
     for (let i = 0; i < count; i++) {
-      // Spread evenly, offset by golden angle for natural scatter
-      const angle = (i / count) * 2 * Math.PI + (i * 2.399); // 2.399 ≈ golden angle
-      // Alternate inner/outer ring
-      const r = baseRadius + (i % 2 === 0 ? -30 : 30) + (i % 3 === 0 ? 15 : 0);
+      const angle = (i / count) * 2 * Math.PI + (i * 2.399); // golden angle spread
+      const r = baseRadius + (i % 2 === 0 ? -50 : 50) + (i % 3 === 0 ? 25 : 0);
       result.push({
-        x: cx + Math.cos(angle) * r,
-        y: cy + Math.sin(angle) * r,
+        dx: Math.cos(angle) * r,
+        dy: Math.sin(angle) * r,
         delay: (i * 0.18).toFixed(2),
         duration: (3.5 + (i % 4) * 0.4).toFixed(1)
       });
@@ -96,8 +93,8 @@
           class="satellite"
           class:selected={clicked.has(sw.word)}
           style="
-            left: {positions[i].x}px;
-            top: {positions[i].y}px;
+            left: calc(50% + {positions[i].dx}px);
+            top: calc(50% + {positions[i].dy}px);
             animation-delay: {positions[i].delay}s;
             animation-duration: {positions[i].duration}s;
           "
@@ -213,8 +210,8 @@
     border: 1px solid #333;
     color: #888;
     font-family: 'Georgia', serif;
-    font-size: 0.82rem;
-    padding: 0.35rem 0.75rem;
+    font-size: 1rem;
+    padding: 0.4rem 0.9rem;
     cursor: pointer;
     white-space: nowrap;
     transition: border-color 0.15s, color 0.15s, background 0.15s;

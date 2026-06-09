@@ -160,6 +160,7 @@
     color: #e8e4dc;
     font-family: 'Georgia', serif;
     min-height: 100vh;
+    overflow-y: auto;
   }
 
   main {
