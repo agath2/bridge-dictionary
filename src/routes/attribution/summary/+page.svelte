@@ -1,6 +1,7 @@
 <script>
   import { goto } from '$app/navigation';
-  import { results, resetGame } from '$lib/gameStore.js';
+  import { onMount } from 'svelte';
+  import { results, resetGame, politicalAffiliation } from '$lib/gameStore.js';
   import { get } from 'svelte/store';
 
   let allResults = get(results);
@@ -9,6 +10,18 @@
   if (allResults.length === 0) {
     goto('/attribution');
   }
+
+  onMount(() => {
+    fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        game: 'attribution',
+        affiliation: get(politicalAffiliation),
+        session_data: allResults
+      })
+    });
+  });
 
   const HESITATION_THRESHOLD_MS = 3000;
 

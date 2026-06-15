@@ -1,6 +1,8 @@
 <script>
   import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
   import { framingResults, resetFramingGame } from '$lib/framingStore.js';
+  import { politicalAffiliation } from '$lib/gameStore.js';
   import { get } from 'svelte/store';
 
   let allResults = get(framingResults);
@@ -8,6 +10,18 @@
   if (allResults.length === 0) {
     goto('/framing');
   }
+
+  onMount(() => {
+    fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        game: 'framing',
+        affiliation: get(politicalAffiliation),
+        session_data: allResults
+      })
+    });
+  });
 
   const total = allResults.length;
   const rCount = allResults.filter(r => r.chosen_side === 'R').length;

@@ -1,13 +1,27 @@
 <script>
   import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
   import { get } from 'svelte/store';
   import { networkResults, resetNetwork } from '$lib/networkStore.js';
+  import { politicalAffiliation } from '$lib/gameStore.js';
 
   const results = get(networkResults);
 
   if (results.length === 0) {
     goto('/network');
   }
+
+  onMount(() => {
+    fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        game: 'network',
+        affiliation: get(politicalAffiliation),
+        session_data: results.map(r => ({ headword: r.headword, clicked: r.clicked }))
+      })
+    });
+  });
 
   // ── Overall reader type ───────────────────────────────────────────────────
   let totalAffect = 0, totalContext = 0;
