@@ -1,15 +1,17 @@
 <script>
   import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
   import { page } from '$app/stores';
   import { get } from 'svelte/store';
   import { politicalAffiliation } from '$lib/gameStore.js';
 
-  const next = $derived($page.url.searchParams.get('next') ?? '/');
+  const next = $derived(get(page).url.searchParams.get('next') ?? '/');
 
-  // If already answered this session, skip straight through
-  if (get(politicalAffiliation) !== null) {
-    goto(next, { replaceState: true });
-  }
+  onMount(() => {
+    if (get(politicalAffiliation) !== null) {
+      goto(next, { replaceState: true });
+    }
+  });
 
   const options = [
     { value: 'Democrat',           label: 'Democrat',           color: '#6a9fd8' },
