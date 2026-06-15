@@ -23,10 +23,10 @@
 
       <a href="/attribution" class="card">
         <div class="card-label">Game 1</div>
-        <h2 class="card-title">Who Said It?</h2>
+        <h2 class="card-title">Which Side Says It More?</h2>
         <p class="card-description">
-          Read a real quote and decide whether it was written by a Republican or Democrat.
-          Some are obvious. Some will surprise you.
+          See a word from the Bridging Dictionary and decide which side uses it more.
+          Then see the real usage split.
         </p>
         <span class="card-cta">Play →</span>
       </a>

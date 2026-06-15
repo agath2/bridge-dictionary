@@ -6,7 +6,6 @@
 
   let allResults = get(results);
 
-  // Redirect home if someone lands here directly
   if (allResults.length === 0) {
     goto('/attribution');
   }
@@ -31,11 +30,14 @@
   const correct = allResults.filter(r => r.correct).length;
   const wrong = allResults.filter(r => !r.correct);
 
+  // Majority side helper
+  function majoritySide(item) {
+    return item.republican_pct >= item.democrat_pct ? 'R' : 'D';
+  }
+
   // ── Blind spot analysis ──────────────────────────────────────────────────────
-  // Among wrong answers, which side did the player mis-attribute most?
-  // i.e. they guessed R but it was D, or guessed D but it was R
-  const missedR = wrong.filter(r => r.quote.side === 'R').length; // was R, got wrong
-  const missedD = wrong.filter(r => r.quote.side === 'D').length; // was D, got wrong
+  const missedR = wrong.filter(r => majoritySide(r.word) === 'R').length;
+  const missedD = wrong.filter(r => majoritySide(r.word) === 'D').length;
 
   // ── Confidence analysis ──────────────────────────────────────────────────────
   const fastWrong = wrong.filter(r => r.response_time_ms < HESITATION_THRESHOLD_MS);
@@ -55,19 +57,19 @@
   // 1. Blind spot side
   if (wrong.length >= 2) {
     if (missedR > missedD && missedR >= 2) {
-      insights.push(`You tended to misread <strong>Republican</strong> voices — when you were wrong, it was usually a Republican you took for a Democrat.`);
+      insights.push(`You tended to underestimate <strong>Republican</strong> usage — when you were wrong, it was usually a word Republicans use more than you expected.`);
     } else if (missedD > missedR && missedD >= 2) {
-      insights.push(`You tended to misread <strong>Democrat</strong> voices — when you were wrong, it was usually a Democrat you took for a Republican.`);
+      insights.push(`You tended to underestimate <strong>Democrat</strong> usage — when you were wrong, it was usually a word Democrats lean on more than you expected.`);
     } else if (missedR === missedD && wrong.length >= 2) {
-      insights.push(`Your errors were <strong>evenly split</strong> between both sides — you weren't systematically fooled by one more than the other.`);
+      insights.push(`Your errors were <strong>evenly split</strong> between both sides — you weren't systematically off in one direction.`);
     }
   }
 
   // 2. Fast but wrong (confident mistakes)
   if (fastWrong.length >= 1) {
-    const example = fastWrong[0].quote.word;
+    const example = fastWrong[0].word.word;
     if (fastWrong.length === 1) {
-      insights.push(`Your quickest answer was also wrong — you moved fast on <em>"${example}"</em>. Speed can be a sign of a strong assumption.`);
+      insights.push(`Your quickest answer was also wrong — you moved fast on <em>"${example}"</em>. Speed here usually signals a confident assumption.`);
     } else {
       insights.push(`${fastWrong.length} of your wrong answers came quickly — including <em>"${example}"</em>. Fast and wrong usually means a confident assumption that didn't hold.`);
     }
@@ -77,17 +79,17 @@
   if (stereoPct !== null && ambigPct !== null) {
     const diff = stereoPct - ambigPct;
     if (diff >= 30) {
-      insights.push(`You read the obvious ones well (${stereoPct}% correct) but the subtle quotes caught you off guard (${ambigPct}% correct). The gap between those two numbers is where the real biases live.`);
+      insights.push(`You nailed the skewed words (${stereoPct}% correct) but the close-split ones tripped you up (${ambigPct}% correct). The words near 50/50 are the interesting ones — neither side has a clear claim.`);
     } else if (diff <= -10) {
-      insights.push(`Interestingly, you did <em>better</em> on the subtle quotes (${ambigPct}%) than the obvious ones (${stereoPct}%). You may be better at reading nuance than stereotypes.`);
+      insights.push(`You did <em>better</em> on the close-split words (${ambigPct}%) than the obviously skewed ones (${stereoPct}%). You may be more attuned to nuance than to stereotypes.`);
     } else if (ambigPct >= 60) {
-      insights.push(`You handled the ambiguous quotes well (${ambigPct}% correct) — those are the ones most people struggle with.`);
+      insights.push(`You handled the close-split words well (${ambigPct}% correct) — those are the ones most people find hardest.`);
     }
   }
 
-  // Fallback if not enough data for any insight
+  // Fallback
   if (insights.length === 0) {
-    insights.push(`Every quote in this game came from a real person. The ones that surprised you most are worth sitting with.`);
+    insights.push(`Every percentage in this game comes from real usage data collected during the 2020 US election. The words that surprised you are worth sitting with.`);
   }
 
   // ── Play again ───────────────────────────────────────────────────────────────
@@ -129,17 +131,33 @@
     <!-- Wrong answers review -->
     {#if wrong.length > 0}
       <div class="review-section">
-        <h2 class="review-title">The quotes that fooled you</h2>
+        <h2 class="review-title">Words that tripped you up</h2>
         <div class="review-list">
           {#each wrong as r}
+            {@const side = majoritySide(r.word)}
             <div class="review-item">
-              <p class="review-quote">"{r.quote.quote}"</p>
+              <p class="review-word">{r.word.word}</p>
               <div class="review-meta">
                 <span class="review-guess wrong-guess">You said: {r.guess === 'R' ? 'Republican' : 'Democrat'}</span>
                 <span class="review-divider">·</span>
-                <span class="review-actual">Actually: {r.quote.side === 'R' ? 'Republican' : 'Democrat'}</span>
+                <span class="review-actual">Actually: {side === 'R' ? 'Republican' : 'Democrat'}</span>
               </div>
-              <p class="review-note">{r.quote.note}</p>
+              <div class="review-bars">
+                <div class="bar-row">
+                  <span class="bar-label republican-label">Rep</span>
+                  <div class="bar-track">
+                    <div class="bar-fill republican-fill" style="width: {r.word.republican_pct}%"></div>
+                  </div>
+                  <span class="bar-pct">{r.word.republican_pct.toFixed(0)}%</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label democrat-label">Dem</span>
+                  <div class="bar-track">
+                    <div class="bar-fill democrat-fill" style="width: {r.word.democrat_pct}%"></div>
+                  </div>
+                  <span class="bar-pct">{r.word.democrat_pct.toFixed(0)}%</span>
+                </div>
+              </div>
             </div>
           {/each}
         </div>
@@ -147,7 +165,7 @@
     {:else}
       <div class="review-section">
         <p class="perfect-note">
-          You got everything right this round — try again for a different set of quotes.
+          You got everything right this round — try again for a different set of words.
         </p>
       </div>
     {/if}
@@ -268,7 +286,7 @@
   .review-item {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid #1e1e1e;
   }
@@ -278,11 +296,10 @@
     padding-bottom: 0;
   }
 
-  .review-quote {
-    font-size: 1rem;
-    line-height: 1.65;
-    font-style: italic;
-    color: #e8e4dc;
+  .review-word {
+    font-size: 1.4rem;
+    color: #d4a853;
+    letter-spacing: 0.02em;
   }
 
   .review-meta {
@@ -293,24 +310,54 @@
     font-family: 'Courier New', monospace;
   }
 
-  .wrong-guess {
-    color: #c0674a;
+  .wrong-guess { color: #c0674a; }
+  .review-divider { color: #444; }
+  .review-actual { color: #7ec87e; }
+
+  .review-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
   }
 
-  .review-divider {
-    color: #444;
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
 
-  .review-actual {
-    color: #7ec87e;
+  .bar-label {
+    font-size: 0.75rem;
+    width: 28px;
+    flex-shrink: 0;
+    letter-spacing: 0.03em;
   }
 
-  .review-note {
-    font-size: 0.88rem;
+  .republican-label { color: #c0674a; }
+  .democrat-label { color: #6a9fd8; }
+
+  .bar-track {
+    flex: 1;
+    height: 5px;
+    background: #2a2a2a;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+  }
+
+  .republican-fill { background: #c0674a; }
+  .democrat-fill { background: #6a9fd8; }
+
+  .bar-pct {
+    font-size: 0.75rem;
     color: #888;
-    line-height: 1.6;
-    margin-top: 0.25rem;
-    font-style: italic;
+    width: 34px;
+    text-align: right;
+    font-family: 'Courier New', monospace;
   }
 
   .perfect-note {
@@ -351,7 +398,5 @@
     letter-spacing: 0.02em;
   }
 
-  .dict-link:hover {
-    text-decoration: underline;
-  }
+  .dict-link:hover { text-decoration: underline; }
 </style>

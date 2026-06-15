@@ -15,16 +15,14 @@
         fetch('/ambiguous_quotes.json')
       ]);
 
-      const stereoQuotes = await stereoRes.json();
-      const ambigQuotes = await ambigRes.json();
+      const stereoWords = await stereoRes.json();
+      const ambigWords = await ambigRes.json();
 
-      // Shuffle each pool independently
       const shuffled = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
-      // Pick 5 from each, stereotypes first then ambiguous
       const picked = [
-        ...shuffled(stereoQuotes).slice(0, 5),
-        ...shuffled(ambigQuotes).slice(0, 5)
+        ...shuffled(stereoWords).slice(0, 5),
+        ...shuffled(ambigWords).slice(0, 5)
       ];
 
       session.set(picked);
@@ -39,7 +37,7 @@
 </script>
 
 <svelte:head>
-  <title>Who Said It? — Bridging Dictionary</title>
+  <title>Which Side Says It More? — Bridging Dictionary</title>
 </svelte:head>
 
 <main>
@@ -48,22 +46,22 @@
 
     <div class="header">
       <div class="label">Game 1</div>
-      <h1>Who Said It?</h1>
+      <h1>Which Side Says It More?</h1>
       <p class="description">
-        Every quote below was written by a real person during the 2020 US election.
-        Each one contains a word that Republicans and Democrats use very differently.
+        Republicans and Democrats use the same words — but not equally.
+        The Bridging Dictionary tracked how often each side reaches for 796 politically charged terms.
       </p>
       <p class="description">
-        Read the quote and decide which side wrote it. Some are obvious. Some will surprise you.
+        You'll see a word. Decide which side uses it more. Then see the actual split.
       </p>
     </div>
 
     <div class="details">
-      <span>10 rounds</span>
+      <span>10 words</span>
       <span class="dot">·</span>
-      <span>Real tweets</span>
+      <span>Real usage data</span>
       <span class="dot">·</span>
-      <span>~5 minutes</span>
+      <span>~3 minutes</span>
     </div>
 
     {#if error}

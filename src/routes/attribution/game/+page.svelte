@@ -3,60 +3,53 @@
   import { session, results } from '$lib/gameStore.js';
   import { get } from 'svelte/store';
 
-  let sessionQuotes = get(session);
+  let sessionWords = get(session);
 
-  // Redirect home if someone lands here directly with no session
-  if (sessionQuotes.length === 0) {
+  if (sessionWords.length === 0) {
     goto('/attribution');
   }
 
   let currentIndex = $state(0);
-  let feedback = $state(null); // 'correct' | 'wrong' | null
+  let guess = $state(null);       // 'R' | 'D' | null
+  let correct = $state(null);     // boolean | null
   let roundStartTime = $state(Date.now());
-  let isTransitioning = $state(false);
 
-  let currentQuote = $derived(sessionQuotes[currentIndex]);
-  let progress = $derived(`${currentIndex + 1} / ${sessionQuotes.length}`);
+  let currentWord = $derived(sessionWords[currentIndex]);
+  let progress = $derived(`${currentIndex + 1} / ${sessionWords.length}`);
 
-  // Highlight the dictionary word inside the quote text
-  function highlightWord(quote, word) {
-    if (!word || !quote) return quote;
-    // Escape special regex chars in the word
-    const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const regex = new RegExp(`(${escaped})`, 'gi');
-    return quote.replace(regex, `<mark>$1</mark>`);
+  // Majority side based on usage percentages
+  function majoritySide(item) {
+    return item.republican_pct >= item.democrat_pct ? 'R' : 'D';
   }
 
-  function handleGuess(guess) {
-    if (isTransitioning) return;
+  function handleGuess(g) {
+    if (guess !== null) return;
 
     const responseTime = Date.now() - roundStartTime;
-    const correct = guess === currentQuote.side;
+    const side = majoritySide(currentWord);
+    const isCorrect = g === side;
 
-    feedback = correct ? 'correct' : 'wrong';
-    isTransitioning = true;
+    guess = g;
+    correct = isCorrect;
 
-    // Record the result
     results.update(r => [...r, {
-      quote: currentQuote,
-      guess,
-      correct,
+      word: currentWord,
+      guess: g,
+      correct: isCorrect,
       response_time_ms: responseTime,
-      type: currentQuote.type
+      type: currentWord.type
     }]);
+  }
 
-    // Show feedback briefly then advance
-    setTimeout(() => {
-      feedback = null;
-      isTransitioning = false;
-
-      if (currentIndex + 1 >= sessionQuotes.length) {
-        goto('/affiliation?next=/attribution/summary');
-      } else {
-        currentIndex += 1;
-        roundStartTime = Date.now();
-      }
-    }, 900);
+  function advance() {
+    if (currentIndex + 1 >= sessionWords.length) {
+      goto('/affiliation?next=/attribution/summary');
+    } else {
+      currentIndex += 1;
+      guess = null;
+      correct = null;
+      roundStartTime = Date.now();
+    }
   }
 </script>
 
@@ -70,43 +63,59 @@
     <span class="progress">{progress}</span>
   </div>
 
-  {#if currentQuote}
-    <div class="game-area" class:correct={feedback === 'correct'} class:wrong={feedback === 'wrong'}>
+  {#if currentWord}
+    <div class="game-area">
 
-      <div class="phase-label">
-        {currentIndex < 5 ? '' : ''}
-      </div>
-
-      <div class="quote-card">
-        <p class="quote-text">
-          {@html highlightWord(currentQuote.quote, currentQuote.word)}
-        </p>
+      <div class="word-card">
+        <p class="prompt">Which side uses this word more?</p>
+        <p class="word">{currentWord.word}</p>
       </div>
 
       <div class="buttons">
         <button
           class="choice-btn democrat"
+          class:chosen={guess === 'D'}
+          class:unchosen={guess !== null && guess !== 'D'}
           onclick={() => handleGuess('D')}
-          disabled={isTransitioning}
+          disabled={guess !== null}
         >
           Democrat
         </button>
         <button
           class="choice-btn republican"
+          class:chosen={guess === 'R'}
+          class:unchosen={guess !== null && guess !== 'R'}
           onclick={() => handleGuess('R')}
-          disabled={isTransitioning}
+          disabled={guess !== null}
         >
           Republican
         </button>
       </div>
 
-      {#if feedback}
-        <div class="feedback-banner" class:correct={feedback === 'correct'} class:wrong={feedback === 'wrong'}>
-          {#if feedback === 'correct'}
-            Correct
-          {:else}
-            That was a {currentQuote.side === 'R' ? 'Republican' : 'Democrat'}
-          {/if}
+      {#if guess !== null}
+        <div class="reveal" class:correct={correct} class:wrong={!correct}>
+          <p class="verdict">{correct ? 'Correct' : 'Not quite'}</p>
+
+          <div class="bars">
+            <div class="bar-row">
+              <span class="bar-label republican-label">Republican</span>
+              <div class="bar-track">
+                <div class="bar-fill republican-fill" style="width: {currentWord.republican_pct}%"></div>
+              </div>
+              <span class="bar-pct">{currentWord.republican_pct.toFixed(0)}%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label democrat-label">Democrat</span>
+              <div class="bar-track">
+                <div class="bar-fill democrat-fill" style="width: {currentWord.democrat_pct}%"></div>
+              </div>
+              <span class="bar-pct">{currentWord.democrat_pct.toFixed(0)}%</span>
+            </div>
+          </div>
+
+          <button class="next-btn" onclick={advance}>
+            {currentIndex + 1 >= sessionWords.length ? 'See results →' : 'Next →'}
+          </button>
         </div>
       {/if}
 
@@ -133,7 +142,7 @@
     display: flex;
     flex-direction: column;
     padding: 1.5rem 2rem 3rem;
-    max-width: 720px;
+    max-width: 600px;
     margin: 0 auto;
   }
 
@@ -152,10 +161,7 @@
     text-decoration: none;
     letter-spacing: 0.04em;
   }
-
-  .home-link:hover {
-    color: #e8e4dc;
-  }
+  .home-link:hover { color: #e8e4dc; }
 
   .progress {
     font-size: 0.85rem;
@@ -170,33 +176,30 @@
     flex-direction: column;
     justify-content: center;
     gap: 2.5rem;
-    transition: background 0.3s;
-    border-radius: 4px;
-    padding: 1rem;
-    position: relative;
   }
 
-  .quote-card {
-    padding: 2rem 0;
+  .word-card {
+    padding: 2.5rem 0;
     border-top: 1px solid #2a2a2a;
     border-bottom: 1px solid #2a2a2a;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .quote-text {
-    font-size: clamp(1.2rem, 3vw, 1.6rem);
-    line-height: 1.7;
-    color: #e8e4dc;
-    font-style: italic;
+  .prompt {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888;
   }
 
-  /* The highlighted dictionary word */
-  :global(mark) {
-    background: none;
+  .word {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: normal;
     color: #d4a853;
-    font-style: normal;
-    font-weight: bold;
-    border-bottom: 2px solid #d4a853;
-    padding-bottom: 1px;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
   }
 
   .buttons {
@@ -220,55 +223,135 @@
 
   .choice-btn:disabled {
     cursor: default;
-    opacity: 0.6;
   }
 
   .choice-btn.democrat {
     color: #6a9fd8;
     border-color: #6a9fd8;
   }
-
   .choice-btn.democrat:hover:not(:disabled) {
     background: #6a9fd8;
     color: #0f0f0f;
+  }
+  .choice-btn.democrat.chosen {
+    background: #6a9fd8;
+    color: #0f0f0f;
+  }
+  .choice-btn.democrat.unchosen {
+    opacity: 0.25;
   }
 
   .choice-btn.republican {
     color: #c0674a;
     border-color: #c0674a;
   }
-
   .choice-btn.republican:hover:not(:disabled) {
     background: #c0674a;
     color: #0f0f0f;
   }
+  .choice-btn.republican.chosen {
+    background: #c0674a;
+    color: #0f0f0f;
+  }
+  .choice-btn.republican.unchosen {
+    opacity: 0.25;
+  }
 
-  .feedback-banner {
-    position: absolute;
-    bottom: -1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.4rem 1.2rem;
-    font-size: 0.9rem;
-    letter-spacing: 0.06em;
+  /* Reveal panel */
+  .reveal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.5rem;
     border-radius: 2px;
-    animation: fadeIn 0.15s ease;
+    animation: fadeIn 0.2s ease;
   }
 
-  .feedback-banner.correct {
-    background: #2a3d2a;
-    color: #7ec87e;
-    border: 1px solid #7ec87e;
+  .reveal.correct {
+    background: #1a2a1a;
+    border: 1px solid #3a5a3a;
   }
 
-  .feedback-banner.wrong {
-    background: #3d2a2a;
-    color: #c07e7e;
-    border: 1px solid #c0674a;
+  .reveal.wrong {
+    background: #2a1a1a;
+    border: 1px solid #5a3a3a;
+  }
+
+  .verdict {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .reveal.correct .verdict { color: #7ec87e; }
+  .reveal.wrong .verdict { color: #c07e7e; }
+
+  .bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .bar-label {
+    font-size: 0.8rem;
+    width: 80px;
+    flex-shrink: 0;
+    letter-spacing: 0.03em;
+  }
+
+  .republican-label { color: #c0674a; }
+  .democrat-label { color: #6a9fd8; }
+
+  .bar-track {
+    flex: 1;
+    height: 6px;
+    background: #2a2a2a;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
+
+  .republican-fill { background: #c0674a; }
+  .democrat-fill { background: #6a9fd8; }
+
+  .bar-pct {
+    font-size: 0.8rem;
+    color: #888;
+    width: 36px;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+  }
+
+  .next-btn {
+    background: none;
+    border: 1px solid #888;
+    color: #e8e4dc;
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    padding: 0.65rem 1.5rem;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    align-self: flex-start;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .next-btn:hover {
+    border-color: #e8e4dc;
+    color: #fff;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateX(-50%) translateY(4px); }
-    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 </style>
