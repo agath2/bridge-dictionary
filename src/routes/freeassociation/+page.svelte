@@ -1,68 +1,71 @@
 <script>
   import { goto } from '$app/navigation';
-  import { freeAssociationSession, resetFreeAssociation } from '$lib/freeAssociationStore.js';
+  import { freeAssociationSession, freeAssociationResults } from '$lib/freeAssociationStore.js';
 
-  async function start() {
-    const res = await fetch('/freeassociation_words.json');
-    const allWords = await res.json();
+  let loading = $state(false);
+  let error = $state(null);
 
-    const shuffled = [...allWords].sort(() => Math.random() - 0.5).slice(0, 5);
+  async function startGame() {
+    loading = true;
+    error = null;
 
-    resetFreeAssociation();
-    freeAssociationSession.set(shuffled);
-    goto('/freeassociation/game');
+    try {
+      const res = await fetch('/freeassociation_words.json');
+      const all = await res.json();
+
+      const shuffled = [...all].sort(() => Math.random() - 0.5).slice(0, 5);
+
+      freeAssociationSession.set(shuffled);
+      freeAssociationResults.set([]);
+
+      goto('/freeassociation/game');
+    } catch (e) {
+      error = 'Could not load game data. Please try again.';
+      loading = false;
+    }
   }
 </script>
 
 <svelte:head>
-  <title>Bridging Dictionary · Free Association</title>
+  <title>Free Association — Bridging Dictionary</title>
 </svelte:head>
 
 <main>
-  <div class="top-bar">
-    <a href="/" class="home-link">Bridging Dictionary</a>
-  </div>
+  <div class="container">
+    <p class="back"><a href="/">← All games</a></p>
 
-  <div class="content">
-    <p class="eyebrow">Game 4</p>
-    <h1>Free Association</h1>
-
-    <p class="description">
-      A politically charged word appears on screen. Say aloud — as fast as you can —
-      every word that comes to mind. You have 15 seconds per word.
-    </p>
-
-    <p class="description">
-      There are no right answers. What you say reveals the mental landscape you've built
-      around these words.
-    </p>
-
-    <div class="details">
-      <div class="detail-item">
-        <span class="detail-label">Words</span>
-        <span class="detail-value">5 per session</span>
-      </div>
-      <div class="detail-item">
-        <span class="detail-label">Time per word</span>
-        <span class="detail-value">15 seconds</span>
-      </div>
-      <div class="detail-item">
-        <span class="detail-label">Required</span>
-        <span class="detail-value">Microphone access</span>
-      </div>
+    <div class="header">
+      <div class="label">Game 4</div>
+      <h1>Free Association</h1>
+      <p class="description">
+        A politically charged word appears on screen. Say aloud — as fast as you can —
+        every word that comes to mind. You have 15 seconds per word.
+      </p>
+      <p class="description">
+        There are no right answers. What you say reveals the mental landscape you've built
+        around these words.
+      </p>
     </div>
 
-    <button class="start-btn" onclick={start}>Begin →</button>
+    <div class="details">
+      <span>5 words</span>
+      <span class="dot">·</span>
+      <span>15 seconds each</span>
+      <span class="dot">·</span>
+      <span>Microphone required</span>
+    </div>
+
+    {#if error}
+      <p class="error">{error}</p>
+    {/if}
+
+    <button onclick={startGame} disabled={loading} class="play-btn">
+      {loading ? 'Loading…' : 'Start →'}
+    </button>
   </div>
 </main>
 
 <style>
-  :global(*, *::before, *::after) {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
   :global(body) {
     background: #0f0f0f;
     color: #e8e4dc;
@@ -73,84 +76,80 @@
   main {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    padding: 1.5rem 2rem 3rem;
-    max-width: 720px;
-    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
   }
 
-  .top-bar {
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #1e1e1e;
-    margin-bottom: 5rem;
-  }
-
-  .home-link {
-    font-size: 0.85rem;
-    color: #888;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-  }
-
-  .home-link:hover { color: #e8e4dc; }
-
-  .content {
+  .container {
+    max-width: 480px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    max-width: 520px;
+    gap: 1.8rem;
   }
 
-  .eyebrow {
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+  .back a {
+    font-size: 0.85rem;
     color: #666;
+    text-decoration: none;
+  }
+  .back a:hover { color: #e8e4dc; }
+
+  .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.4rem;
   }
 
   h1 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-size: clamp(2rem, 6vw, 2.8rem);
     font-weight: normal;
-    line-height: 1.15;
+    line-height: 1.1;
+    margin-bottom: 1rem;
   }
 
   .description {
     font-size: 1rem;
-    line-height: 1.75;
+    line-height: 1.7;
     color: #c8c4bc;
   }
 
   .details {
+    font-size: 0.82rem;
+    color: #666;
     display: flex;
-    flex-direction: column;
     gap: 0.5rem;
-    margin-top: 0.5rem;
-    padding: 1.2rem 1.4rem;
-    border: 1px solid #1e1e1e;
+    align-items: center;
   }
 
-  .detail-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.88rem;
-  }
+  .dot { color: #444; }
 
-  .detail-label { color: #666; }
-  .detail-value { color: #c8c4bc; }
-
-  .start-btn {
-    margin-top: 0.5rem;
-    align-self: flex-start;
-    padding: 0.9rem 2rem;
+  .play-btn {
+    background: none;
+    border: 1px solid #888;
+    color: #e8e4dc;
     font-family: 'Georgia', serif;
     font-size: 1rem;
-    letter-spacing: 0.05em;
-    background: #e8e4dc;
-    color: #0f0f0f;
-    border: none;
+    padding: 0.85rem 2rem;
     cursor: pointer;
-    transition: opacity 0.15s;
+    letter-spacing: 0.04em;
+    transition: border-color 0.15s, color 0.15s;
+    align-self: flex-start;
+  }
+  .play-btn:hover:not(:disabled) {
+    border-color: #e8e4dc;
+    color: #fff;
+  }
+  .play-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
   }
 
-  .start-btn:hover { opacity: 0.85; }
+  .error {
+    font-size: 0.88rem;
+    color: #c07e7e;
+  }
 </style>
