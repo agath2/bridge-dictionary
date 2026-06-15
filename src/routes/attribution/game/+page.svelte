@@ -94,8 +94,6 @@
 
       {#if guess !== null}
         <div class="reveal" class:correct={correct} class:wrong={!correct}>
-          <p class="verdict">{correct ? 'Correct' : 'Not quite'}</p>
-
           <div class="bars">
             <div class="bar-row">
               <span class="bar-label republican-label">Republican</span>
@@ -276,15 +274,6 @@
     background: #2a1a1a;
     border: 1px solid #5a3a3a;
   }
-
-  .verdict {
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .reveal.correct .verdict { color: #7ec87e; }
-  .reveal.wrong .verdict { color: #c07e7e; }
 
   .bars {
     display: flex;
