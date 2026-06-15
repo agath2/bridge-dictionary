@@ -51,7 +51,7 @@
       isTransitioning = false;
 
       if (currentIndex + 1 >= sessionQuotes.length) {
-        goto('/attribution/summary');
+        goto('/affiliation?next=/attribution/summary');
       } else {
         currentIndex += 1;
         roundStartTime = Date.now();

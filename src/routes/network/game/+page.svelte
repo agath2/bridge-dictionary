@@ -74,7 +74,7 @@
     clicked = new Set();
 
     if (isLast) {
-      goto('/network/summary');
+      goto('/affiliation?next=/network/summary');
     } else {
       currentIndex += 1;
     }

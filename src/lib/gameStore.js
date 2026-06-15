@@ -7,6 +7,10 @@ export const session = writable([]);
 // Each entry: { quote, guess, correct, response_time_ms, type }
 export const results = writable([]);
 
+// Political affiliation collected once per browser session
+// Values: 'Democrat' | 'Republican' | 'Independent' | 'Other' | 'Prefer not to say' | null
+export const politicalAffiliation = writable(null);
+
 // Resets everything for a fresh game
 export function resetGame() {
   session.set([]);
