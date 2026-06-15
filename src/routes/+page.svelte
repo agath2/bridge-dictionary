@@ -49,6 +49,15 @@
         <span class="card-cta">Play →</span>
       </a>
 
+      <a href="/freeassociation" class="card">
+        <div class="card-label">Game 4</div>
+        <h2 class="card-title">Free Association</h2>
+        <p class="card-description">
+          A word appears. Speak every association that comes to mind — fast, unfiltered, for 15 seconds. Your words reveal the mental landscape you've built around political language.
+        </p>
+        <span class="card-cta">Play →</span>
+      </a>
+
     </div>
 
   </div>
