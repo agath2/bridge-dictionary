@@ -11,16 +11,24 @@
     goto('/freeassociation');
   }
 
-  onMount(() => {
-    fetch('/api/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        game: 'freeassociation',
-        affiliation: get(politicalAffiliation),
-        session_data: results.map(r => ({ headword: r.headword, words: r.words }))
-      })
-    });
+  onMount(async () => {
+    try {
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          game: 'freeassociation',
+          affiliation: get(politicalAffiliation),
+          session_data: results.map(r => ({ headword: r.headword, words: r.words }))
+        })
+      });
+      if (!res.ok) {
+        const body = await res.text();
+        console.error('submit failed', res.status, body);
+      }
+    } catch (e) {
+      console.error('submit error', e);
+    }
   });
 
   function playAgain() {
