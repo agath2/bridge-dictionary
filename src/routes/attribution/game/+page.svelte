@@ -176,6 +176,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 2.5rem;
+    padding-top: 10px;
   }
 
   .reveal-slot {
