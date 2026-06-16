@@ -17,7 +17,13 @@
       body: JSON.stringify({
         game: 'attribution',
         affiliation: get(politicalAffiliation),
-        session_data: allResults
+        session_data: allResults.map(r => ({
+          word: r.word.word,
+          guess: r.guess,
+          correct: r.correct,
+          response_time_ms: r.response_time_ms,
+          type: r.type
+        }))
       })
     });
   });
