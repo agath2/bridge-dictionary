@@ -162,8 +162,8 @@
     </section>
 
     <div class="actions">
-      <button class="play-btn" onclick={playAgain}>Play again →</button>
-      <a href="/" class="home-link">All games</a>
+      <button class="play-btn" onclick={playAgain}>Play again</button>
+      <a href="/" class="home-link">← All games</a>
     </div>
   </div>
 </main>
@@ -351,25 +351,27 @@
   }
 
   .play-btn {
-    background: none;
-    border: 1px solid #888;
-    color: #e8e4dc;
+    background: #e8e4dc;
+    color: #0f0f0f;
+    border: none;
     font-family: 'Georgia', serif;
-    font-size: 0.95rem;
-    padding: 0.7rem 1.6rem;
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
     cursor: pointer;
-    letter-spacing: 0.03em;
-    transition: border-color 0.15s, color 0.15s;
+    letter-spacing: 0.05em;
+    transition: background 0.15s, transform 0.1s;
   }
   .play-btn:hover {
-    border-color: #e8e4dc;
-    color: #fff;
+    background: #ffffff;
+    transform: translateY(-1px);
   }
 
   .home-link {
-    font-size: 0.88rem;
-    color: #666;
+    font-size: 0.9rem;
+    color: #b8a98a;
     text-decoration: none;
+    letter-spacing: 0.02em;
   }
+  .home-link:hover { text-decoration: underline; }
   .home-link:hover { color: #e8e4dc; }
 </style>

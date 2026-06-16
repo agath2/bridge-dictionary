@@ -174,14 +174,7 @@
     <!-- Actions -->
     <div class="actions">
       <button class="play-btn" onclick={playAgain}>Play again</button>
-      <a
-        href="https://dictionary.ccc-mit.org/"
-        target="_blank"
-        rel="noopener"
-        class="dict-link"
-      >
-        Explore the full Bridging Dictionary →
-      </a>
+      <a href="/" class="back-link">← All games</a>
     </div>
 
   </div>
@@ -400,12 +393,12 @@
     transform: translateY(-1px);
   }
 
-  .dict-link {
+  .back-link {
     font-size: 0.9rem;
     color: #b8a98a;
     text-decoration: none;
     letter-spacing: 0.02em;
   }
 
-  .dict-link:hover { text-decoration: underline; }
+  .back-link:hover { text-decoration: underline; }
 </style>

@@ -60,6 +60,12 @@
 
     </div>
 
+    <p class="dict-link">
+      <a href="https://dictionary.ccc-mit.org/" target="_blank" rel="noopener">
+        Explore the full Bridging Dictionary →
+      </a>
+    </p>
+
   </div>
 </main>
 
@@ -125,6 +131,20 @@
   }
 
   .citation a:hover {
+    text-decoration: underline;
+  }
+
+  .dict-link {
+    font-size: 0.9rem;
+  }
+
+  .dict-link a {
+    color: #b8a98a;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .dict-link a:hover {
     text-decoration: underline;
   }
 
