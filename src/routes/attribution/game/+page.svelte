@@ -66,13 +66,12 @@
   {#if currentWord}
     <div class="game-area">
 
-      <div class="content">
-        <div class="word-card">
-          <p class="prompt">Which side uses this word more?</p>
-          <p class="word">{currentWord.word}</p>
-        </div>
+      <div class="word-card">
+        <p class="prompt">Which side uses this word more?</p>
+        <p class="word">{currentWord.word}</p>
+      </div>
 
-        <div class="buttons">
+      <div class="buttons">
         <button
           class="choice-btn democrat"
           class:chosen={guess === 'D'}
@@ -91,7 +90,6 @@
         >
           Republican
         </button>
-        </div>
       </div>
 
       <div class="reveal-slot">
@@ -176,14 +174,9 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-  }
-
-  .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     gap: 2.5rem;
+    padding-top: 10px;
   }
 
   .reveal-slot {
