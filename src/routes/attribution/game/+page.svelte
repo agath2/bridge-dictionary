@@ -142,6 +142,7 @@
     padding: 1.5rem 2rem 3rem;
     max-width: 600px;
     margin: 0 auto;
+    position: relative;
   }
 
   .top-bar {
@@ -174,6 +175,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 2.5rem;
+    padding-bottom: 14rem;
   }
 
   .word-card {
@@ -257,6 +259,10 @@
 
   /* Reveal panel */
   .reveal {
+    position: absolute;
+    bottom: 0;
+    left: 2rem;
+    right: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
