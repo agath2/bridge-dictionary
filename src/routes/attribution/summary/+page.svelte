@@ -128,47 +128,48 @@
       {/each}
     </div>
 
-    <!-- Wrong answers review -->
-    {#if wrong.length > 0}
-      <div class="review-section">
-        <h2 class="review-title">Words that tripped you up</h2>
-        <div class="review-list">
-          {#each wrong as r}
-            {@const side = majoritySide(r.word)}
-            <div class="review-item">
+    <!-- All words review -->
+    <div class="review-section">
+      <h2 class="review-title">All words</h2>
+      <div class="review-list">
+        {#each allResults as r}
+          {@const side = majoritySide(r.word)}
+          <div class="review-item">
+            <div class="review-header">
               <p class="review-word">{r.word.word}</p>
-              <div class="review-meta">
-                <span class="review-guess wrong-guess">You said: {r.guess === 'R' ? 'Republican' : 'Democrat'}</span>
+              {#if !r.correct}
+                <span class="missed-tag">missed</span>
+              {/if}
+            </div>
+            <div class="review-meta">
+              <span class="review-guess" class:wrong-guess={!r.correct} class:right-guess={r.correct}>
+                You said: {r.guess === 'R' ? 'Republican' : 'Democrat'}
+              </span>
+              {#if !r.correct}
                 <span class="review-divider">·</span>
                 <span class="review-actual">Actually: {side === 'R' ? 'Republican' : 'Democrat'}</span>
+              {/if}
+            </div>
+            <div class="review-bars">
+              <div class="bar-row">
+                <span class="bar-label republican-label">Rep</span>
+                <div class="bar-track">
+                  <div class="bar-fill republican-fill" style="width: {r.word.republican_pct}%"></div>
+                </div>
+                <span class="bar-pct">{r.word.republican_pct.toFixed(0)}%</span>
               </div>
-              <div class="review-bars">
-                <div class="bar-row">
-                  <span class="bar-label republican-label">Rep</span>
-                  <div class="bar-track">
-                    <div class="bar-fill republican-fill" style="width: {r.word.republican_pct}%"></div>
-                  </div>
-                  <span class="bar-pct">{r.word.republican_pct.toFixed(0)}%</span>
+              <div class="bar-row">
+                <span class="bar-label democrat-label">Dem</span>
+                <div class="bar-track">
+                  <div class="bar-fill democrat-fill" style="width: {r.word.democrat_pct}%"></div>
                 </div>
-                <div class="bar-row">
-                  <span class="bar-label democrat-label">Dem</span>
-                  <div class="bar-track">
-                    <div class="bar-fill democrat-fill" style="width: {r.word.democrat_pct}%"></div>
-                  </div>
-                  <span class="bar-pct">{r.word.democrat_pct.toFixed(0)}%</span>
-                </div>
+                <span class="bar-pct">{r.word.democrat_pct.toFixed(0)}%</span>
               </div>
             </div>
-          {/each}
-        </div>
+          </div>
+        {/each}
       </div>
-    {:else}
-      <div class="review-section">
-        <p class="perfect-note">
-          You got everything right this round — try again for a different set of words.
-        </p>
-      </div>
-    {/if}
+    </div>
 
     <!-- Actions -->
     <div class="actions">
@@ -296,10 +297,23 @@
     padding-bottom: 0;
   }
 
+  .review-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
   .review-word {
     font-size: 1.4rem;
     color: #d4a853;
     letter-spacing: 0.02em;
+  }
+
+  .missed-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #c07e7e;
   }
 
   .review-meta {
@@ -311,6 +325,7 @@
   }
 
   .wrong-guess { color: #c0674a; }
+  .right-guess { color: #888; }
   .review-divider { color: #444; }
   .review-actual { color: #7ec87e; }
 
@@ -358,12 +373,6 @@
     width: 34px;
     text-align: right;
     font-family: 'Courier New', monospace;
-  }
-
-  .perfect-note {
-    font-size: 1rem;
-    color: #888;
-    font-style: italic;
   }
 
   /* Actions */
