@@ -92,30 +92,32 @@
         </button>
       </div>
 
-      {#if guess !== null}
-        <div class="reveal" class:correct={correct} class:wrong={!correct}>
-          <div class="bars">
-            <div class="bar-row">
-              <span class="bar-label republican-label">Republican</span>
-              <div class="bar-track">
-                <div class="bar-fill republican-fill" style="width: {currentWord.republican_pct}%"></div>
+      <div class="reveal-slot">
+        {#if guess !== null}
+          <div class="reveal" class:correct={correct} class:wrong={!correct}>
+            <div class="bars">
+              <div class="bar-row">
+                <span class="bar-label republican-label">Republican</span>
+                <div class="bar-track">
+                  <div class="bar-fill republican-fill" style="width: {currentWord.republican_pct}%"></div>
+                </div>
+                <span class="bar-pct">{currentWord.republican_pct.toFixed(0)}%</span>
               </div>
-              <span class="bar-pct">{currentWord.republican_pct.toFixed(0)}%</span>
-            </div>
-            <div class="bar-row">
-              <span class="bar-label democrat-label">Democrat</span>
-              <div class="bar-track">
-                <div class="bar-fill democrat-fill" style="width: {currentWord.democrat_pct}%"></div>
+              <div class="bar-row">
+                <span class="bar-label democrat-label">Democrat</span>
+                <div class="bar-track">
+                  <div class="bar-fill democrat-fill" style="width: {currentWord.democrat_pct}%"></div>
+                </div>
+                <span class="bar-pct">{currentWord.democrat_pct.toFixed(0)}%</span>
               </div>
-              <span class="bar-pct">{currentWord.democrat_pct.toFixed(0)}%</span>
             </div>
-          </div>
 
-          <button class="next-btn" onclick={advance}>
-            {currentIndex + 1 >= sessionWords.length ? 'See results →' : 'Next →'}
-          </button>
-        </div>
-      {/if}
+            <button class="next-btn" onclick={advance}>
+              {currentIndex + 1 >= sessionWords.length ? 'See results →' : 'Next →'}
+            </button>
+          </div>
+        {/if}
+      </div>
 
     </div>
   {/if}
@@ -142,7 +144,6 @@
     padding: 1.5rem 2rem 3rem;
     max-width: 600px;
     margin: 0 auto;
-    position: relative;
   }
 
   .top-bar {
@@ -175,7 +176,10 @@
     flex-direction: column;
     justify-content: center;
     gap: 2.5rem;
-    padding-bottom: 14rem;
+  }
+
+  .reveal-slot {
+    min-height: 160px;
   }
 
   .word-card {
@@ -259,10 +263,6 @@
 
   /* Reveal panel */
   .reveal {
-    position: absolute;
-    bottom: 0;
-    left: 2rem;
-    right: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
