@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "prompt_method": "human-authored-v1",
+    "extraction_source": "extractions.json",
+    "dictionary_source": "dictionary.json",
+    "image_style": "photorealistic, editorial photography, no text in scene, 3:2 aspect ratio",
+    "notes": "Each scene description derived strictly from the corresponding extractions.json entry. No outside cultural knowledge used beyond what the dictionary text provides."
+  },
+  "prompts": [
+    {
+      "slug": "illegal-alien",
+      "headword": "illegal alien",
+      "r_prompt": "A uniformed police officer standing outside a convenience store at night, speaking with a bystander. Police car visible in the background, blue and red lights on. Tense, documentary atmosphere. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A middle-aged woman at a podium speaking into microphones, her expression strained. A framed photograph of a young person is visible on a table beside her, surrounded by reporters. Quiet grief, political setting, indoor press room. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "asylum-seeker",
+      "headword": "asylum seeker",
+      "r_prompt": "A long queue of people waiting outside a border processing facility in bright midday sun, border agents in uniform reviewing documents at a checkpoint. Crowded, institutional, procedural atmosphere. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A tired woman and two young children sitting on plastic chairs in a fluorescent-lit waiting room, a legal aid worker seated across from them reviewing paperwork. Quiet, exhausted, hopeful. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "deportation",
+      "headword": "deportation",
+      "r_prompt": "Two immigration officers escorting a man through a secured facility corridor, clipboards and lanyards visible. Official, procedural, orderly. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A man in a military-style jacket sitting alone in an airport departure area, head bowed, a single bag at his feet. Late afternoon light through large windows. Still, heavy, isolated. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "border-security",
+      "headword": "border security",
+      "r_prompt": "A tall concrete border wall stretching across a flat desert landscape at dusk, a patrol truck driving alongside it on a dirt road. Vast, imposing, orderly. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A border agent at a workstation with multiple surveillance camera feeds on monitors, reviewing footage. Clean administrative office, focused and calm. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "climate-change",
+      "headword": "climate change",
+      "r_prompt": "A coal plant with two large smokestacks against a clear blue sky, workers in hard hats walking in the foreground. Ordinary industrial workday, unremarkable. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A flooded suburban street at midday, a car half-submerged, a family wading through knee-deep brown water carrying bags of belongings. Urgent, disorienting, exhausted. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "renewable-energy",
+      "headword": "renewable energy",
+      "r_prompt": "A wind turbine partially dismantled in an open field, a crane and maintenance workers in safety vests assessing damage. Overcast sky, expensive-looking repair operation. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A vast solar farm at golden hour, rows of gleaming panels stretching to the horizon, a single technician walking the rows. Clean, expansive, quietly optimistic. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "living-wage",
+      "headword": "living wage",
+      "r_prompt": "A teenager in a fast food uniform behind a counter, handing change to a customer with a routine expression. Ordinary entry-level job, fluorescent lighting, unremarkable. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A young woman in a supermarket uniform sitting on a break room bench, staring at a small pile of bills and coins on the table in front of her. Tired, quiet. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "welfare",
+      "headword": "welfare",
+      "r_prompt": "A long queue of people in a government assistance office, rows of plastic chairs under fluorescent lights, a bureaucratic service window at the far end. Impersonal, institutional. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A mother helping her young daughter with homework at a kitchen table in a modest apartment. Warm lamp light, a bag of groceries nearby on the counter. Quiet, steady, dignified. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "mass-shooting",
+      "headword": "mass shooting",
+      "r_prompt": "A man at an indoor shooting range in ear protection and safety glasses, practicing with a handgun in a focused stance. Disciplined, controlled, legal. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A school hallway lined with lockers, a small pile of flowers and a teddy bear placed against the wall beneath one locker. Empty corridor, still, heavy silence. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "gun-control",
+      "headword": "gun control",
+      "r_prompt": "A middle-aged man in a flannel shirt carefully cleaning a rifle at his kitchen table, a locked gun cabinet visible on the wall behind him. Routine, responsible, domestic. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A crowd of people marching down a city street in daylight, many holding handwritten signs, faces determined and emotional. Urban backdrop, peacefully intense. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "gender-identity",
+      "headword": "gender identity",
+      "r_prompt": "A concerned parent and a doctor sitting across from each other in a clinical office, a thick folder of documents open on the desk between them. Serious, medical, worried. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "Two colleagues talking and laughing in a bright office hallway, relaxed and at ease with each other. Ordinary workplace moment, warm natural light. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "voter-fraud",
+      "headword": "voter fraud",
+      "r_prompt": "A table covered in mail-in ballot envelopes, some open and scattered, an unattended ballot drop box in the background. Cluttered, unsupervised, chaotic atmosphere. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "An orderly polling station interior, voters standing in a calm queue, election workers carefully checking rolls at folding tables. Civic, procedural, quiet. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "black-lives-matter",
+      "headword": "Black Lives Matter",
+      "r_prompt": "A row of police officers in riot gear standing in front of a storefront with a shattered window, debris on the sidewalk, smoke in the background. Tense, chaotic aftermath. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A group of people gathered around a table in a community center, looking at documents and talking intently. Diverse group, organized, purposeful. Evening light through windows. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "single-mother",
+      "headword": "single mother",
+      "r_prompt": "A woman sitting alone at a kitchen table late at night, a pile of bills in front of her, an empty coffee mug beside her. Children's drawings visible on the refrigerator in the background. Isolated, worn down. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A woman speaking at a microphone at a community meeting, a young child seated beside her in a chair, other parents visible in the audience behind. Confident, present, engaged. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "homeschooling",
+      "headword": "homeschooling",
+      "r_prompt": "A parent sitting at a kitchen table with two children, open textbooks and a small whiteboard in front of them, everyone engaged and focused. Organized, calm, deliberate. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A parent at a laptop with work documents open on screen, a young child pulling at their sleeve, a worksheet abandoned on the table beside them. Distracted, overwhelmed. Photorealistic, editorial photography style, no text in scene."
+    },
+    {
+      "slug": "white-privilege",
+      "headword": "white privilege",
+      "r_prompt": "A weathered older white man sitting on the porch steps of a worn, modest house in a rural area, looking tired. Working-class setting, struggling, unglamorous. Photorealistic, editorial photography style, no text in scene.",
+      "d_prompt": "A professor at the front of a university lecture hall, gesturing toward a projection screen, students visible in tiered seating. Educational, attentive, serious atmosphere. Photorealistic, editorial photography style, no text in scene."
+    }
+  ]
+}

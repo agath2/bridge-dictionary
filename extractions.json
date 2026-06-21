@@ -1,0 +1,306 @@
+[
+  {
+    "slug": "illegal-alien",
+    "headword": "illegal alien",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "crime and law enforcement",
+      "emotional_valence": "negative",
+      "key_actors": ["undocumented immigrant", "law enforcement"],
+      "setting_cues": ["crime scene", "news report", "arrest"],
+      "example_context": "illegal alien accused of shooting and killing a teenager"
+    },
+    "democrat": {
+      "framing": "political exploitation and skepticism of the term itself",
+      "emotional_valence": "critical, sarcastic",
+      "key_actors": ["political figure", "immigrant family"],
+      "setting_cues": ["press conference", "political speech", "family being discussed"],
+      "example_context": "questioning use of the term, accusing political figures of exploiting grieving families"
+    }
+  },
+  {
+    "slug": "asylum-seeker",
+    "headword": "asylum seeker",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "system exploitation and border control",
+      "emotional_valence": "skeptical, distrustful",
+      "key_actors": ["asylum seeker", "border official"],
+      "setting_cues": ["border checkpoint", "processing facility", "waiting area"],
+      "example_context": "asylum seekers should wait in Mexico while status is reviewed"
+    },
+    "democrat": {
+      "framing": "humanitarian crisis and legal protection",
+      "emotional_valence": "sympathetic, urgent",
+      "key_actors": ["asylum seeker", "advocate", "family"],
+      "setting_cues": ["detention facility", "legal aid office", "refugee processing center"],
+      "example_context": "criticizing dismantling of asylum system, advocating for Asylum Seeker Protection Act"
+    }
+  },
+  {
+    "slug": "deportation",
+    "headword": "deportation",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "law enforcement and legal process",
+      "emotional_valence": "neutral, procedural",
+      "key_actors": ["immigration officer", "undocumented person"],
+      "setting_cues": ["detention facility", "official processing", "courthouse"],
+      "example_context": "deportation is legal because the person is an illegal alien"
+    },
+    "democrat": {
+      "framing": "state violence and family separation",
+      "emotional_valence": "sorrowful, humanitarian",
+      "key_actors": ["deported individual", "family", "veteran"],
+      "setting_cues": ["airport departure", "family separation", "foreign country arrival"],
+      "example_context": "Marine combat veteran recounting his crushing deportation to El Salvador"
+    }
+  },
+  {
+    "slug": "border-security",
+    "headword": "border security",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "national security and physical barriers",
+      "emotional_valence": "strong, assertive",
+      "key_actors": ["border agent", "military personnel"],
+      "setting_cues": ["border wall", "desert landscape", "patrol vehicle"],
+      "example_context": "border security is national security"
+    },
+    "democrat": {
+      "framing": "technology and personnel over physical barriers",
+      "emotional_valence": "pragmatic, policy-focused",
+      "key_actors": ["border agent", "policy analyst"],
+      "setting_cues": ["surveillance technology", "administrative office", "personnel at computers"],
+      "example_context": "good ways to spend on border security that don't involve a wall"
+    }
+  },
+  {
+    "slug": "climate-change",
+    "headword": "climate change",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "hoax and political hysteria",
+      "emotional_valence": "dismissive, skeptical",
+      "key_actors": ["politician", "media figure"],
+      "setting_cues": ["television news set", "political rally", "industrial worksite"],
+      "example_context": "climate change hysteria is a deep state hoax"
+    },
+    "democrat": {
+      "framing": "urgent existential emergency requiring immediate action",
+      "emotional_valence": "serious, alarmed",
+      "key_actors": ["activist", "scientist", "affected community"],
+      "setting_cues": ["flooded area", "wildfire", "protest march"],
+      "example_context": "we need to treat climate change like the emergency it is and take immediate action"
+    }
+  },
+  {
+    "slug": "renewable-energy",
+    "headword": "renewable energy",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "expensive and environmentally damaging",
+      "emotional_valence": "skeptical, critical",
+      "key_actors": ["worker", "energy industry analyst"],
+      "setting_cues": ["damaged wind turbine", "costly repair site", "construction zone"],
+      "example_context": "solar and wind can be as destructive as fossil fuels and are more expensive"
+    },
+    "democrat": {
+      "framing": "progress and affordable clean future",
+      "emotional_valence": "optimistic, forward-looking",
+      "key_actors": ["worker", "homeowner", "electric vehicle driver"],
+      "setting_cues": ["solar farm", "wind turbines at sunrise", "electric car charging"],
+      "example_context": "renewable energy is now cheaper than electricity from oil, gas, or coal"
+    }
+  },
+  {
+    "slug": "living-wage",
+    "headword": "living wage",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "unnecessary and economically unrealistic",
+      "emotional_valence": "skeptical, dismissive",
+      "key_actors": ["young worker", "employer", "teenager at first job"],
+      "setting_cues": ["entry-level job", "fast food counter", "retail store"],
+      "example_context": "why would a 16-year-old working their first job need a living wage"
+    },
+    "democrat": {
+      "framing": "fair compensation and social justice",
+      "emotional_valence": "supportive, advocating",
+      "key_actors": ["worker", "young employee", "community organizer"],
+      "setting_cues": ["workplace", "community meeting", "protest for higher wages"],
+      "example_context": "a high school student should be paid a living wage based on average cost of living"
+    }
+  },
+  {
+    "slug": "welfare",
+    "headword": "welfare",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "wasteful spending exploited by the undeserving",
+      "emotional_valence": "resentful, suspicious",
+      "key_actors": ["taxpayer", "government bureaucrat", "recipient"],
+      "setting_cues": ["government office", "long queue", "tax documents"],
+      "example_context": "billions in tax dollars going to illegal immigrants on welfare for life"
+    },
+    "democrat": {
+      "framing": "necessary support for vulnerable people, opposed to corporate welfare",
+      "emotional_valence": "compassionate, critical of inequality",
+      "key_actors": ["struggling family", "politician", "corporation"],
+      "setting_cues": ["family at home", "community support center", "contrast of boardroom vs kitchen table"],
+      "example_context": "stop corporate welfare and give people education and healthcare instead"
+    }
+  },
+  {
+    "slug": "mass-shooting",
+    "headword": "mass shooting",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "justification for more armed citizens",
+      "emotional_valence": "defiant, solution-focused via guns",
+      "key_actors": ["armed citizen", "shooter", "law enforcement"],
+      "setting_cues": ["gun range", "armed civilian", "home with firearms"],
+      "example_context": "every American citizen should arm and train themselves and carry at all times"
+    },
+    "democrat": {
+      "framing": "systemic failure and recurring national tragedy",
+      "emotional_valence": "frustrated, grieving, exhausted",
+      "key_actors": ["victim", "community", "politician"],
+      "setting_cues": ["memorial vigil", "empty school hallway", "community mourning"],
+      "example_context": "frustration at the regularity of events and lack of effective government response"
+    }
+  },
+  {
+    "slug": "gun-control",
+    "headword": "gun control",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "ineffective and a threat to liberty",
+      "emotional_valence": "suspicious, resistant",
+      "key_actors": ["gun owner", "government official", "tyrant"],
+      "setting_cues": ["government building", "gun cabinet at home", "legal gun owner"],
+      "example_context": "gun control is used by tyrants; strict laws don't prevent violence"
+    },
+    "democrat": {
+      "framing": "necessary legislation to reduce violence",
+      "emotional_valence": "urgent, demanding action",
+      "key_actors": ["activist", "politician", "shooting survivor"],
+      "setting_cues": ["protest march", "congressional hearing", "community rally"],
+      "example_context": "we can pass strong gun control laws — do something"
+    }
+  },
+  {
+    "slug": "gender-identity",
+    "headword": "gender identity",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "political lunacy and mental health concern",
+      "emotional_valence": "dismissive, alarmed",
+      "key_actors": ["concerned parent", "doctor", "politician"],
+      "setting_cues": ["clinical office", "school meeting", "news broadcast"],
+      "example_context": "gender identity politics has veered off to lunacy"
+    },
+    "democrat": {
+      "framing": "personal identity deserving respect and legal protection",
+      "emotional_valence": "affirming, matter-of-fact",
+      "key_actors": ["trans person", "ally", "colleague"],
+      "setting_cues": ["everyday social setting", "workplace", "among friends"],
+      "example_context": "it costs cisgender people nothing to acknowledge another person's gender identity"
+    }
+  },
+  {
+    "slug": "voter-fraud",
+    "headword": "voter fraud",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "widespread Democratic cheating through mail-in votes and illegal immigrants",
+      "emotional_valence": "accusatory, alarmed",
+      "key_actors": ["election official", "mail-in ballot", "illegal voter"],
+      "setting_cues": ["ballot drop box", "mail sorting facility", "unsupervised voting"],
+      "example_context": "Democrats commit voter fraud; remove illegal alien votes and they never win again"
+    },
+    "democrat": {
+      "framing": "a false Republican narrative used to justify voter suppression",
+      "emotional_valence": "dismissive, countering",
+      "key_actors": ["election worker", "voter", "Republican official"],
+      "setting_cues": ["orderly polling station", "election oversight", "official record review"],
+      "example_context": "the only concrete examples of voter fraud in recent years involved Republicans"
+    }
+  },
+  {
+    "slug": "black-lives-matter",
+    "headword": "Black Lives Matter",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "violent riots and anti-police disorder",
+      "emotional_valence": "critical, alarmed",
+      "key_actors": ["protester", "rioter", "police officer"],
+      "setting_cues": ["burning street", "riot police", "looted storefront"],
+      "example_context": "BLM leader justifies rioting as the language of the unheard"
+    },
+    "democrat": {
+      "framing": "organized community advocacy for systemic change",
+      "emotional_valence": "supportive, empowering",
+      "key_actors": ["activist", "community organizer", "advocate"],
+      "setting_cues": ["community meeting", "coalition gathering", "peaceful march"],
+      "example_context": "months of hard work by advocates, youth coalitions, and BLM LA achieving reform"
+    }
+  },
+  {
+    "slug": "single-mother",
+    "headword": "single mother",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "struggle and hardship, used to criticize political figures",
+      "emotional_valence": "sympathetic toward struggle, critical of politicians",
+      "key_actors": ["single mother", "politician"],
+      "setting_cues": ["sparse kitchen", "late night at home", "bills on table"],
+      "example_context": "a struggling single mother being abandoned by a politician with no compassion"
+    },
+    "democrat": {
+      "framing": "resilience and systemic need for policy support",
+      "emotional_valence": "empowering, advocating",
+      "key_actors": ["single mother", "child", "policymaker"],
+      "setting_cues": ["community meeting", "home with children", "public hearing"],
+      "example_context": "universal healthcare, childcare, and student debt relief would change single mothers' lives"
+    }
+  },
+  {
+    "slug": "homeschooling",
+    "headword": "homeschooling",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "deliberate educational choice producing better outcomes",
+      "emotional_valence": "positive, proud",
+      "key_actors": ["parent", "child", "family"],
+      "setting_cues": ["organized home classroom", "kitchen table with textbooks", "parent teaching child"],
+      "example_context": "homeschooling produces better-educated, more-tolerant kids"
+    },
+    "democrat": {
+      "framing": "overwhelming burden of juggling work and childcare",
+      "emotional_valence": "stressed, overwhelmed",
+      "key_actors": ["working parent", "child", "employer"],
+      "setting_cues": ["chaotic home workspace", "laptop open with work beside child's schoolwork", "distracted parent"],
+      "example_context": "working from home, childcare, and homeschooling simultaneously — not doing anything well"
+    }
+  },
+  {
+    "slug": "white-privilege",
+    "headword": "white privilege",
+    "extraction_source": "dictionary.json",
+    "republican": {
+      "framing": "a myth that ignores real white poverty",
+      "emotional_valence": "dismissive, offended",
+      "key_actors": ["poor white family", "critic of the concept"],
+      "setting_cues": ["rural area", "working-class home", "trailer park"],
+      "example_context": "tell a poor white family in a trailer park about their privilege"
+    },
+    "democrat": {
+      "framing": "a real structural advantage requiring awareness and education",
+      "emotional_valence": "serious, educational",
+      "key_actors": ["student", "professor", "community member"],
+      "setting_cues": ["university classroom", "community lecture", "educational setting"],
+      "example_context": "all college students should take a mandatory course on black history and white privilege"
+    }
+  }
+]

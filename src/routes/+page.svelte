@@ -61,7 +61,7 @@
     </div>
 
     <p class="dict-link">
-      <a href="https://dictionary.ccc-mit.org/" target="_blank" rel="noopener">
+      <a href="https://dictionary.ccc-mit.org/book/bridging_dictionary.html" target="_blank" rel="noopener">
         Explore the full Bridging Dictionary →
       </a>
     </p>
