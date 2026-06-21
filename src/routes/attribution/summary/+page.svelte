@@ -151,10 +151,6 @@
               <span class="review-guess" class:wrong-guess={!r.correct} class:right-guess={r.correct}>
                 You said: {r.guess === 'R' ? 'Republican' : 'Democrat'}
               </span>
-              {#if !r.correct}
-                <span class="review-divider">·</span>
-                <span class="review-actual">Actually: {side === 'R' ? 'Republican' : 'Democrat'}</span>
-              {/if}
             </div>
             <div class="review-bars">
               <div class="bar-row">
@@ -324,9 +320,7 @@
   }
 
   .wrong-guess { color: #c0674a; }
-  .right-guess { color: #888; }
-  .review-divider { color: #444; }
-  .review-actual { color: #7ec87e; }
+  .right-guess { color: #7ec87e; }
 
   .review-bars {
     display: flex;
