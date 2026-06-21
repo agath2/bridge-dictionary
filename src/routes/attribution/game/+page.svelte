@@ -95,22 +95,9 @@
       <div class="reveal-slot">
         {#if guess !== null}
           <div class="reveal" class:correct={correct} class:wrong={!correct}>
-            <div class="bars">
-              <div class="bar-row">
-                <span class="bar-label republican-label">Republican</span>
-                <div class="bar-track">
-                  <div class="bar-fill republican-fill" style="width: {currentWord.republican_pct}%"></div>
-                </div>
-                <span class="bar-pct">{currentWord.republican_pct.toFixed(0)}%</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label democrat-label">Democrat</span>
-                <div class="bar-track">
-                  <div class="bar-fill democrat-fill" style="width: {currentWord.democrat_pct}%"></div>
-                </div>
-                <span class="bar-pct">{currentWord.democrat_pct.toFixed(0)}%</span>
-              </div>
-            </div>
+            <p class="answer">
+              {majoritySide(currentWord) === 'R' ? 'Republicans' : 'Democrats'} say it more
+            </p>
 
             <button class="next-btn" onclick={advance}>
               {currentIndex + 1 >= sessionWords.length ? 'See results →' : 'Next →'}
@@ -282,51 +269,10 @@
     border: 1px solid #5a3a3a;
   }
 
-  .bars {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .bar-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .bar-label {
-    font-size: 0.8rem;
-    width: 80px;
-    flex-shrink: 0;
-    letter-spacing: 0.03em;
-  }
-
-  .republican-label { color: #c0674a; }
-  .democrat-label { color: #6a9fd8; }
-
-  .bar-track {
-    flex: 1;
-    height: 6px;
-    background: #2a2a2a;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-
-  .bar-fill {
-    height: 100%;
-    border-radius: 3px;
-    transition: width 0.5s ease;
-  }
-
-  .republican-fill { background: #c0674a; }
-  .democrat-fill { background: #6a9fd8; }
-
-  .bar-pct {
-    font-size: 0.8rem;
-    color: #888;
-    width: 36px;
-    text-align: right;
-    font-family: 'Courier New', monospace;
+  .answer {
+    font-size: 1rem;
+    color: #e8e4dc;
+    letter-spacing: 0.02em;
   }
 
   .next-btn {
