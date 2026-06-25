@@ -34,8 +34,8 @@
         <h1>{word.headword}</h1>
         <p class="sub">
           {correct
-            ? 'The AI got it. Here's how each side actually uses this word.'
-            : 'Here's how each side actually uses this word — compare it to how you described it.'}
+            ? "The AI got it. Here's how each side actually uses this word."
+            : "Here's how each side actually uses this word — compare it to how you described it."}
         </p>
       </div>
 
