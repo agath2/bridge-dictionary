@@ -58,6 +58,17 @@
         <span class="card-cta">Play →</span>
       </a>
 
+
+      <a href="/charades" class="card">
+        <div class="card-label">Game 5</div>
+        <h2 class="card-title">Charades</h2>
+        <p class="card-description">
+          A word from the Bridging Dictionary is chosen. Describe it to an AI without
+          saying it. See how many rounds it takes — then see how each side uses the word.
+        </p>
+        <span class="card-cta">Play →</span>
+      </a>
+
     </div>
 
     <p class="dict-link">

@@ -1,0 +1,327 @@
+<script>
+  import { goto } from '$app/navigation';
+  import { get } from 'svelte/store';
+  import { charadesWord, charadesHistory, charadesStatus } from '$lib/charadesStore.js';
+
+  const MAX_ROUNDS = 8;
+
+  const word = get(charadesWord);
+
+  if (!word) {
+    goto('/charades');
+  }
+
+  let history = $state([]);
+  let clue = $state('');
+  let thinking = $state(false);
+  let status = $state('playing'); // 'playing' | 'correct' | 'gaveup'
+
+  let roundCount = $derived(history.length);
+  let atLimit = $derived(roundCount >= MAX_ROUNDS);
+
+  async function submitClue() {
+    const trimmed = clue.trim();
+    if (!trimmed || thinking || status !== 'playing') return;
+
+    clue = '';
+    thinking = true;
+
+    await new Promise(r => setTimeout(r, 1400));
+
+    // Stub: always wrong until real AI wired in
+    const guess = '…';
+    history = [...history, { clue: trimmed, guess }];
+    thinking = false;
+
+    if (roundCount >= MAX_ROUNDS) {
+      finishGame('gaveup');
+    }
+  }
+
+  function giveUp() {
+    finishGame('gaveup');
+  }
+
+  function finishGame(outcome) {
+    status = outcome;
+    charadesHistory.set(history);
+    charadesStatus.set(outcome);
+    goto('/charades/summary');
+  }
+
+  function handleKeydown(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      submitClue();
+    }
+  }
+</script>
+
+<svelte:head>
+  <title>Charades — Bridging Dictionary</title>
+</svelte:head>
+
+{#if word}
+  <main>
+    <div class="top-bar">
+      <a href="/charades" class="back">← Back</a>
+      <span class="round-count">Round {roundCount + (thinking ? 1 : 1)} of {MAX_ROUNDS}</span>
+    </div>
+
+    <div class="word-block">
+      <span class="word-label">describe this word</span>
+      <span class="word-text">{word.headword}</span>
+      <span class="word-rule">Don't say the word, its root, or direct synonyms</span>
+    </div>
+
+    <div class="history">
+      {#each history as round, i}
+        <div class="round">
+          <div class="round-number">Round {i + 1}</div>
+          <div class="clue-row">
+            <span class="role you">You</span>
+            <span class="bubble clue-bubble">{round.clue}</span>
+          </div>
+          <div class="guess-row">
+            <span class="role ai">AI</span>
+            <span class="bubble guess-bubble">{round.guess}</span>
+          </div>
+        </div>
+      {/each}
+
+      {#if thinking}
+        <div class="round">
+          <div class="round-number">Round {roundCount}</div>
+          <div class="clue-row">
+            <span class="role you">You</span>
+            <span class="bubble clue-bubble">{history[history.length - 1]?.clue ?? ''}</span>
+          </div>
+          <div class="guess-row">
+            <span class="role ai">AI</span>
+            <span class="bubble guess-bubble thinking">thinking…</span>
+          </div>
+        </div>
+      {/if}
+    </div>
+
+    {#if status === 'playing' && !atLimit}
+      <div class="input-area">
+        <textarea
+          bind:value={clue}
+          onkeydown={handleKeydown}
+          placeholder="Type your clue…"
+          rows="2"
+          disabled={thinking}
+        ></textarea>
+        <div class="input-actions">
+          <button class="give-up-btn" onclick={giveUp} disabled={thinking}>Give up</button>
+          <button class="submit-btn" onclick={submitClue} disabled={thinking || !clue.trim()}>
+            Submit →
+          </button>
+        </div>
+      </div>
+    {/if}
+  </main>
+{/if}
+
+<style>
+  :global(body) {
+    background: #0f0f0f;
+    color: #e8e4dc;
+    font-family: 'Georgia', serif;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.4rem 2rem 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .back {
+    font-size: 0.85rem;
+    color: #666;
+    text-decoration: none;
+  }
+  .back:hover { color: #e8e4dc; }
+
+  .round-count {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .word-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2rem 0 1rem;
+    text-align: center;
+  }
+
+  .word-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .word-text {
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: #d4a853;
+    letter-spacing: -0.01em;
+  }
+
+  .word-rule {
+    font-size: 0.8rem;
+    color: #444;
+    font-style: italic;
+    margin-top: 0.25rem;
+  }
+
+  /* History */
+  .history {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  .round {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .round-number {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 0.1rem;
+  }
+
+  .clue-row, .guess-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .role {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    width: 2.2rem;
+    flex-shrink: 0;
+    padding-top: 0.35rem;
+  }
+
+  .you { color: #888; }
+  .ai  { color: #6a9fd8; }
+
+  .bubble {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid #2a2a2a;
+    color: #c8c4bc;
+    max-width: 100%;
+  }
+
+  .clue-bubble {
+    border-color: #2a2a2a;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .guess-bubble {
+    border-color: rgba(106, 159, 216, 0.25);
+    background: rgba(106, 159, 216, 0.05);
+    color: #6a9fd8;
+  }
+
+  .guess-bubble.thinking {
+    color: #444;
+    font-style: italic;
+    border-style: dashed;
+  }
+
+  /* Input */
+  .input-area {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0f0f0f;
+    border-top: 1px solid #1e1e1e;
+    padding: 1rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  textarea {
+    width: 100%;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    color: #e8e4dc;
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    padding: 0.65rem 0.85rem;
+    resize: none;
+    line-height: 1.5;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  textarea:focus { border-color: #555; }
+  textarea:disabled { opacity: 0.4; }
+
+  .input-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .give-up-btn {
+    background: none;
+    border: none;
+    color: #555;
+    font-family: 'Georgia', serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+    letter-spacing: 0.03em;
+    transition: color 0.15s;
+  }
+  .give-up-btn:hover:not(:disabled) { color: #c07e7e; }
+  .give-up-btn:disabled { opacity: 0.3; cursor: default; }
+
+  .submit-btn {
+    background: none;
+    border: 1px solid #888;
+    color: #e8e4dc;
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .submit-btn:hover:not(:disabled) {
+    border-color: #e8e4dc;
+    color: #fff;
+  }
+  .submit-btn:disabled { opacity: 0.3; cursor: default; }
+</style>
