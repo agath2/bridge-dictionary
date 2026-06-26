@@ -14,6 +14,7 @@
   let history = $state([]);
   let clue = $state('');
   let thinking = $state(false);
+  let pendingClue = $state('');
   let status = $state('playing'); // 'playing' | 'correct' | 'gaveup'
 
   let roundCount = $derived(history.length);
@@ -24,6 +25,7 @@
     if (!trimmed || thinking || status !== 'playing') return;
 
     clue = '';
+    pendingClue = trimmed;
     thinking = true;
 
     let guess, correct;
@@ -43,6 +45,7 @@
 
     history = [...history, { clue: trimmed, guess }];
     thinking = false;
+    pendingClue = '';
 
     if (correct) {
       finishGame('correct');
@@ -104,10 +107,10 @@
 
       {#if thinking}
         <div class="round">
-          <div class="round-number">Round {roundCount}</div>
+          <div class="round-number">Round {roundCount + 1}</div>
           <div class="clue-row">
             <span class="role you">You</span>
-            <span class="bubble clue-bubble">{history[history.length - 1]?.clue ?? ''}</span>
+            <span class="bubble clue-bubble">{pendingClue}</span>
           </div>
           <div class="guess-row">
             <span class="role ai">AI</span>
