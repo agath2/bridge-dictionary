@@ -41,13 +41,10 @@
     recognition.onresult = (event) => {
       for (let i = event.resultIndex; i < event.results.length; i++) {
         if (event.results[i].isFinal) {
-          const transcript = event.results[i][0].transcript.trim().toLowerCase();
-          const tokens = transcript.split(/\s+/).filter(w => w.length > 0);
-          for (const token of tokens) {
-            if (!wordSet.has(token)) {
-              wordSet.add(token);
-              words = [...words, token];
-            }
+          const phrase = event.results[i][0].transcript.trim().toLowerCase();
+          if (phrase && !wordSet.has(phrase)) {
+            wordSet.add(phrase);
+            words = [...words, phrase];
           }
         }
       }
