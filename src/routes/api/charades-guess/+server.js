@@ -37,7 +37,7 @@ Rules:
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userMessage }
       ],
-      max_completion_tokens: 20
+      max_completion_tokens: 500
     })
   });
 
