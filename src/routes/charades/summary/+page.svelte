@@ -1,5 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
   import { get } from 'svelte/store';
   import { charadesWord, charadesHistory, charadesStatus, resetCharades } from '$lib/charadesStore.js';
 
@@ -7,9 +8,9 @@
   const history = get(charadesHistory);
   const status = get(charadesStatus);
 
-  if (!word) {
-    goto('/charades');
-  }
+  onMount(() => {
+    if (!word) goto('/charades');
+  });
 
   const rounds = history.length;
   const correct = status === 'correct';
