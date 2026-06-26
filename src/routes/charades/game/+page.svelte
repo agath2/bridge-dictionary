@@ -26,14 +26,27 @@
     clue = '';
     thinking = true;
 
-    await new Promise(r => setTimeout(r, 1400));
+    let guess, correct;
+    try {
+      const res = await fetch('/api/charades-guess', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ targetWord: word.headword, history: [...history, { clue: trimmed }] })
+      });
+      const data = await res.json();
+      guess = data.guess;
+      correct = data.correct;
+    } catch (e) {
+      guess = '(error — try again)';
+      correct = false;
+    }
 
-    // Stub: always wrong until real AI wired in
-    const guess = '…';
     history = [...history, { clue: trimmed, guess }];
     thinking = false;
 
-    if (roundCount >= MAX_ROUNDS) {
+    if (correct) {
+      finishGame('correct');
+    } else if (roundCount >= MAX_ROUNDS) {
       finishGame('gaveup');
     }
   }
