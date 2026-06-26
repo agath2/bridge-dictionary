@@ -32,13 +32,12 @@ Rules:
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      model: 'gpt-4o',
+      model: 'gpt-5.5',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userMessage }
       ],
-      max_tokens: 20,
-      temperature: 0.3
+      max_completion_tokens: 20
     })
   });
 
