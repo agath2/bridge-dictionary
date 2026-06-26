@@ -39,17 +39,17 @@
       response_time_ms: responseTime,
       type: currentWord.type
     }]);
-  }
 
-  function advance() {
-    if (currentIndex + 1 >= sessionWords.length) {
-      goto('/affiliation?next=/attribution/summary');
-    } else {
-      currentIndex += 1;
-      guess = null;
-      correct = null;
-      roundStartTime = Date.now();
-    }
+    setTimeout(() => {
+      if (currentIndex + 1 >= sessionWords.length) {
+        goto('/affiliation?next=/attribution/summary');
+      } else {
+        currentIndex += 1;
+        guess = null;
+        correct = null;
+        roundStartTime = Date.now();
+      }
+    }, 600);
   }
 </script>
 
@@ -92,19 +92,6 @@
         </button>
       </div>
 
-      <div class="reveal-slot">
-        {#if guess !== null}
-          <div class="reveal" class:correct={correct} class:wrong={!correct}>
-            <p class="answer">
-              {majoritySide(currentWord) === 'R' ? 'Republicans' : 'Democrats'} say it more
-            </p>
-
-            <button class="next-btn" onclick={advance}>
-              {currentIndex + 1 >= sessionWords.length ? 'See results →' : 'Next →'}
-            </button>
-          </div>
-        {/if}
-      </div>
 
     </div>
   {/if}
@@ -166,9 +153,6 @@
     padding-top: 10px;
   }
 
-  .reveal-slot {
-    min-height: 160px;
-  }
 
   .word-card {
     padding: 2.5rem 0;
@@ -247,49 +231,6 @@
   }
   .choice-btn.republican.unchosen {
     opacity: 0.25;
-  }
-
-  /* Reveal panel */
-  .reveal {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    padding: 1.5rem;
-    border-radius: 2px;
-    animation: fadeIn 0.2s ease;
-  }
-
-  .reveal.correct {
-    background: #1a2a1a;
-    border: 1px solid #3a5a3a;
-  }
-
-  .reveal.wrong {
-    background: #2a1a1a;
-    border: 1px solid #5a3a3a;
-  }
-
-  .answer {
-    font-size: 1rem;
-    color: #e8e4dc;
-    letter-spacing: 0.02em;
-  }
-
-  .next-btn {
-    background: none;
-    border: 1px solid #888;
-    color: #e8e4dc;
-    font-family: 'Georgia', serif;
-    font-size: 0.95rem;
-    padding: 0.65rem 1.5rem;
-    cursor: pointer;
-    letter-spacing: 0.04em;
-    align-self: flex-start;
-    transition: border-color 0.15s, color 0.15s;
-  }
-  .next-btn:hover {
-    border-color: #e8e4dc;
-    color: #fff;
   }
 
   @keyframes fadeIn {
