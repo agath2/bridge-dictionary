@@ -45,7 +45,7 @@ Rules:
   if (!res.ok) {
     const body = await res.text();
     console.error('OpenAI error', res.status, body);
-    throw error(502, 'AI unavailable');
+    throw error(502, `OpenAI ${res.status}: ${body}`);
   }
 
   const data = await res.json();
