@@ -16,7 +16,6 @@
   let thinking = $state(false);
   let pendingClue = $state('');
   let status = $state('playing'); // 'playing' | 'correct' | 'gaveup'
-  let showCorrect = $state(false);
 
   let roundCount = $derived(history.length);
   let atLimit = $derived(roundCount >= MAX_ROUNDS);
@@ -66,14 +65,10 @@
     finishGame('gaveup');
   }
 
-  async function finishGame(outcome) {
+  function finishGame(outcome) {
     status = outcome;
     charadesHistory.set(history);
     charadesStatus.set(outcome);
-    if (outcome === 'correct') {
-      showCorrect = true;
-      await new Promise(r => setTimeout(r, 1800));
-    }
     goto('/charades/summary');
   }
 
@@ -131,10 +126,6 @@
         </div>
       {/if}
     </div>
-
-    {#if showCorrect}
-      <div class="correct-banner">Correct! The word was <em>{word.headword}</em></div>
-    {/if}
 
     {#if status === 'playing' && !atLimit}
       <div class="input-area">
@@ -324,20 +315,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .correct-banner {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #7ec87e;
-    padding: 1.5rem;
-    border: 1px solid #2a3d2a;
-    background: rgba(126, 200, 126, 0.05);
-  }
-
-  .correct-banner em {
-    color: #d4a853;
-    font-style: normal;
   }
 
   .give-up-btn {
