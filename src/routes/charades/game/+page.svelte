@@ -36,8 +36,8 @@
         body: JSON.stringify({ targetWord: word.headword, history: [...history, { clue: trimmed }] })
       });
       const data = await res.json();
-      if (!res.ok) {
-        console.error('guess API error', data);
+      if (!res.ok || !data.guess) {
+        console.error('guess API error', res.status, data);
         guess = '(error — try again)';
         correct = false;
       } else {
