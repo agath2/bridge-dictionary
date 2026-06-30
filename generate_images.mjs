@@ -3,12 +3,21 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const API_KEY = 'sk-iK5SZKZ1ytXznhgswc7rmwHtOzyZ8mFd4aw2GKN2mc2E8eim';
+const API_KEY = 'sk-bvGskZlaXN3C8yWOq5FPnm7syAoAwRtTj4N6vK412t7CG3JZ';
 const OUT_DIR = path.join(__dirname, 'static', 'game2');
+const PROMPTS_PATH = path.join(__dirname, 'prompts.json');
 
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
-const words = [
+const { prompts } = JSON.parse(fs.readFileSync(PROMPTS_PATH, 'utf-8'));
+const words = prompts.map(e => ({
+  slug: e.slug,
+  word: e.headword,
+  r: e.r_prompt,
+  d: e.d_prompt,
+}));
+
+const _unused_words = [
   {
     slug: 'illegal-alien',
     word: 'illegal alien',
@@ -153,7 +162,7 @@ const words = [
   //   r: 'A person sitting alone at a desk, laptop closed, microphone unplugged beside it, looking out a window at an empty street. Silenced, isolated. Photorealistic, editorial photography style, no text in scene.',
   //   d: 'A community forum, a moderator at a podium, an audience of people with hands raised, open discussion in progress. Accountability, public deliberation. Photorealistic, editorial photography style, no text in scene.'
   // }
-];
+]; // _unused_words — kept for reference only
 
 async function generateImage(prompt, outputPath) {
   if (fs.existsSync(outputPath)) {

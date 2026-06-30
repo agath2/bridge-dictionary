@@ -1,107 +1,244 @@
 {
   "metadata": {
-    "prompt_method": "human-authored-v1",
-    "extraction_source": "extractions.json",
+    "method": "tiac-v1",
+    "model": "gpt-4o",
     "dictionary_source": "dictionary.json",
-    "image_style": "photorealistic, editorial photography, no text in scene, 3:2 aspect ratio",
-    "notes": "Each scene description derived strictly from the corresponding extractions.json entry. No outside cultural knowledge used beyond what the dictionary text provides."
+    "image_style": "photorealistic, editorial photography, no text in scene, 3:2 aspect ratio"
   },
   "prompts": [
     {
       "slug": "illegal-alien",
       "headword": "illegal alien",
-      "r_prompt": "A uniformed police officer standing outside a convenience store at night, speaking with a bystander. Police car visible in the background, blue and red lights on. Tense, documentary atmosphere. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A middle-aged woman at a podium speaking into microphones, her expression strained. A framed photograph of a young person is visible on a table beside her, surrounded by reporters. Quiet grief, political setting, indoor press room. Photorealistic, editorial photography style, no text in scene."
+      "r_reasoning": {
+        "quote": "Illegal Alien Accused of Shooting, Killing 19-Year-Old in South Carolina.",
+        "intent": "The message communicates the association of illegal immigration with criminal activity.",
+        "object": "A crime scene involving a shooting.",
+        "form": "A nighttime scene in a suburban neighborhood in South Carolina. Police cars with flashing lights are parked on the street, and officers are seen investigating a crime scene. The atmosphere is tense and somber, with neighbors gathered at a distance, looking concerned. The lighting is dim, with streetlights casting long shadows, adding to the mood of unease and seriousness."
+      },
+      "r_prompt": "A nighttime crime scene in a suburban neighborhood in South Carolina. Police cars with flashing lights illuminate the area as officers investigate. Neighbors are gathered at a distance, looking concerned. The scene is dimly lit by streetlights, creating long shadows and a tense atmosphere.",
+      "d_reasoning": {
+        "quote": "Did he really just say “illegal alien”? My prayers for that family, but lawd they're being exploited.",
+        "intent": "The message questions the validity and exploitation of the term 'illegal alien' in political narratives.",
+        "object": "A family being consoled at a community gathering.",
+        "form": "A daytime scene at a community center or church hall. A diverse group of people, including a family, is gathered together, some offering comfort and support to one another. The atmosphere is one of empathy and solidarity, with warm, natural lighting streaming in through large windows, creating a hopeful and supportive mood."
+      },
+      "d_prompt": "A daytime scene inside a community center with a diverse group of people gathered. A family is being consoled by others, creating an atmosphere of empathy and solidarity. Warm, natural light streams in through large windows, enhancing the hopeful mood."
     },
     {
       "slug": "asylum-seeker",
       "headword": "asylum seeker",
-      "r_prompt": "A long queue of people waiting outside a border processing facility in bright midday sun, border agents in uniform reviewing documents at a checkpoint. Crowded, institutional, procedural atmosphere. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A tired woman and two young children sitting on plastic chairs in a fluorescent-lit waiting room, a legal aid worker seated across from them reviewing paperwork. Quiet, exhausted, hopeful. Photorealistic, editorial photography style, no text in scene."
-    },
-    {
-      "slug": "deportation",
-      "headword": "deportation",
-      "r_prompt": "Two immigration officers escorting a man through a secured facility corridor, clipboards and lanyards visible. Official, procedural, orderly. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A man in a military-style jacket sitting alone in an airport departure area, head bowed, a single bag at his feet. Late afternoon light through large windows. Still, heavy, isolated. Photorealistic, editorial photography style, no text in scene."
+      "r_reasoning": {
+        "quote": "every asylum seeker should be sent to Mexico to wait for their asylum status to be reviewed",
+        "intent": "This quote communicates skepticism and a lack of trust in the intentions of asylum seekers.",
+        "object": "Asylum seekers waiting in a temporary camp in Mexico.",
+        "form": "A photorealistic scene of a crowded, makeshift camp near the U.S.-Mexico border. The atmosphere is tense and uncertain, with people of various ages, including families, standing or sitting on the ground amidst tents and basic shelters. The lighting is harsh, reflecting a hot, arid environment. The composition focuses on the border fence in the background, emphasizing the separation and waiting."
+      },
+      "r_prompt": "A crowded, makeshift camp near the U.S.-Mexico border with asylum seekers waiting. The scene shows people of various ages, including families, amidst tents and basic shelters. The atmosphere is tense and uncertain, with harsh lighting reflecting a hot, arid environment. The border fence is visible in the background, emphasizing separation and waiting.",
+      "d_reasoning": {
+        "quote": "highlight the struggles and injustices faced by asylum seekers, advocating for their rights and protection",
+        "intent": "This quote communicates empathy and support for asylum seekers, focusing on their struggles and need for protection.",
+        "object": "An asylum seeker family being welcomed by a supportive community.",
+        "form": "A photorealistic scene of a community center in a U.S. city, where a diverse group of people warmly welcomes an asylum seeker family. The atmosphere is hopeful and supportive, with soft, warm lighting creating a welcoming ambiance. The composition centers on the family being greeted with smiles and open arms, surrounded by volunteers offering assistance, food, and clothing."
+      },
+      "d_prompt": "A community center in a U.S. city where a diverse group of people warmly welcomes an asylum seeker family. The atmosphere is hopeful and supportive, with soft, warm lighting creating a welcoming ambiance. The scene centers on the family being greeted with smiles and open arms, surrounded by volunteers offering assistance, food, and clothing."
     },
     {
       "slug": "border-security",
       "headword": "border security",
-      "r_prompt": "A tall concrete border wall stretching across a flat desert landscape at dusk, a patrol truck driving alongside it on a dirt road. Vast, imposing, orderly. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A border agent at a workstation with multiple surveillance camera feeds on monitors, reviewing footage. Clean administrative office, focused and calm. Photorealistic, editorial photography style, no text in scene."
+      "r_reasoning": {
+        "quote": "Border Security IS National Security!",
+        "intent": "To communicate that border security is crucial for national security and crime prevention.",
+        "object": "A physical barrier, such as a wall, at the border.",
+        "form": "A photorealistic scene showing a tall, imposing border wall under bright daylight. The wall stretches across a desert landscape, with a clear blue sky above. The atmosphere is tense and serious, conveying a sense of strength and protection. The composition focuses on the height and length of the wall, with no people visible in the scene."
+      },
+      "r_prompt": "A tall, imposing border wall stretching across a desert landscape under bright daylight. The scene conveys strength and protection, with a clear blue sky and no people visible.",
+      "d_reasoning": {
+        "quote": "There Are Good Ways to Spend $ 5 Billion on Border Security - The Atlantic",
+        "intent": "To suggest that border security can be achieved through various measures beyond physical barriers.",
+        "object": "Technology and personnel at the border.",
+        "form": "A photorealistic scene of a border checkpoint with advanced technology and personnel. The scene is set during the day with natural lighting. Border agents are seen monitoring screens and using handheld devices, while drones fly overhead. The atmosphere is professional and efficient, focusing on the use of technology and human resources for border security."
+      },
+      "d_prompt": "A border checkpoint with advanced technology and personnel during the day. Border agents monitor screens and use handheld devices, while drones fly overhead, conveying a professional and efficient atmosphere."
     },
     {
-      "slug": "climate-change",
-      "headword": "climate change",
-      "r_prompt": "A coal plant with two large smokestacks against a clear blue sky, workers in hard hats walking in the foreground. Ordinary industrial workday, unremarkable. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A flooded suburban street at midday, a car half-submerged, a family wading through knee-deep brown water carrying bags of belongings. Urgent, disorienting, exhausted. Photorealistic, editorial photography style, no text in scene."
-    },
-    {
-      "slug": "renewable-energy",
-      "headword": "renewable energy",
-      "r_prompt": "A wind turbine partially dismantled in an open field, a crane and maintenance workers in safety vests assessing damage. Overcast sky, expensive-looking repair operation. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A vast solar farm at golden hour, rows of gleaming panels stretching to the horizon, a single technician walking the rows. Clean, expansive, quietly optimistic. Photorealistic, editorial photography style, no text in scene."
+      "slug": "deportation",
+      "headword": "deportation",
+      "r_reasoning": {
+        "quote": "His deportation is legal cos he's an illegal alien & invisible to the law.",
+        "intent": "The message communicates the legality and necessity of deportation as a measure to enforce law and order.",
+        "object": "Law enforcement officers conducting a deportation operation.",
+        "form": "A photorealistic scene depicting law enforcement officers in uniform, standing next to a government vehicle, possibly an immigration enforcement van, in an urban setting. The lighting is bright and clear, suggesting midday. The atmosphere is serious and official, with officers focused on their task. The composition centers on the officers and the vehicle, conveying a sense of authority and order."
+      },
+      "r_prompt": "A group of law enforcement officers in uniform standing next to a government immigration enforcement van in an urban setting during midday. The scene is serious and official, with the officers focused on their task, conveying authority and order.",
+      "d_reasoning": {
+        "quote": "Marine combat veteran Jose Segovia Benitez recounts his 'crushing' deportation to El Salvador.",
+        "intent": "The message highlights the personal and emotional impact of deportation on individuals and families, portraying it as a traumatic and unjust experience.",
+        "object": "An individual, possibly a veteran, sitting alone with a somber expression.",
+        "form": "A photorealistic scene of a middle-aged man, possibly a veteran, sitting alone on a simple chair in a modest living room. The lighting is soft and dim, suggesting early evening. The atmosphere is quiet and reflective, with the man looking down, conveying a sense of loss and sadness. The composition focuses on the man's expression and the simplicity of the room, emphasizing the personal impact of deportation."
+      },
+      "d_prompt": "A middle-aged man, possibly a veteran, sitting alone on a simple chair in a modest living room during early evening. The scene is quiet and reflective, with soft, dim lighting, focusing on the man's somber expression, conveying a sense of loss and sadness."
     },
     {
       "slug": "living-wage",
       "headword": "living wage",
-      "r_prompt": "A teenager in a fast food uniform behind a counter, handing change to a customer with a routine expression. Ordinary entry-level job, fluorescent lighting, unremarkable. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A young woman in a supermarket uniform sitting on a break room bench, staring at a small pile of bills and coins on the table in front of her. Tired, quiet. Photorealistic, editorial photography style, no text in scene."
+      "r_reasoning": {
+        "quote": "They often question the feasibility of a living wage, its impact on the economy, and its necessity for all workers.",
+        "intent": "To communicate skepticism about the practicality and necessity of a living wage for all workers.",
+        "object": "A young teenager, such as a 16-year-old, working a part-time job.",
+        "form": "A photorealistic scene of a 16-year-old working at a fast-food restaurant. The teenager is wearing a uniform and standing behind a counter, taking an order from a customer. The lighting is bright and the atmosphere is busy, with customers in the background. The mood is neutral, emphasizing the routine nature of a part-time job."
+      },
+      "r_prompt": "A 16-year-old wearing a fast-food restaurant uniform, standing behind the counter taking an order. The scene is bright and busy, with customers in the background, capturing the routine environment of a part-time job.",
+      "d_reasoning": {
+        "quote": "They advocate for a living wage as a necessary and fair compensation for work, often linking it to issues of social justice and economic equality.",
+        "intent": "To convey the importance of a living wage as a fair compensation and a matter of social justice.",
+        "object": "A high school student working a job that pays a living wage.",
+        "form": "A photorealistic scene of a high school student working diligently in a retail store. The student is behind the cash register, assisting a customer with a smile. The store is well-lit and organized, with a warm and inviting atmosphere. The mood is positive, highlighting the fairness and dignity of earning a living wage."
+      },
+      "d_prompt": "A high school student working behind a cash register in a retail store, assisting a customer with a smile. The store is well-lit and organized, creating a warm and inviting atmosphere, emphasizing the fairness of earning a living wage."
     },
     {
       "slug": "welfare",
       "headword": "welfare",
-      "r_prompt": "A long queue of people in a government assistance office, rows of plastic chairs under fluorescent lights, a bureaucratic service window at the far end. Impersonal, institutional. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A mother helping her young daughter with homework at a kitchen table in a modest apartment. Warm lamp light, a bag of groceries nearby on the counter. Quiet, steady, dignified. Photorealistic, editorial photography style, no text in scene."
+      "r_reasoning": {
+        "quote": "So they are saying there is more than 6 million illegals we are paying for (and counting)? There is our 500 billion tax $ in welfare for life going down the tubes.",
+        "intent": "The message communicates a sense of frustration and concern about government resources being wasted on illegal immigrants.",
+        "object": "Illegal immigrants receiving government aid.",
+        "form": "A crowded government office with a long line of people, some appearing to be immigrants, waiting to receive assistance. The atmosphere is tense, with harsh fluorescent lighting casting shadows. The composition focuses on the line of people, with a government employee behind a counter looking overwhelmed. The mood is one of frustration and inefficiency."
+      },
+      "r_prompt": "A crowded government office with a long line of people, some appearing to be immigrants, waiting to receive assistance. Harsh fluorescent lighting casts shadows, and the atmosphere is tense. The composition focuses on the line of people, with a government employee behind a counter looking overwhelmed. The mood conveys frustration and inefficiency.",
+      "d_reasoning": {
+        "quote": "Bernie: Let's stop with the corporate welfare and give people education and healthcare instead.",
+        "intent": "The message communicates a desire to redirect resources from corporations to essential services for individuals.",
+        "object": "People receiving education and healthcare.",
+        "form": "A bright and welcoming community center where people are receiving educational and healthcare services. The lighting is warm and inviting, with natural sunlight streaming through large windows. The composition includes a teacher engaging with students in a classroom and a healthcare provider assisting a patient in a nearby room. The mood is hopeful and supportive."
+      },
+      "d_prompt": "A bright and welcoming community center where people are receiving educational and healthcare services. Warm and inviting lighting, with natural sunlight streaming through large windows. The scene includes a teacher engaging with students in a classroom and a healthcare provider assisting a patient in a nearby room. The mood is hopeful and supportive."
     },
     {
-      "slug": "mass-shooting",
-      "headword": "mass shooting",
-      "r_prompt": "A man at an indoor shooting range in ear protection and safety glasses, practicing with a handgun in a focused stance. Disciplined, controlled, legal. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A school hallway lined with lockers, a small pile of flowers and a teddy bear placed against the wall beneath one locker. Empty corridor, still, heavy silence. Photorealistic, editorial photography style, no text in scene."
-    },
-    {
-      "slug": "gun-control",
-      "headword": "gun control",
-      "r_prompt": "A middle-aged man in a flannel shirt carefully cleaning a rifle at his kitchen table, a locked gun cabinet visible on the wall behind him. Routine, responsible, domestic. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A crowd of people marching down a city street in daylight, many holding handwritten signs, faces determined and emotional. Urban backdrop, peacefully intense. Photorealistic, editorial photography style, no text in scene."
-    },
-    {
-      "slug": "gender-identity",
-      "headword": "gender identity",
-      "r_prompt": "A concerned parent and a doctor sitting across from each other in a clinical office, a thick folder of documents open on the desk between them. Serious, medical, worried. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "Two colleagues talking and laughing in a bright office hallway, relaxed and at ease with each other. Ordinary workplace moment, warm natural light. Photorealistic, editorial photography style, no text in scene."
-    },
-    {
-      "slug": "voter-fraud",
-      "headword": "voter fraud",
-      "r_prompt": "A table covered in mail-in ballot envelopes, some open and scattered, an unattended ballot drop box in the background. Cluttered, unsupervised, chaotic atmosphere. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "An orderly polling station interior, voters standing in a calm queue, election workers carefully checking rolls at folding tables. Civic, procedural, quiet. Photorealistic, editorial photography style, no text in scene."
-    },
-    {
-      "slug": "black-lives-matter",
-      "headword": "Black Lives Matter",
-      "r_prompt": "A row of police officers in riot gear standing in front of a storefront with a shattered window, debris on the sidewalk, smoke in the background. Tense, chaotic aftermath. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A group of people gathered around a table in a community center, looking at documents and talking intently. Diverse group, organized, purposeful. Evening light through windows. Photorealistic, editorial photography style, no text in scene."
-    },
-    {
-      "slug": "single-mother",
-      "headword": "single mother",
-      "r_prompt": "A woman sitting alone at a kitchen table late at night, a pile of bills in front of her, an empty coffee mug beside her. Children's drawings visible on the refrigerator in the background. Isolated, worn down. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A woman speaking at a microphone at a community meeting, a young child seated beside her in a chair, other parents visible in the audience behind. Confident, present, engaged. Photorealistic, editorial photography style, no text in scene."
+      "slug": "working-poor",
+      "headword": "working poor",
+      "r_reasoning": {
+        "quote": "they accuse liberals of gentrifying Brooklyn and pushing out the working poor",
+        "intent": "The message communicates a critical view of liberal policies, highlighting the displacement of the working poor due to gentrification.",
+        "object": "Displaced working poor individuals in a gentrified area of Brooklyn",
+        "form": "A street scene in a gentrified area of Brooklyn, with upscale cafes and boutiques lining the street. In the foreground, a family with worn-out clothes is seen walking past, looking at the expensive shops with a sense of displacement. The lighting is bright, emphasizing the contrast between the polished environment and the family's modest appearance. The mood is tense and critical, capturing the feeling of being pushed out."
+      },
+      "r_prompt": "A photorealistic scene of a gentrified street in Brooklyn, with upscale cafes and boutiques. In the foreground, a modestly dressed family walks by, looking at the expensive shops. The lighting is bright, highlighting the contrast between the polished environment and the family's appearance. The mood is tense and critical.",
+      "d_reasoning": {
+        "quote": "they argue for a livable minimum wage and laws that give all workers the right to rest",
+        "intent": "The message communicates empathy and support for the working poor, advocating for policies that improve their conditions.",
+        "object": "Working poor individuals benefiting from supportive policies",
+        "form": "An indoor scene in a cozy, modest home. A family is gathered around a dining table, enjoying a meal together. The room is warmly lit, creating a comforting and hopeful atmosphere. The family members are smiling and relaxed, suggesting a sense of security and well-being. The mood is supportive and optimistic, reflecting the positive impact of policies like a livable wage."
+      },
+      "d_prompt": "A photorealistic indoor scene of a modest home, with a family gathered around a dining table enjoying a meal. The room is warmly lit, creating a comforting and hopeful atmosphere. The family members are smiling and relaxed, suggesting security and well-being. The mood is supportive and optimistic."
     },
     {
       "slug": "homeschooling",
       "headword": "homeschooling",
-      "r_prompt": "A parent sitting at a kitchen table with two children, open textbooks and a small whiteboard in front of them, everyone engaged and focused. Organized, calm, deliberate. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A parent at a laptop with work documents open on screen, a young child pulling at their sleeve, a worksheet abandoned on the table beside them. Distracted, overwhelmed. Photorealistic, editorial photography style, no text in scene."
+      "r_reasoning": {
+        "quote": "\"Homeschooling Produces Better-Educated, More-Tolerant Kids. Politicians Hate That.\"",
+        "intent": "The message communicates a positive view of homeschooling, emphasizing its effectiveness in producing well-educated and tolerant children.",
+        "object": "A well-adjusted, happy child engaged in a homeschooling activity.",
+        "form": "A bright, sunlit room with a cheerful child sitting at a desk, surrounded by books and educational materials. The child is smiling and focused, working on a science project with a small globe and a microscope. The atmosphere is warm and inviting, with natural light streaming through a window, creating a sense of harmony and success."
+      },
+      "r_prompt": "A bright, sunlit room with a cheerful child sitting at a desk, surrounded by books and educational materials. The child is smiling and focused, working on a science project with a small globe and a microscope. The atmosphere is warm and inviting, with natural light streaming through a window, creating a sense of harmony and success.",
+      "d_reasoning": {
+        "quote": "\"Day 2 of working from home / childcare / homeschooling. I'm not doing anything well. Gonna take a while to figure this out.\"",
+        "intent": "The message communicates a sense of struggle and frustration with the demands of homeschooling alongside other responsibilities.",
+        "object": "A parent juggling work and homeschooling tasks.",
+        "form": "A dimly lit living room with a cluttered table. A tired-looking parent is sitting at a laptop, surrounded by papers and a child's homework. The child is sitting nearby, looking confused with a math book open. The atmosphere is chaotic and tense, with a sense of overwhelm as the parent tries to balance work and homeschooling."
+      },
+      "d_prompt": "A dimly lit living room with a cluttered table. A tired-looking parent is sitting at a laptop, surrounded by papers and a child's homework. The child is sitting nearby, looking confused with a math book open. The atmosphere is chaotic and tense, with a sense of overwhelm as the parent tries to balance work and homeschooling."
     },
     {
-      "slug": "white-privilege",
-      "headword": "white privilege",
-      "r_prompt": "A weathered older white man sitting on the porch steps of a worn, modest house in a rural area, looking tired. Working-class setting, struggling, unglamorous. Photorealistic, editorial photography style, no text in scene.",
-      "d_prompt": "A professor at the front of a university lecture hall, gesturing toward a projection screen, students visible in tiered seating. Educational, attentive, serious atmosphere. Photorealistic, editorial photography style, no text in scene."
+      "slug": "climate-change",
+      "headword": "climate change",
+      "r_reasoning": {
+        "quote": "The climate change hysteria is a deep state hoax.",
+        "intent": "To convey skepticism and dismissiveness about the seriousness of climate change.",
+        "object": "A group of people laughing and dismissing the concept of climate change.",
+        "form": "A sunny outdoor setting with a group of people gathered around a table at a backyard barbecue. They are laughing and talking casually, with one person gesturing dismissively. The atmosphere is relaxed and carefree, with clear blue skies and no signs of environmental distress. The mood is light-hearted and unconcerned."
+      },
+      "r_prompt": "A sunny backyard barbecue with a group of people laughing and talking casually around a table. One person is gesturing dismissively, conveying a relaxed and carefree atmosphere. The sky is clear blue, and the mood is light-hearted, with no signs of environmental distress.",
+      "d_reasoning": {
+        "quote": "We need to treat climate change like the emergency it is and take immediate action.",
+        "intent": "To communicate urgency and seriousness about addressing climate change.",
+        "object": "A group of people actively engaged in an environmental cleanup effort.",
+        "form": "A scene at a beach with a group of people wearing gloves and picking up trash. The sky is overcast, suggesting an impending storm. The atmosphere is serious and focused, with people working diligently to clean the environment. The mood is urgent and determined, highlighting the need for immediate action."
+      },
+      "d_prompt": "An overcast beach scene with a group of people wearing gloves and picking up trash. The atmosphere is serious and focused, with an impending storm visible in the sky. The mood is urgent and determined, emphasizing the need for immediate environmental action."
+    },
+    {
+      "slug": "carbon-footprint",
+      "headword": "carbon footprint",
+      "r_reasoning": {
+        "quote": "If [he] was actually serious about fighting climate change he would have the highest carbon footprint for one individual in the history of the planet!",
+        "intent": "To express skepticism about the sincerity of individuals advocating for reducing carbon footprints.",
+        "object": "An individual with a large carbon footprint, suggesting hypocrisy.",
+        "form": "A photorealistic scene of a wealthy individual stepping out of a private jet on a tarmac. The scene is set in the late afternoon with a clear sky. The jet is sleek and modern, and the individual is dressed in expensive attire, exuding an air of privilege. The atmosphere is one of opulence and exclusivity, with the jet's engines still running, emphasizing the high carbon emissions."
+      },
+      "r_prompt": "A wealthy individual stepping out of a private jet on a tarmac, late afternoon, clear sky. The jet is sleek and modern, and the individual is dressed in expensive attire, exuding privilege. The atmosphere is opulent and exclusive, with the jet's engines running.",
+      "d_reasoning": {
+        "quote": "Control your carbon footprint! Good for the environment, it makes people LESS GREEDY AND NARCISSISTIC!!!",
+        "intent": "To emphasize the importance of individual action in reducing carbon emissions and promoting environmental responsibility.",
+        "object": "An individual engaging in environmentally friendly activities.",
+        "form": "A photorealistic scene of a person riding a bicycle through a lush, green park on a sunny day. The person is casually dressed and appears content and focused. The park is vibrant with trees and flowers, and the atmosphere is peaceful and serene. The scene conveys a sense of harmony with nature and personal commitment to reducing one's carbon footprint."
+      },
+      "d_prompt": "A person riding a bicycle through a lush, green park on a sunny day, casually dressed, appearing content and focused. The park is vibrant with trees and flowers, conveying harmony with nature and commitment to reducing carbon footprint."
+    },
+    {
+      "slug": "renewable-energy",
+      "headword": "renewable energy",
+      "r_reasoning": {
+        "quote": "renewable energy sources like solar and wind can be as destructive to the environment as fossil fuel plants and are more expensive to run.",
+        "intent": "To communicate skepticism about the environmental impact and cost of renewable energy.",
+        "object": "A solar farm with visible environmental damage.",
+        "form": "A photorealistic scene of a large solar farm in a barren landscape. The ground is dry and cracked, and there are dead plants around the solar panels. The sky is overcast, creating a somber atmosphere. The composition focuses on the contrast between the advanced technology of the solar panels and the desolate environment surrounding them."
+      },
+      "r_prompt": "A photorealistic image of a large solar farm in a barren landscape, with dry, cracked ground and dead plants around the solar panels. The sky is overcast, creating a somber atmosphere, highlighting the contrast between the advanced technology and the desolate environment.",
+      "d_reasoning": {
+        "quote": "the grid can support electric cars which largely recharge at night when demand is low and new demand will be met by renewable energy which is now cheaper than electricity from oil, gas, or coal.",
+        "intent": "To communicate the benefits and cost-effectiveness of renewable energy in supporting modern technology.",
+        "object": "Electric cars charging at a renewable energy-powered station.",
+        "form": "A photorealistic scene of several electric cars charging at a modern charging station powered by renewable energy. The station is well-lit with LED lights, and the atmosphere is calm and futuristic. The composition shows the cars in the foreground with wind turbines visible in the background under a clear night sky, emphasizing the integration of renewable energy into everyday life."
+      },
+      "d_prompt": "A photorealistic image of several electric cars charging at a modern, well-lit charging station powered by renewable energy. The scene is calm and futuristic, with wind turbines visible in the background under a clear night sky, highlighting the integration of renewable energy into everyday life."
+    },
+    {
+      "slug": "police-brutality",
+      "headword": "police brutality",
+      "r_reasoning": {
+        "quote": "Are you truly stupid enough to think that was police brutality? GTFOH, NOBODY has the right to stand there and taunt a police officer. She should be in cuffs.",
+        "intent": "The message communicated is skepticism towards claims of police brutality, suggesting that such claims are often exaggerated or used as excuses for inappropriate behavior.",
+        "object": "A police officer in a confrontational situation with a civilian who appears to be taunting or resisting.",
+        "form": "A daytime scene on a city street where a police officer is engaged in a tense standoff with a civilian. The officer is maintaining a professional stance, while the civilian appears to be shouting or gesturing provocatively. The atmosphere is tense, with onlookers in the background. The lighting is natural daylight, highlighting the seriousness of the situation."
+      },
+      "r_prompt": "A photorealistic image of a police officer on a city street, standing in a professional stance while a civilian appears to be taunting or resisting. The scene is tense, with natural daylight and onlookers in the background, capturing the skepticism towards claims of police brutality.",
+      "d_reasoning": {
+        "quote": "Damn it, this type of police brutality is sickening.",
+        "intent": "The message communicated is one of serious concern and outrage over instances of police brutality, viewing it as a significant and troubling issue.",
+        "object": "A scene depicting an instance of police using excessive force on a civilian.",
+        "form": "A nighttime scene in an urban setting where a group of police officers are using force to detain a civilian. The civilian appears distressed and vulnerable. The atmosphere is charged and emotional, with dim street lighting casting dramatic shadows. There are a few bystanders watching with concerned expressions, emphasizing the gravity of the situation."
+      },
+      "d_prompt": "A photorealistic image of police officers using force to detain a civilian in an urban setting at night. The scene is emotional and charged, with dim street lighting and bystanders watching with concern, highlighting the serious concern over police brutality."
+    },
+    {
+      "slug": "mass-shooting",
+      "headword": "mass shooting",
+      "r_reasoning": {
+        "quote": "I think every American citizen should arm and train themselves and carry at all times.",
+        "intent": "The message communicates the belief that individual armament and preparedness can prevent mass shootings.",
+        "object": "An American citizen arming and training themselves.",
+        "form": "A photorealistic scene of a middle-aged man at a shooting range. He is wearing protective gear and is in the process of aiming a handgun at a target. The setting is outdoors, with clear blue skies and bright sunlight casting sharp shadows. The atmosphere is serious and focused, with the man deeply concentrating on his training."
+      },
+      "r_prompt": "A middle-aged man at an outdoor shooting range, wearing protective gear, aiming a handgun at a target under clear blue skies. The scene is brightly lit with sharp shadows, conveying a serious and focused atmosphere.",
+      "d_reasoning": {
+        "quote": "They often express frustration and sadness about the regularity of these events and the lack of effective response from the government.",
+        "intent": "The message communicates a sense of sadness and frustration over the frequent occurrence of mass shootings and the perceived inaction of the government.",
+        "object": "A candlelight vigil for victims of a mass shooting.",
+        "form": "A photorealistic scene of a nighttime candlelight vigil. People of diverse backgrounds are gathered solemnly, holding lit candles. The scene is dimly lit, with the soft glow of candles illuminating faces filled with sadness and reflection. The mood is somber and respectful, with a sense of community and shared mourning."
+      },
+      "d_prompt": "A nighttime candlelight vigil with people holding lit candles, their faces illuminated softly in the dim light. The scene conveys a somber and respectful mood, reflecting sadness and community mourning."
     }
   ]
 }
