@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const API_KEY = 'sk-bvGskZlaXN3C8yWOq5FPnm7syAoAwRtTj4N6vK412t7CG3JZ';
+const API_KEY = 'sk-drnQRyAc56uTnwNGoralegkxJwB0gWWywHJfvzZCnUNtn0KX';
 const OUT_DIR = path.join(__dirname, 'static', 'game2');
 const PROMPTS_PATH = path.join(__dirname, 'prompts.json');
 
