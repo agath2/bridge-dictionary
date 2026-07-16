@@ -13,10 +13,10 @@
 
     try {
       const res = await fetch('/game2_manifest.json');
-      const all = await res.json();
+      const manifest = await res.json();
 
       // Only keep words that have both images ready
-      const available = all.filter(w => w.r && w.d);
+      const available = Object.values(manifest).filter(w => w.r && w.d);
 
       if (available.length < ROUNDS) {
         error = 'Not enough images available yet. Check back soon.';
