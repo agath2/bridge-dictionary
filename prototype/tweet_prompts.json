@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "method": "tweet-tiac-prototype-v1",
+    "model": "gpt-5.5",
+    "tweet_source": "tweets2019.zip (proc files, ~40 tweets sampled per side per word)",
+    "image_style": "photorealistic, editorial photography, no text in scene, 3:2 aspect ratio"
+  },
+  "prompts": [
+    {
+      "slug": "living-wage",
+      "headword": "living wage",
+      "d_reasoning": {
+        "pattern": {
+          "theme": "Living wage is repeatedly framed as fair pay and dignity for ordinary workers, especially low-paid service and essential workers, tied to unions, benefits, rising costs, and the struggle to survive on multiple jobs.",
+          "representative_phrases": [
+            "All workers — UVA workers, bus drivers, city employees, contractors, nurses, teachers — deserve a union, a living wage tied to inflation, and good benefits",
+            "the people flipping burgers and bagging groceries deserve to have a living wage",
+            "people are working two and three jobs to stay afloat"
+          ]
+        },
+        "intent": "The recurring message is that a living wage means workers should be paid enough to survive with dignity, afford basic needs, and not be forced into exhaustion or poverty despite full-time work.",
+        "object": "A diverse group of low-wage service and essential workers, such as a grocery cashier, fast-food worker, bus driver, nurse, and teacher, gathered together around the demand for fair pay.",
+        "form": "A realistic urban sidewalk scene outside a generic workplace during a gray early morning shift change. Several tired but determined workers in plain uniforms stand together, some holding blank cardboard placards with no writing, others carrying lunch bags or work backpacks. The background suggests a busy city with apartment buildings and storefronts, but no readable signs or logos. The lighting is soft and overcast, the mood serious, grounded, and solidaristic, with the workers centered in the frame."
+      },
+      "d_prompt": "Photorealistic documentary-style image of a diverse group of low-wage service and essential workers standing together on a city sidewalk outside a generic workplace during an overcast early morning shift change. Include a grocery cashier in a plain vest, a fast-food cook in a simple apron, a bus driver in a uniform shirt, a nurse in scrubs, and a teacher with a worn backpack. They look tired but determined, standing shoulder to shoulder, some holding blank cardboard placards with no writing, others carrying lunch bags or work bags. Background shows dense urban apartment buildings and indistinct storefronts with no readable signs, no logos, and no text. Natural muted lighting, realistic faces, serious hopeful mood, centered composition, shallow depth of field.",
+      "r_reasoning": {
+        "pattern": {
+          "theme": "The recurring frame treats a living wage as an unrealistic minimum-wage demand placed on entry-level, low-skill jobs, with repeated concern that it would raise prices, strain or close small businesses, and reward people before they develop skills or earn higher pay.",
+          "representative_phrases": [
+            "Minimum wage isn't meant to be a living wage",
+            "will effect mom and pop stores... put them out of business",
+            "Every time the minimum wage goes up, the cost of living goes up"
+          ]
+        },
+        "intent": "The pattern communicates skepticism and economic anxiety: a living wage is seen less as fairness and more as a costly mandate that burdens small employers, inflates everyday prices, and misunderstands entry-level work.",
+        "object": "A small mom-and-pop retail store with a young entry-level cashier and an owner dealing with payroll and rising prices.",
+        "form": "A photorealistic scene inside a modest neighborhood grocery or convenience store. In the foreground, the tired owner stands behind the counter reviewing a stack of payroll papers and receipts, with a calculator nearby. In the background, a young cashier bags groceries at a register while shelves of basic goods line the walls. Some blank price tags are being replaced on the shelves, suggesting rising costs without showing any readable text or numbers. The lighting is natural but subdued, late afternoon through the front windows, with a tense, financially strained mood and documentary-style composition."
+      },
+      "r_prompt": "Photorealistic documentary-style image inside a small independent neighborhood grocery store, no text or logos. In the foreground, a weary middle-aged shop owner stands behind the checkout counter reviewing payroll papers, receipts, and a calculator, looking stressed and thoughtful. In the background, a young entry-level cashier bags groceries for a customer near shelves of everyday goods. Blank price tags and unlabeled shelf markers are being changed, with no readable writing or numbers. Natural late-afternoon light filters through the front windows, muted colors, realistic clutter, modest working-class atmosphere, tense financial mood, sharp focus, no signage, no legible text."
+    },
+    {
+      "slug": "climate-change",
+      "headword": "climate change",
+      "d_reasoning": {
+        "pattern": {
+          "theme": "Climate change is framed as a real, urgent, already-arriving threat that can become catastrophic without immediate collective action, especially through extreme weather that harms vulnerable people and leaves no place fully safe.",
+          "representative_phrases": [
+            "possibly catastrophic",
+            "both will hurt the most vulnerable most but not leave any group unscathed",
+            "Extreme weather patterns are raising the risk of a global food crisis",
+            "take immediate action to address the problem"
+          ]
+        },
+        "intent": "The recurring image communicates climate change as a present-day emergency affecting ordinary people, not a distant or abstract issue, with a feeling of alarm, vulnerability, and urgency to act.",
+        "object": "A flooded residential neighborhood with vulnerable residents being helped through rising water.",
+        "form": "A photorealistic scene after severe rainfall: an ordinary neighborhood street covered in muddy floodwater, partially submerged cars, soaked homes in the background, and a small group of residents helping an elderly person and a child move through knee-deep water. The lighting is gray and overcast, with heavy clouds and damp air, creating a tense, urgent mood. The composition centers on the people in the floodwater, emphasizing human vulnerability and immediate danger without using text, signs, logos, or political imagery."
+      },
+      "d_prompt": "Photorealistic documentary-style image of an ordinary residential neighborhood after extreme rainfall, muddy floodwater covering the street up to knee height, partially submerged cars and wet houses in the background, several residents helping an elderly person and a child carefully move through the water, everyone wearing soaked everyday clothing, gray overcast sky, heavy clouds, damp atmosphere, tense urgent mood, natural lighting, realistic details, centered human composition, no text, no logos, no legible signage, no political symbols",
+      "r_reasoning": {
+        "pattern": {
+          "theme": "Across the tweets, climate change is repeatedly framed as a political hoax or propaganda campaign: an alarmist message sold by politicians, media, and institutions to influence young people, justify taxes or control, and damage the economy. The recurring setting is not nature itself, but staged persuasion — speeches, media segments, college presentations, and policy campaigns.",
+          "representative_phrases": [
+            "climate change hoax can tear our economy down",
+            "climate change agenda is all about tax increases",
+            "It is a politics-first movement in the US"
+          ]
+        },
+        "intent": "The recurring image communicates suspicion and distrust: climate change is felt less as an environmental emergency and more as a manufactured political/media campaign used to scare people, especially young audiences, into accepting costly policies.",
+        "object": "A polished climate-change policy presentation in an auditorium, with a speaker at a podium, cameras, and worried young attendees.",
+        "form": "A photorealistic scene inside a modern college-style auditorium or civic meeting hall. A well-dressed public speaker stands under harsh stage lights at a podium, presenting in front of a large screen showing dramatic storm and flood imagery with no words. Rows of college-age attendees sit watching with serious or anxious expressions. Television cameras and microphones crowd the aisle, and stacks of policy binders sit on a nearby table. The atmosphere is sterile, staged, and tense, with cool indoor lighting and a composition looking from behind the audience toward the speaker."
+      },
+      "r_prompt": "Photorealistic image of a polished public policy presentation inside a modern auditorium: a well-dressed speaker at a podium under bright stage lights, a large screen behind them showing dramatic storm clouds and flooding with no text, rows of worried college-age attendees watching, television cameras and microphones in the aisle, stacks of plain unmarked binders on a nearby table, cool sterile lighting, tense staged atmosphere, shot from behind the audience toward the podium, realistic people and setting, no readable text, no logos, no signage"
+    }
+  ]
+}
