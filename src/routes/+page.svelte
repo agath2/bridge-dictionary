@@ -40,15 +40,6 @@
         <span class="card-cta">Play →</span>
       </a>
 
-      <a href="/network" class="card">
-        <div class="card-label">Game 3</div>
-        <h2 class="card-title">Word Web</h2>
-        <p class="card-description">
-          A word floats at the center. Surrounding it are related words — emotions, associations, context. Click the ones you'd connect to it. See how your web compares.
-        </p>
-        <span class="card-cta">Play →</span>
-      </a>
-
       <a href="/freeassociation" class="card">
         <div class="card-label">Game 4</div>
         <h2 class="card-title">Free Association</h2>
