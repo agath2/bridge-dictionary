@@ -31,15 +31,6 @@
         <span class="card-cta">Play →</span>
       </a>
 
-      <a href="/framing" class="card">
-        <div class="card-label">Game 2</div>
-        <h2 class="card-title">Through Whose Eyes?</h2>
-        <p class="card-description">
-          See a politically charged word. Two images — one from each side's framing. Pick the one that feels true to you.
-        </p>
-        <span class="card-cta">Play →</span>
-      </a>
-
       <a href="/freeassociation" class="card">
         <div class="card-label">Game 4</div>
         <h2 class="card-title">Free Association</h2>
