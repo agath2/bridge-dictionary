@@ -1,5 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
+  import { browser } from '$app/environment';
   import { onMount } from 'svelte';
   import { get } from 'svelte/store';
   import { charadesWord, charadesHistory, charadesStatus, resetCharades } from '$lib/charadesStore.js';
@@ -9,7 +10,7 @@
   const history = get(charadesHistory);
   const status = get(charadesStatus);
 
-  if (!word) {
+  if (browser && !word) {
     goto('/charades');
   }
 
