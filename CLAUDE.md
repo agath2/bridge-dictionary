@@ -67,7 +67,7 @@ Both JSON files live in `static/attribution/` and are fetched at runtime via `fe
 - Stereotype quotes are ones where the *position itself* (not explicit party labels) makes the side obvious
 
 ### Source
-The original dictionary HTML (`bridging_dictionary.html`) is in the project root. It contains 796 entries, each with Republican and Democrat usage summaries, example quotes, and usage share percentages. This is the raw material for adding more quotes to either JSON file.
+The original dictionary HTML (`scripts/dictionary/bridging_dictionary.html`) contains 796 entries, each with Republican and Democrat usage summaries, example quotes, and usage share percentages. This is the raw material for adding more quotes to either JSON file.
 
 ---
 

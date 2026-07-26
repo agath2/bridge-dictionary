@@ -10,7 +10,7 @@ if (!OPENAI_API_KEY) {
   process.exit(1);
 }
 
-const DICTIONARY_PATH = path.join(__dirname, '..', '..', 'dictionary.json');
+const DICTIONARY_PATH = path.join(__dirname, '..', 'dictionary', 'dictionary.json');
 const OUT_PATH = path.join(__dirname, 'prompts.json');
 
 // Curated word list
