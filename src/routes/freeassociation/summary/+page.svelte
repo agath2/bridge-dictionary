@@ -1,5 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
+  import { browser } from '$app/environment';
   import { onMount } from 'svelte';
   import { get } from 'svelte/store';
   import { freeAssociationResults, resetFreeAssociation } from '$lib/freeAssociationStore.js';
@@ -7,7 +8,7 @@
 
   const results = get(freeAssociationResults);
 
-  if (results.length === 0) {
+  if (browser && results.length === 0) {
     goto('/freeassociation');
   }
 

@@ -1,12 +1,13 @@
 <script>
   import { goto } from '$app/navigation';
+  import { browser } from '$app/environment';
   import { onMount } from 'svelte';
   import { results, resetGame, politicalAffiliation } from '$lib/gameStore.js';
   import { get } from 'svelte/store';
 
   let allResults = get(results);
 
-  if (allResults.length === 0) {
+  if (browser && allResults.length === 0) {
     goto('/attribution');
   }
 

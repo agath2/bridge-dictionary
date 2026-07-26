@@ -1,5 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
+  import { browser } from '$app/environment';
   import { onMount } from 'svelte';
   import { framingResults, resetFramingGame } from '$lib/framingStore.js';
   import { politicalAffiliation } from '$lib/gameStore.js';
@@ -7,7 +8,7 @@
 
   let allResults = get(framingResults);
 
-  if (allResults.length === 0) {
+  if (browser && allResults.length === 0) {
     goto('/framing');
   }
 

@@ -1,12 +1,13 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
   import { goto } from '$app/navigation';
+  import { browser } from '$app/environment';
   import { get } from 'svelte/store';
   import { freeAssociationSession, freeAssociationResults } from '$lib/freeAssociationStore.js';
 
   const session = get(freeAssociationSession);
 
-  if (session.length === 0) {
+  if (browser && session.length === 0) {
     goto('/freeassociation');
   }
 

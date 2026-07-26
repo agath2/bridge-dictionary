@@ -1,12 +1,13 @@
 <script>
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
+  import { browser } from '$app/environment';
   import { get } from 'svelte/store';
   import { networkSession, networkResults } from '$lib/networkStore.js';
 
   const sessionWords = get(networkSession);
 
-  if (sessionWords.length === 0) {
+  if (browser && sessionWords.length === 0) {
     goto('/network');
   }
 

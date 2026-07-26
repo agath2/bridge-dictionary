@@ -1,11 +1,12 @@
 <script>
   import { goto } from '$app/navigation';
+  import { browser } from '$app/environment';
   import { framingSession, framingResults } from '$lib/framingStore.js';
   import { get } from 'svelte/store';
 
   let session = get(framingSession);
 
-  if (session.length === 0) {
+  if (browser && session.length === 0) {
     goto('/framing');
   }
 

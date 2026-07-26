@@ -1,11 +1,12 @@
 <script>
   import { goto } from '$app/navigation';
+  import { browser } from '$app/environment';
   import { session, results } from '$lib/gameStore.js';
   import { get } from 'svelte/store';
 
   let sessionWords = get(session);
 
-  if (sessionWords.length === 0) {
+  if (browser && sessionWords.length === 0) {
     goto('/attribution');
   }
 
