@@ -1,7 +1,9 @@
 <script>
   import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
   import { get } from 'svelte/store';
   import { charadesWord, charadesHistory, charadesStatus, resetCharades } from '$lib/charadesStore.js';
+  import { politicalAffiliation } from '$lib/gameStore.js';
 
   const word = get(charadesWord);
   const history = get(charadesHistory);
@@ -13,6 +15,25 @@
 
   const rounds = history.length;
   const correct = status === 'correct';
+
+  onMount(() => {
+    if (!word) return;
+
+    fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        game: 'charades',
+        affiliation: get(politicalAffiliation),
+        session_data: {
+          word: word.headword,
+          status,
+          rounds,
+          history
+        }
+      })
+    });
+  });
 
   function playAgain() {
     resetCharades();
