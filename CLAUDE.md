@@ -36,15 +36,16 @@ src/
             └── +page.svelte   # Game 1 results + bias insights
 
 static/
-├── ambiguous_quotes.json      # 25 quotes — hard to attribute by content alone
-└── stereotype_quotes.json     # 25 quotes — clearly signal one political side
+└── game1/
+    ├── ambiguous_quotes.json      # 25 quotes — hard to attribute by content alone
+    └── stereotype_quotes.json     # 25 quotes — clearly signal one political side
 ```
 
 ---
 
 ## Data files
 
-Both JSON files live in `static/` and are fetched at runtime via `fetch('/ambiguous_quotes.json')`.
+Both JSON files live in `static/game1/` and are fetched at runtime via `fetch('/game1/ambiguous_quotes.json')`.
 
 ### Quote object shape
 ```json
@@ -76,8 +77,8 @@ The original dictionary HTML (`bridging_dictionary.html`) is in the project root
 `/attribution` (intro + Play button) → `/attribution/game` (10 rounds) → `/attribution/summary` (results)
 
 ### Session structure
-- 5 quotes randomly picked from `stereotype_quotes.json` (shown first)
-- 5 quotes randomly picked from `ambiguous_quotes.json` (shown second)
+- 5 quotes randomly picked from `game1/stereotype_quotes.json` (shown first)
+- 5 quotes randomly picked from `game1/ambiguous_quotes.json` (shown second)
 - Total: 10 rounds per session
 
 ### Data collected per round

@@ -11,8 +11,8 @@
 
     try {
       const [stereoRes, ambigRes] = await Promise.all([
-        fetch('/stereotype_quotes.json'),
-        fetch('/ambiguous_quotes.json')
+        fetch('/game1/stereotype_quotes.json'),
+        fetch('/game1/ambiguous_quotes.json')
       ]);
 
       const stereoWords = await stereoRes.json();
