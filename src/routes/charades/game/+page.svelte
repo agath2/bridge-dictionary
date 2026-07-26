@@ -69,7 +69,7 @@
     status = outcome;
     charadesHistory.set(history);
     charadesStatus.set(outcome);
-    goto('/charades/summary');
+    goto('/affiliation?next=/charades/summary');
   }
 
   function handleKeydown(e) {
