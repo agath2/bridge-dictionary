@@ -13,6 +13,8 @@
   }
 
   onMount(async () => {
+    if (results.length === 0) return;
+
     try {
       const res = await fetch('/api/submit', {
         method: 'POST',

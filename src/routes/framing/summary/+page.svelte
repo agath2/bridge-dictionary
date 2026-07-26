@@ -13,6 +13,8 @@
   }
 
   onMount(() => {
+    if (allResults.length === 0) return;
+
     fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
