@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const API_KEY = 'sk-drnQRyAc56uTnwNGoralegkxJwB0gWWywHJfvzZCnUNtn0KX';
-const OUT_DIR = path.join(__dirname, 'static', 'framing');
+const OUT_DIR = path.join(__dirname, '..', '..', 'static', 'framing');
 const PROMPTS_PATH = path.join(__dirname, 'prompts.json');
 
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
@@ -237,7 +237,7 @@ async function main() {
   }
 
   // Write manifest
-  const manifestPath = path.join(__dirname, 'static', 'framing', 'manifest.json');
+  const manifestPath = path.join(__dirname, '..', '..', 'static', 'framing', 'manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
   console.log(`\n✓ Manifest written to static/framing/manifest.json`);
 

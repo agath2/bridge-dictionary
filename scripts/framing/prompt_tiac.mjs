@@ -10,10 +10,10 @@ if (!OPENAI_API_KEY) {
   process.exit(1);
 }
 
-const DICTIONARY_PATH = path.join(__dirname, 'dictionary.json');
+const DICTIONARY_PATH = path.join(__dirname, '..', '..', 'dictionary.json');
 const OUT_PATH = path.join(__dirname, 'prompts.json');
 
-// Curated word list — add or remove slugs here to control which words are processed
+// Curated word list
 const CURATED_SLUGS = [
   'illegal-alien',
   'asylum-seeker',
