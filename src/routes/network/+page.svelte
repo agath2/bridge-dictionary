@@ -10,7 +10,7 @@
     error = null;
 
     try {
-      const res = await fetch('/network_words.json');
+      const res = await fetch('/network/network_words.json');
       const all = await res.json();
 
       const shuffled = [...all].sort(() => Math.random() - 0.5);

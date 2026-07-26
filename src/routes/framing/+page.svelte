@@ -12,7 +12,7 @@
     error = null;
 
     try {
-      const res = await fetch('/game2/manifest.json');
+      const res = await fetch('/framing/manifest.json');
       const manifest = await res.json();
 
       // Only keep words that have both images ready

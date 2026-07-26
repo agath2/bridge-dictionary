@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const API_KEY = 'sk-drnQRyAc56uTnwNGoralegkxJwB0gWWywHJfvzZCnUNtn0KX';
-const OUT_DIR = path.join(__dirname, 'static', 'game2');
+const OUT_DIR = path.join(__dirname, 'static', 'framing');
 const PROMPTS_PATH = path.join(__dirname, 'prompts.json');
 
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
@@ -212,7 +212,7 @@ async function main() {
     try {
       console.log(`  Generating R...`);
       await generateImage(entry.r, rPath);
-      manifest[entry.slug].r = `/game2/${entry.slug}-r.jpg`;
+      manifest[entry.slug].r = `/framing/${entry.slug}-r.jpg`;
       console.log(`  ✓ R saved`);
     } catch (e) {
       console.error(`  ✗ R failed: ${e.message}`);
@@ -226,7 +226,7 @@ async function main() {
     try {
       console.log(`  Generating D...`);
       await generateImage(entry.d, dPath);
-      manifest[entry.slug].d = `/game2/${entry.slug}-d.jpg`;
+      manifest[entry.slug].d = `/framing/${entry.slug}-d.jpg`;
       console.log(`  ✓ D saved`);
     } catch (e) {
       console.error(`  ✗ D failed: ${e.message}`);
@@ -237,9 +237,9 @@ async function main() {
   }
 
   // Write manifest
-  const manifestPath = path.join(__dirname, 'static', 'game2', 'manifest.json');
+  const manifestPath = path.join(__dirname, 'static', 'framing', 'manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
-  console.log(`\n✓ Manifest written to static/game2/manifest.json`);
+  console.log(`\n✓ Manifest written to static/framing/manifest.json`);
 
   if (failed.length > 0) {
     console.log(`\n⚠ Failed (${failed.length}):`);

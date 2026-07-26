@@ -10,7 +10,7 @@
     error = null;
 
     try {
-      const res = await fetch('/freeassociation_words.json');
+      const res = await fetch('/freeassociation/freeassociation_words.json');
       const all = await res.json();
 
       const shuffled = [...all].sort(() => Math.random() - 0.5).slice(0, 5);

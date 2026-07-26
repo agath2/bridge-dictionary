@@ -1,0 +1,67 @@
+{
+  "illegal-alien": {
+    "word": "illegal alien",
+    "r": "/framing/illegal-alien-r.jpg",
+    "d": "/framing/illegal-alien-d.jpg"
+  },
+  "asylum-seeker": {
+    "word": "asylum seeker",
+    "r": "/framing/asylum-seeker-r.jpg",
+    "d": "/framing/asylum-seeker-d.jpg"
+  },
+  "border-security": {
+    "word": "border security",
+    "r": "/framing/border-security-r.jpg",
+    "d": "/framing/border-security-d.jpg"
+  },
+  "deportation": {
+    "word": "deportation",
+    "r": "/framing/deportation-r.jpg",
+    "d": "/framing/deportation-d.jpg"
+  },
+  "living-wage": {
+    "word": "living wage",
+    "r": "/framing/living-wage-r.jpg",
+    "d": "/framing/living-wage-d.jpg"
+  },
+  "welfare": {
+    "word": "welfare",
+    "r": "/framing/welfare-r.jpg",
+    "d": "/framing/welfare-d.jpg"
+  },
+  "working-poor": {
+    "word": "working poor",
+    "r": "/framing/working-poor-r.jpg",
+    "d": "/framing/working-poor-d.jpg"
+  },
+  "homeschooling": {
+    "word": "homeschooling",
+    "r": "/framing/homeschooling-r.jpg",
+    "d": "/framing/homeschooling-d.jpg"
+  },
+  "climate-change": {
+    "word": "climate change",
+    "r": "/framing/climate-change-r.jpg",
+    "d": "/framing/climate-change-d.jpg"
+  },
+  "carbon-footprint": {
+    "word": "carbon footprint",
+    "r": "/framing/carbon-footprint-r.jpg",
+    "d": "/framing/carbon-footprint-d.jpg"
+  },
+  "renewable-energy": {
+    "word": "renewable energy",
+    "r": "/framing/renewable-energy-r.jpg",
+    "d": "/framing/renewable-energy-d.jpg"
+  },
+  "police-brutality": {
+    "word": "police brutality",
+    "r": "/framing/police-brutality-r.jpg",
+    "d": "/framing/police-brutality-d.jpg"
+  },
+  "mass-shooting": {
+    "word": "mass shooting",
+    "r": "/framing/mass-shooting-r.jpg",
+    "d": "/framing/mass-shooting-d.jpg"
+  }
+}

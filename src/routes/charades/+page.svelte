@@ -10,7 +10,7 @@
     error = null;
 
     try {
-      const res = await fetch('/charades_words.json');
+      const res = await fetch('/charades/charades_words.json');
       const words = await res.json();
       const word = words[Math.floor(Math.random() * words.length)];
 
