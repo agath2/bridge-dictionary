@@ -237,9 +237,9 @@ async function main() {
   }
 
   // Write manifest
-  const manifestPath = path.join(__dirname, 'static', 'game2_manifest.json');
+  const manifestPath = path.join(__dirname, 'static', 'game2', 'manifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
-  console.log(`\n✓ Manifest written to static/game2_manifest.json`);
+  console.log(`\n✓ Manifest written to static/game2/manifest.json`);
 
   if (failed.length > 0) {
     console.log(`\n⚠ Failed (${failed.length}):`);
