@@ -70,6 +70,12 @@
     status = outcome;
     charadesHistory.set(history);
     charadesStatus.set(outcome);
+    if (outcome !== 'correct') {
+      goto('/affiliation?next=/charades/summary');
+    }
+  }
+
+  function continueToSummary() {
     goto('/affiliation?next=/charades/summary');
   }
 
@@ -128,7 +134,14 @@
       {/if}
     </div>
 
-    {#if status === 'playing' && !atLimit}
+    {#if status === 'correct'}
+      <div class="input-area correct-banner">
+        <p class="correct-message">
+          Correct — the AI got it in {roundCount} {roundCount === 1 ? 'round' : 'rounds'}.
+        </p>
+        <button class="continue-btn" onclick={continueToSummary}>See results →</button>
+      </div>
+    {:else if status === 'playing' && !atLimit}
       <div class="input-area">
         <textarea
           bind:value={clue}
@@ -348,4 +361,32 @@
     color: #fff;
   }
   .submit-btn:disabled { opacity: 0.3; cursor: default; }
+
+  .correct-banner {
+    align-items: center;
+    text-align: center;
+    background: #2a3d2a;
+    border-top-color: #3a4a3a;
+  }
+
+  .correct-message {
+    color: #7ec87e;
+    font-size: 1rem;
+  }
+
+  .continue-btn {
+    background: none;
+    border: 1px solid #7ec87e;
+    color: #7ec87e;
+    font-family: 'Georgia', serif;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: background 0.15s, color 0.15s;
+  }
+  .continue-btn:hover {
+    background: #7ec87e;
+    color: #0f0f0f;
+  }
 </style>
