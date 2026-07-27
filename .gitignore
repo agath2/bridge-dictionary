@@ -16,6 +16,9 @@ Thumbs.db
 .claude/
 pdf_text.txt
 
+# Raw tweet corpus samples — never commit real user content
+scripts/framing/prototype/tweet_samples/
+
 # Env
 .env
 .env.*
