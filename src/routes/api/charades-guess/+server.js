@@ -1,11 +1,9 @@
 import { OPENAI_API_KEY } from '$env/static/private';
 import { env } from '$env/dynamic/private';
 import { json, error } from '@sveltejs/kit';
-import { readFileSync } from 'fs';
-import { fileURLToPath } from 'url';
+import charadesWords from '$lib/data/charades_words.json';
 
-const wordsPath = fileURLToPath(new URL('../../../../static/charades/charades_words.json', import.meta.url));
-const WORD_POOL = JSON.parse(readFileSync(wordsPath, 'utf-8')).map((w) => w.headword);
+const WORD_POOL = charadesWords.map((w) => w.headword);
 
 const INCLUDE_CANDIDATE_LIST = env.CHARADES_INCLUDE_LIST !== 'false';
 

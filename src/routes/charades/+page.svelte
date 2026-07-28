@@ -1,28 +1,16 @@
 <script>
   import { goto } from '$app/navigation';
   import { charadesWord, charadesHistory, charadesStatus } from '$lib/charadesStore.js';
+  import charadesWords from '$lib/data/charades_words.json';
 
-  let loading = $state(false);
-  let error = $state(null);
+  function startGame() {
+    const word = charadesWords[Math.floor(Math.random() * charadesWords.length)];
 
-  async function startGame() {
-    loading = true;
-    error = null;
+    charadesWord.set(word);
+    charadesHistory.set([]);
+    charadesStatus.set('playing');
 
-    try {
-      const res = await fetch('/charades/charades_words.json');
-      const words = await res.json();
-      const word = words[Math.floor(Math.random() * words.length)];
-
-      charadesWord.set(word);
-      charadesHistory.set([]);
-      charadesStatus.set('playing');
-
-      goto('/charades/game');
-    } catch (e) {
-      error = 'Could not load game data. Please try again.';
-      loading = false;
-    }
+    goto('/charades/game');
   }
 </script>
 
@@ -55,13 +43,7 @@
       <span>Text input</span>
     </div>
 
-    {#if error}
-      <p class="error">{error}</p>
-    {/if}
-
-    <button onclick={startGame} disabled={loading} class="play-btn">
-      {loading ? 'Loading…' : 'Start →'}
-    </button>
+    <button onclick={startGame} class="play-btn">Start →</button>
   </div>
 </main>
 
@@ -139,17 +121,8 @@
     transition: border-color 0.15s, color 0.15s;
     align-self: flex-start;
   }
-  .play-btn:hover:not(:disabled) {
+  .play-btn:hover {
     border-color: #e8e4dc;
     color: #fff;
-  }
-  .play-btn:disabled {
-    opacity: 0.5;
-    cursor: default;
-  }
-
-  .error {
-    font-size: 0.88rem;
-    color: #c07e7e;
   }
 </style>
