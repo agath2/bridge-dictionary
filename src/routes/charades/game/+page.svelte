@@ -21,6 +21,14 @@
   let roundCount = $derived(history.length);
   let atLimit = $derived(roundCount >= MAX_ROUNDS);
 
+  let historyEnd = $state(null);
+
+  $effect(() => {
+    history.length;
+    thinking;
+    historyEnd?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  });
+
   async function submitClue() {
     const trimmed = clue.trim();
     if (!trimmed || thinking || status !== 'playing') return;
@@ -104,34 +112,38 @@
       <span class="word-rule">Don't say the word, its root, or direct synonyms</span>
     </div>
 
-    <div class="history">
-      {#each history as round, i}
-        <div class="round">
-          <div class="round-number">Round {i + 1}</div>
-          <div class="clue-row">
-            <span class="role you">You</span>
-            <span class="bubble clue-bubble">{round.clue}</span>
+    <div class="history-scroll">
+      <div class="history">
+        {#each history as round, i}
+          <div class="round">
+            <div class="round-number">Round {i + 1}</div>
+            <div class="clue-row">
+              <span class="role you">You</span>
+              <span class="bubble clue-bubble">{round.clue}</span>
+            </div>
+            <div class="guess-row">
+              <span class="role ai">AI</span>
+              <span class="bubble guess-bubble">{round.guess}</span>
+            </div>
           </div>
-          <div class="guess-row">
-            <span class="role ai">AI</span>
-            <span class="bubble guess-bubble">{round.guess}</span>
-          </div>
-        </div>
-      {/each}
+        {/each}
 
-      {#if thinking}
-        <div class="round">
-          <div class="round-number">Round {roundCount + 1}</div>
-          <div class="clue-row">
-            <span class="role you">You</span>
-            <span class="bubble clue-bubble">{pendingClue}</span>
+        {#if thinking}
+          <div class="round">
+            <div class="round-number">Round {roundCount + 1}</div>
+            <div class="clue-row">
+              <span class="role you">You</span>
+              <span class="bubble clue-bubble">{pendingClue}</span>
+            </div>
+            <div class="guess-row">
+              <span class="role ai">AI</span>
+              <span class="bubble guess-bubble thinking">thinking…</span>
+            </div>
           </div>
-          <div class="guess-row">
-            <span class="role ai">AI</span>
-            <span class="bubble guess-bubble thinking">thinking…</span>
-          </div>
-        </div>
-      {/if}
+        {/if}
+
+        <div bind:this={historyEnd}></div>
+      </div>
     </div>
 
     {#if status === 'correct'}
@@ -166,23 +178,25 @@
     background: #0f0f0f;
     color: #e8e4dc;
     font-family: 'Georgia', serif;
-    min-height: 100vh;
-    overflow-y: auto;
+    height: 100vh;
+    overflow: hidden;
   }
 
   main {
     max-width: 600px;
+    height: 100vh;
     margin: 0 auto;
-    padding: 1.4rem 2rem 8rem;
+    padding: 1.4rem 2rem 0;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0;
   }
 
   .top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
   }
 
   .back {
@@ -206,6 +220,7 @@
     gap: 0.5rem;
     padding: 2rem 0 1rem;
     text-align: center;
+    flex-shrink: 0;
   }
 
   .word-label {
@@ -229,6 +244,26 @@
   }
 
   /* History */
+  .history-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    margin-top: 1rem;
+    padding-bottom: 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a2a transparent;
+  }
+  .history-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  .history-scroll::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 3px;
+  }
+  .history-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
   .history {
     display: flex;
     flex-direction: column;
@@ -295,18 +330,13 @@
 
   /* Input */
   .input-area {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    flex-shrink: 0;
     background: #0f0f0f;
     border-top: 1px solid #1e1e1e;
-    padding: 1rem 2rem 1.5rem;
+    padding: 1rem 0 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    max-width: 600px;
-    margin: 0 auto;
   }
 
   textarea {
