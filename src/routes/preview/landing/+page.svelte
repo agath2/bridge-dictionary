@@ -58,6 +58,14 @@
       { t: 'community', f: 6 }, { t: 'gender', f: 4 }, { t: 'welfare', f: 5 }, { t: 'climate', f: 5 },
       { t: 'border security', f: 4 }, { t: 'immigration', f: 5 }, { t: 'censorship', f: 4 }, { t: 'diversity', f: 6 },
       { t: 'police', f: 4 }, { t: 'institution', f: 5 }, { t: 'education', f: 6 }, { t: 'democracy', f: 6 },
+      { t: 'democrat', f: 5 }, { t: 'republican', f: 5 }, { t: 'conservative', f: 6 }, { t: 'liberal', f: 6 },
+      { t: 'freedom', f: 6 }, { t: 'unity', f: 6 }, { t: 'justice', f: 6 }, { t: 'patriot', f: 4 },
+      { t: 'reform', f: 4 }, { t: 'rights', f: 6 }, { t: 'liberty', f: 5 }, { t: 'equity', f: 4 },
+      { t: 'nation', f: 6 }, { t: 'values', f: 5 }, { t: 'change', f: 4 }, { t: 'safety', f: 4 },
+      { t: 'truth', f: 6 }, { t: 'family', f: 5 }, { t: 'power', f: 4 }, { t: 'faith', f: 4 },
+      { t: 'community', f: 6 }, { t: 'gender', f: 4 }, { t: 'welfare', f: 5 }, { t: 'climate', f: 5 },
+      { t: 'border security', f: 4 }, { t: 'immigration', f: 5 }, { t: 'censorship', f: 4 }, { t: 'diversity', f: 6 },
+      { t: 'police', f: 4 }, { t: 'institution', f: 5 }, { t: 'education', f: 6 }, { t: 'democracy', f: 6 },
       { t: 'democrat', f: 5 }, { t: 'republican', f: 5 }, { t: 'conservative', f: 6 }, { t: 'liberal', f: 6 }
     ];
     const colors = ['#f0f0f0', '#a0a0a0'];
