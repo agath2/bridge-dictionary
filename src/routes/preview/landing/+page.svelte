@@ -147,6 +147,53 @@
   </p>
 </div>
 
+<div class="about-section">
+  <div class="about-main">
+    <p class="about-label">About this study</p>
+    <p class="about-text">This study asks how Americans use and understand political vocabulary. </p>
+
+    <div class="game-breakdown">
+      <p class="breakdown-label">You'll play three short word games</p>
+      <div class="breakdown-list">
+        <div class="breakdown-item">
+          <span class="breakdown-num">I.</span>
+          <span class="breakdown-desc">Snap judgments about words</span>
+        </div>
+        <div class="breakdown-item">
+          <span class="breakdown-num">II.</span>
+          <span class="breakdown-desc">Saying the first things that come to mind</span>
+        </div>
+        <div class="breakdown-item">
+          <span class="breakdown-num">III.</span>
+          <span class="breakdown-desc">Giving clues to help an AI guess a word</span>
+        </div>
+      </div>
+      <p class="breakdown-note">There are no right or wrong answers, and nothing here is a test of political knowledge.</p>
+    </div>
+
+    <p class="about-citation">Based on Jiang, Beeferman, Brannon, Heyward &amp; Roy · CSCW 2024</p>
+  </div>
+
+  <div class="info-card">
+    <div class="info-row">
+      <p class="about-key">Run by</p>
+      <p class="about-value">Human-AI Nexus Group · Northeastern University</p>
+    </div>
+    <div class="info-row">
+      <p class="about-key">Data</p>
+      <p class="about-value">Anonymous, may inform published research</p>
+    </div>
+    <div class="info-row">
+      <p class="about-key">IRB</p>
+      <p class="about-value">Protocol #[pending]</p>
+    </div>
+    <div class="info-row">
+      <p class="about-key">Contact</p>
+      <p class="about-value">[email]</p>
+    </div>
+  </div>
+</div>
+
 <style>
   :global(body) {
     margin: 0;
@@ -233,5 +280,107 @@
     display: inline-block;
     color: hsl(43, 100%, 79%);
     transition: transform 0.4s ease, opacity 0.4s ease;
+  }
+
+  .about-section {
+    background: #0a0d10;
+    padding: 100px 120px;
+    border-top: 1px solid #1e2733;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #a3b0bd;
+    margin: 0 0 20px;
+  }
+  .about-text {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #d6dde3;
+    margin: 0 0 56px;
+  }
+
+  .game-breakdown {
+    margin: 0 0 48px;
+    padding: 36px 0;
+  }
+  .breakdown-label {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 16px;
+    color: #e8e2d0;
+    margin: 0 0 24px;
+  }
+  .breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .breakdown-item {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .breakdown-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: hsl(43, 100%, 79%);
+    min-width: 20px;
+  }
+  .breakdown-desc {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 17px;
+    color: #d6dde3;
+  }
+  .breakdown-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #a3b0bd;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .about-citation {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #a3b0bd;
+    margin: 0;
+  }
+
+  .info-card {
+    background: #161d26;
+    border: none;
+    border-radius: 20px;
+    padding: 28px 38px;
+    margin-left: 30px;
+    box-sizing: border-box;
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0 30px 60px -12px rgba(0,0,0,.55), 0 10px 20px -8px rgba(0,0,0,.4);
+  }
+  .info-row .about-key {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #a3b0bd;
+    margin: 0 0 6px;
+  }
+  .info-row .about-value {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 14px;
+    color: #e8e2d0;
+    margin: 0;
   }
 </style>
