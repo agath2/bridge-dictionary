@@ -161,14 +161,14 @@
       </span>
     </p>
     <button class="play-btn">
-      <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor">
+      <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
         <path d="M8 5v14l11-7z"/>
       </svg>
       Play now
     </button>
   </div>
   <p class="meta">
-    ~5 minutes · anonymous · a research study · IRB protocol #[pending]
+    ~8 minutes · anonymous · a research study · IRB protocol #[pending]
   </p>
 </div>
 
@@ -194,8 +194,8 @@
 
   <div class="info-card">
     <div class="info-intro">
-      <p class="about-label">About this study</p>
-      <p class="about-text">This study asks how Americans use and understand political vocabulary. </p>
+      <p class="about-label">About the study</p>
+      <p class="about-text">This study asks how Americans use and understand words differently. </p>
     </div>
 
     <div class="info-details">
@@ -283,12 +283,21 @@
     background: hsl(43, 100%, 79%);
     color: #14201c;
     border: none;
-    padding: 16px 25px;
+    padding: 16px 20px;
+    padding-right: 28px;
     font-size: 18px;
     letter-spacing: .03em;
     cursor: pointer;
     border-radius: 2px;
     box-shadow: 0 0 0 1px rgba(240,223,160,.2), 0 8px 36px rgba(201,161,59,.35);
+    transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .play-btn:hover {
+    transform: translateY(-2px);
+  }
+  .play-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0 0 1px rgba(240,223,160,.2), 0 4px 16px rgba(201,161,59,.35);
   }
   .meta {
     position: absolute;
@@ -386,12 +395,6 @@
     margin-top: 40px;
     line-height: 1.6;
   }
-  .about-citation {
-    font-family: "Atkinson Hyperlegible Mono", sans-serif;
-    font-size: 12px;
-    color: #a3b0bd;
-    margin: 0;
-  }
 
   .info-card {
     background: linear-gradient(220deg, rgba(126, 141, 154, 0.25) 5%, rgba(0, 5, 39, 0.25) 55%);
@@ -409,7 +412,7 @@
   }
   .about-label {
     font-family: "Atkinson Hyperlegible Mono", sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: .1em;
     text-transform: uppercase;
     color: #a3b0bd;
