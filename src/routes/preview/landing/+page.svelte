@@ -5,6 +5,25 @@
   let rotateWordEl;
 
   onMount(() => {
+    // --- Stagger-reveal breakdown items on scroll ---
+    const items = document.querySelectorAll('.breakdown-item');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Array.from(items).indexOf(entry.target);
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('is-visible');
+            }, index * 200); // 200ms stagger between each item
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    items.forEach((item) => observer.observe(item));
+
     // --- Rotating word in subhead ---
     const words = ['speaking', 'listening', 'reading', 'typing'];
     let i = 0;
@@ -115,6 +134,7 @@
     }
 
     return () => {
+      observer.disconnect();
       clearInterval(rotateInterval);
       window.removeEventListener('resize', resize);
       if (rafId) cancelAnimationFrame(rafId);
@@ -126,10 +146,10 @@
   <title>Bridging Dictionary — Word Cloud Hero</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=JetBrains+Mono:wght@400;500&&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
 </svelte:head>
 
-<div class="hero">
+<div class="hero" id="top">
   <canvas id="wc" bind:this={canvasEl}></canvas>
   <div class="hero-content">
     <p class="eyebrow">a study of political language</p>
@@ -140,7 +160,12 @@
         <span id="rotate-word" bind:this={rotateWordEl}>speaking</span>
       </span>
     </p>
-    <button class="play-btn">Participate in the study</button>
+    <button class="play-btn">
+      <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      Play now
+    </button>
   </div>
   <p class="meta">
     ~5 minutes · anonymous · a research study · IRB protocol #[pending]
@@ -148,51 +173,53 @@
 </div>
 
 <div class="about-section">
-  <div class="about-main">
-    <p class="about-label">About this study</p>
-    <p class="about-text">This study asks how Americans use and understand political vocabulary. </p>
-
-    <div class="game-breakdown">
-      <p class="breakdown-label">You'll play three short word games</p>
-      <div class="breakdown-list">
-        <div class="breakdown-item">
-          <span class="breakdown-num">I.</span>
-          <span class="breakdown-desc">Snap judgments about words</span>
-        </div>
-        <div class="breakdown-item">
-          <span class="breakdown-num">II.</span>
-          <span class="breakdown-desc">Saying the first things that come to mind</span>
-        </div>
-        <div class="breakdown-item">
-          <span class="breakdown-num">III.</span>
-          <span class="breakdown-desc">Giving clues to help an AI guess a word</span>
-        </div>
+  <div class="game-breakdown">
+    <p class="breakdown-label">You'll play three short word games:</p>
+    <div class="breakdown-list">
+      <div class="breakdown-item">
+        <span class="breakdown-num">01</span>
+        <span class="breakdown-desc">Snap judgments about words</span>
       </div>
-      <p class="breakdown-note">There are no right or wrong answers, and nothing here is a test of political knowledge.</p>
+      <div class="breakdown-item">
+        <span class="breakdown-num">02</span>
+        <span class="breakdown-desc">Saying the first things that come to mind</span>
+      </div>
+      <div class="breakdown-item">
+        <span class="breakdown-num">03</span>
+        <span class="breakdown-desc">Giving clues to help an AI guess a word</span>
+      </div>
     </div>
-
-    <p class="about-citation">Based on Jiang, Beeferman, Brannon, Heyward &amp; Roy · CSCW 2024</p>
+    <p class="breakdown-note">There are no right or wrong answers, and nothing here is a test of political knowledge.</p>
   </div>
 
   <div class="info-card">
-    <div class="info-row">
-      <p class="about-key">Run by</p>
-      <p class="about-value">Human-AI Nexus Group · Northeastern University</p>
+    <div class="info-intro">
+      <p class="about-label">About this study</p>
+      <p class="about-text">This study asks how Americans use and understand political vocabulary. </p>
     </div>
-    <div class="info-row">
-      <p class="about-key">Data</p>
-      <p class="about-value">Anonymous, may inform published research</p>
-    </div>
-    <div class="info-row">
-      <p class="about-key">IRB</p>
-      <p class="about-value">Protocol #[pending]</p>
-    </div>
-    <div class="info-row">
-      <p class="about-key">Contact</p>
-      <p class="about-value">[email]</p>
+
+    <div class="info-details">
+      <div class="info-row">
+        <p class="about-key">Run by</p>
+        <p class="about-value">Human-AI Nexus Group · Northeastern University</p>
+      </div>
+      <div class="info-row">
+        <p class="about-key">Data</p>
+        <p class="about-value">Anonymous, may inform published research</p>
+      </div>
+      <div class="info-row">
+        <p class="about-key">Contact</p>
+        <p class="about-value">[email]</p>
+      </div>
     </div>
   </div>
 </div>
+
+<footer class="site-footer">
+  <p class="footer-mark">Bridging Dictionary</p>
+  <a href="#top" class="footer-top">Back to top ↑</a>
+  <p class="footer-copyright">© 2026 Human-AI Nexus Group · Northeastern University</p>
+</footer>
 
 <style>
   :global(body) {
@@ -203,7 +230,7 @@
     overflow: hidden;
     position: relative;
     min-height: 100vh;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
   }
   #wc {
     position: absolute;
@@ -247,13 +274,16 @@
     line-height: 1.5;
   }
   .play-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     pointer-events: auto;
     font-family: 'Google Sans Flex', sans-serif;
     font-weight: 500;
     background: hsl(43, 100%, 79%);
     color: #14201c;
     border: none;
-    padding: 16px 27px;
+    padding: 16px 25px;
     font-size: 18px;
     letter-spacing: .03em;
     cursor: pointer;
@@ -282,20 +312,103 @@
     transition: transform 0.4s ease, opacity 0.4s ease;
   }
 
+  /*          *
+   *  ABOUT   *
+   *          */
   .about-section {
-    background: #0a0d10;
-    padding: 100px 120px;
+    background: radial-gradient(ellipse at 20% 30%, #10161f 0%, #06090c 60%);
+    padding: 100px 250px;
     border-top: 1px solid #1e2733;
     min-height: 100vh;
     box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 1fr 500px;
-    gap: 60px;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: flex-start;
   }
 
+  .game-breakdown {
+    padding: 36px 0;
+    margin-left: 60px;
+  }
+  .breakdown-label {
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 16px;
+    color: #e8e2d0;
+    margin: 0 0 24px;
+  }
+  .breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 55px;
+    margin-bottom: 24px;
+  }
+  .breakdown-item {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .breakdown-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    width: 1px;
+    height: 20px;
+    background: hsla(43, 100%, 79%, .4);
+  }
+  .breakdown-item:global(.is-visible) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .breakdown-num {
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 25px;
+    color: hsl(43, 100%, 79%);
+    min-width: 20px;
+  }
+  .breakdown-desc {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 20px;
+    color: #d6dde3;
+    margin-left: 20px;
+  }
+  .breakdown-note {
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 13px;
+    color: #a3b0bd;
+    margin-left: 40px;
+    margin-top: 40px;
+    line-height: 1.6;
+  }
+  .about-citation {
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 12px;
+    color: #a3b0bd;
+    margin: 0;
+  }
+
+  .info-card {
+    background: linear-gradient(220deg, rgba(126, 141, 154, 0.25) 5%, rgba(0, 5, 39, 0.25) 55%);
+    border: none;
+    border-radius: 20px;
+    padding: 46px 40px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+    box-shadow: 5px 5px 15px 0 rgba(113, 127, 175, 0.28);
+  }
   .about-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
     font-size: 12px;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -309,69 +422,21 @@
     color: #d6dde3;
     margin: 0 0 56px;
   }
-
-  .game-breakdown {
-    margin: 0 0 48px;
-    padding: 36px 0;
-  }
-  .breakdown-label {
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 16px;
-    color: #e8e2d0;
-    margin: 0 0 24px;
-  }
-  .breakdown-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-  .breakdown-item {
-    display: flex;
-    gap: 16px;
-    align-items: baseline;
-  }
-  .breakdown-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    color: hsl(43, 100%, 79%);
-    min-width: 20px;
-  }
-  .breakdown-desc {
-    font-family: 'Google Sans Flex', sans-serif;
-    font-size: 17px;
-    color: #d6dde3;
-  }
-  .breakdown-note {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    color: #a3b0bd;
-    margin: 0;
-    line-height: 1.6;
-  }
-  .about-citation {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: #a3b0bd;
-    margin: 0;
-  }
-
-  .info-card {
-    background: #161d26;
-    border: none;
-    border-radius: 20px;
-    padding: 28px 38px;
-    margin-left: 30px;
-    box-sizing: border-box;
-    display: flex;
+  .info-intro {
+    flex: 0 0 auto;
     width: 400px;
+  }
+  .info-details {
+    display: flex;
     flex-direction: column;
-    gap: 24px;
-    box-shadow: 0 30px 60px -12px rgba(0,0,0,.55), 0 10px 20px -8px rgba(0,0,0,.4);
+    gap: 20px;
+    min-width: 220px;
+    border-left: 1px solid rgba(255,255,255,0.2);
+    padding-left: 32px;
   }
   .info-row .about-key {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 13px;
     letter-spacing: .06em;
     text-transform: uppercase;
     color: #a3b0bd;
@@ -379,8 +444,43 @@
   }
   .info-row .about-value {
     font-family: 'Google Sans Flex', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     color: #e8e2d0;
+    margin: 0;
+  }
+
+  /*          *
+   *  FOOTER  *
+   *          */
+  .site-footer {
+    background: #06080a;
+    border-top: 1px solid #1e2733;
+    padding: 32px 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-mark {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 14px;
+    color: #d6dde3;
+    margin: 0;
+  }
+  .footer-top {
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 14px;
+    color: #a3b0bd;
+    text-decoration: none;
+  }
+  .footer-top:hover {
+    color: #d6dde3;
+  }
+  .footer-copyright {
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 11px;
+    color: #6b7684;
     margin: 0;
   }
 </style>
