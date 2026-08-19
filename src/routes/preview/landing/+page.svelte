@@ -218,10 +218,13 @@
 <footer class="site-footer">
   <p class="footer-mark">Bridging Dictionary</p>
   <a href="#top" class="footer-top">Back to top ↑</a>
-  <p class="footer-copyright">© 2026 Human-AI Nexus Group · Northeastern University</p>
+  <p class="footer-copyright">© 2026 Human-AI Nexus Group</p>
 </footer>
 
 <style>
+  :global(html) {
+    scroll-behavior: smooth;
+  }
   :global(body) {
     margin: 0;
   }
@@ -473,7 +476,7 @@
   }
   .footer-top {
     font-family: "Atkinson Hyperlegible Mono", sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     color: #a3b0bd;
     text-decoration: none;
   }
