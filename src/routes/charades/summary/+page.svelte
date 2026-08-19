@@ -49,7 +49,7 @@
 {#if word}
   <main>
     <div class="container">
-      <p class="back"><a href="/">← All games</a></p>
+      <p class="back"><a href="/dev/landing">← All games</a></p>
 
       <div class="heading">
         <p class="eyebrow">{correct ? `Correct in ${rounds} ${rounds === 1 ? 'round' : 'rounds'}` : `Gave up after ${rounds} ${rounds === 1 ? 'round' : 'rounds'}`}</p>
@@ -105,7 +105,7 @@
 
       <div class="actions">
         <button class="play-btn" onclick={playAgain}>Play again</button>
-        <a href="/" class="home-link">← All games</a>
+        <a href="/dev/landing" class="home-link">← All games</a>
       </div>
     </div>
   </main>

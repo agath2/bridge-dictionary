@@ -132,7 +132,7 @@
     <!-- Actions -->
     <div class="actions">
       <button class="play-btn" onclick={playAgain}>Play again</button>
-      <a href="/" class="back-link">← All games</a>
+      <a href="/dev/landing" class="back-link">← All games</a>
     </div>
 
   </div>

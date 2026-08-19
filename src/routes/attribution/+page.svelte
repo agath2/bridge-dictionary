@@ -42,7 +42,7 @@
 
 <main>
   <div class="container">
-    <p class="back"><a href="/">← All games</a></p>
+    <p class="back"><a href="/dev/landing">← All games</a></p>
 
     <div class="header">
       <div class="label">Game 1</div>

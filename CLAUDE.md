@@ -27,7 +27,12 @@ src/
 │   └── gameStore.js          # shared Svelte stores: session, results, resetGame()
 └── routes/
     ├── +layout.svelte         # root layout (favicon only)
-    ├── +page.svelte           # landing page — game selection cards
+    ├── +page.svelte           # public landing page (word-cloud hero + about section)
+    ├── survey/
+    │   └── +page.svelte       # pre-study eligibility/consent gate, reached via the landing page's "Play now"
+    ├── dev/
+    │   └── landing/
+    │       └── +page.svelte   # dev-only game picker (formerly the site root) — quick access to all games
     └── attribution/
         ├── +page.svelte       # Game 1 intro + session builder
         ├── game/
