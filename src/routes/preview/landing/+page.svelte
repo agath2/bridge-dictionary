@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { goto } from '$app/navigation';
 
   let canvasEl;
   let rotateWordEl;
@@ -143,7 +144,7 @@
 </script>
 
 <svelte:head>
-  <title>Bridging Dictionary — Word Cloud Hero</title>
+  <title>Bridging Dictionary Game Suite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
@@ -160,7 +161,7 @@
         <span id="rotate-word" bind:this={rotateWordEl}>speaking</span>
       </span>
     </p>
-    <button class="play-btn">
+    <button class="play-btn" onclick={() => goto('/preview/survey')}>
       <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
         <path d="M8 5v14l11-7z"/>
       </svg>
