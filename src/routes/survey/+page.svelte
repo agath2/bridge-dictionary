@@ -97,6 +97,7 @@
     align-items: center;
     justify-content: center;
     padding: 32px 24px;
+    padding-top: 60px;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -127,17 +128,38 @@
     line-height: 1.5;
     color: #d6dde3;
     margin: 0 0 6px;
+    margin-bottom: 20px;
   }
 
   .card {
     background: linear-gradient(220deg, rgba(126, 141, 154, 0.16) 5%, rgba(0, 5, 39, 0.16) 55%);
     border-radius: 20px;
     padding: 22px 28px;
+    margin-bottom: 10px;
     box-sizing: border-box;
     box-shadow: 5px 5px 15px 0 rgba(113, 127, 175, 0.16);
     display: flex;
     flex-direction: column;
     gap: 10px;
+    opacity: 0;
+    animation: slide-up 0.5s ease forwards;
+  }
+  .card:nth-of-type(1) {
+    animation-delay: 0.1s;
+  }
+  .card:nth-of-type(2) {
+    animation-delay: 0.25s;
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .card-label {
@@ -206,7 +228,7 @@
     color: #14201c;
     border: none;
     padding: 16px 25px;
-    margin-top: 4px;
+    margin-top: 15px;
     font-size: 18px;
     letter-spacing: .03em;
     cursor: pointer;
