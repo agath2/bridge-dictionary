@@ -38,7 +38,6 @@
       </p>
 
       <div class="card">
-        <p class="card-label">Eligibility</p>
 
         <label class="check-row">
           <input type="checkbox" bind:checked={ageChecked} />
@@ -64,10 +63,8 @@
           <span class="check-text">I agree to participate in this research study. My responses may be recorded anonymously and used in published research.</span>
         </label>
 
-        <div class="warning-slot">
-          {#if attemptedContinue && !consentChecked}
-            <p class="inline-warning">You must agree to participate before continuing to the games.</p>
-          {/if}
+        <div class="warning-slot" class:expanded={attemptedContinue && !consentChecked}>
+          <p class="inline-warning">You must agree to participate before continuing to the games.</p>
         </div>
       </div>
 
@@ -208,7 +205,14 @@
   }
 
   .warning-slot {
-    min-height: 36px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+  .warning-slot.expanded {
+    max-height: 60px;
+    opacity: 1;
   }
 
   .inline-warning {
