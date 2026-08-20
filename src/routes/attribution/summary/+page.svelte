@@ -2,7 +2,7 @@
   import { goto } from '$app/navigation';
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
-  import { results, resetGame, politicalAffiliation } from '$lib/gameStore.js';
+  import { results, resetGame, politicalAffiliation, eligibleForRecording } from '$lib/gameStore.js';
   import { get } from 'svelte/store';
 
   let allResults = get(results);
@@ -14,12 +14,17 @@
   onMount(() => {
     if (allResults.length === 0) return;
 
+    // Ineligible participants still play, but their session never leaves
+    // the browser — /api/submit would also refuse to record it either way.
+    if (!get(eligibleForRecording)) return;
+
     fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         game: 'attribution',
         affiliation: get(politicalAffiliation),
+        eligible: true,
         session_data: allResults.map(r => ({
           word: r.word.word,
           guess: r.guess,

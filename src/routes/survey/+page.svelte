@@ -1,4 +1,7 @@
 <script>
+  import { goto } from '$app/navigation';
+  import { eligibleForRecording } from '$lib/gameStore.js';
+
   let ageChecked = $state(false);
   let languageChecked = $state(false);
   let politicalChecked = $state(false);
@@ -9,14 +12,13 @@
   // Eligibility failures stay invisible to the participant — someone who
   // doesn't qualify can still play. This flag is what tells the backend
   // not to record their session as study data.
-  const eligibleForRecording = $derived(ageChecked && languageChecked && politicalChecked);
+  const meetsEligibility = $derived(ageChecked && languageChecked && politicalChecked);
 
   function handleContinue() {
     attemptedContinue = true;
     if (!consentChecked) return;
-    // mockup only — no real navigation or data submission yet
-    console.log('eligibleForRecording:', eligibleForRecording);
-    console.log('would navigate to game flow');
+    eligibleForRecording.set(meetsEligibility);
+    goto('/attribution');
   }
 </script>
 

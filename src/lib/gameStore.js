@@ -11,6 +11,11 @@ export const results = writable([]);
 // Values: 'Democrat' | 'Republican' | 'Independent' | 'Other' | 'Prefer not to say' | null
 export const politicalAffiliation = writable(null);
 
+// Set on /survey once a participant consents. True only if they also met
+// all three eligibility criteria — determines whether their session gets
+// recorded. Participants never see which of these applied to them.
+export const eligibleForRecording = writable(false);
+
 // Resets everything for a fresh game
 export function resetGame() {
   session.set([]);
