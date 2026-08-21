@@ -46,7 +46,7 @@
 <main>
   <div class="page">
     <div class="content">
-      <p class="eyebrow">game 1</p>
+      <p class="eyebrow">game 1 of 3</p>
       <h1>Which Side Says It More?</h1>
       <div class="card">
         <p class="intro">

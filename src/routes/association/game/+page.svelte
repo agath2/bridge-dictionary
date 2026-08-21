@@ -22,6 +22,7 @@
 
   let current = $derived(session[currentIndex] ?? null);
   let isLast = $derived(currentIndex === session.length - 1);
+  let progress = $derived(`Word ${currentIndex + 1} of ${session.length}`);
 
   let recognition = null;
   let timerInterval = null;
@@ -109,6 +110,9 @@
 
 <svelte:head>
   <title>Free Association — Bridging Dictionary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
 </svelte:head>
 
 {#if !supported}
@@ -121,248 +125,286 @@
   </main>
 {:else if current}
   <main>
-    <div class="top-bar">
-      <a href="/association" class="back">← Back</a>
-      <span class="progress">Word {currentIndex + 1} of {session.length}</span>
-    </div>
-
-    <div class="stage">
-      <div class="word-block">
-        <span class="word-label">say what comes to mind</span>
-        <span class="word-text">{current}</span>
+    <div class="page">
+      <div class="top-bar">
+        <a href="/association" class="home-link">Bridging Dictionary</a>
+        <span class="progress">{progress}</span>
       </div>
 
-      {#if phase === 'idle'}
-        <button class="action-btn" onclick={startListening}>
-          ● Start speaking
-        </button>
-
-      {:else if phase === 'listening'}
-        <div class="timer-row">
-          <span class="timer" class:urgent={timeLeft <= 5}>{timeLeft}</span>
-          <span class="timer-label">seconds left</span>
+      <div class="game-area">
+        <div class="prompt-block">
+          <p class="prompt">Say what comes to mind</p>
+          <p class="word">{current}</p>
         </div>
 
-      {:else if phase === 'done'}
-        <div class="done-row">
-          {#if words.length === 0}
-            <p class="no-input-msg">No words were captured. Try again — you need at least one word to continue.</p>
-            <button class="action-btn" onclick={startListening}>Try again ↺</button>
-          {:else}
-            <button class="next-btn" onclick={advance}>
-              {isLast ? 'See your results →' : 'Next word →'}
-            </button>
+        {#if phase === 'idle'}
+          <button class="continue-btn" onclick={startListening}>
+            Start speaking
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="2" width="6" height="12" rx="3"/>
+              <path d="M5 10v1a7 7 0 0 0 14 0v-1"/>
+              <path d="M12 18v4"/>
+              <path d="M8 22h8"/>
+            </svg>
+          </button>
+
+        {:else if phase === 'listening'}
+          <div class="timer-row">
+            <span class="timer" class:urgent={timeLeft <= 5}>{timeLeft}</span>
+            <span class="timer-label">seconds left</span>
+          </div>
+
+        {:else if phase === 'done'}
+          <div class="done-row">
+            {#if words.length === 0}
+              <p class="inline-warning">No words were captured. Try again — you need at least one word to continue.</p>
+              <button class="continue-btn" onclick={startListening}>
+                Try again
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 12a9 9 0 1 1 3 6.7"/>
+                  <path d="M3 21v-6h6"/>
+                </svg>
+              </button>
+            {:else}
+              <button class="continue-btn" onclick={advance}>
+                {isLast ? 'See your results' : 'Next word'}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"/>
+                  <path d="M13 6l6 6-6 6"/>
+                </svg>
+              </button>
+            {/if}
+          </div>
+        {/if}
+
+        <div class="chips-area">
+          {#if words.length > 0}
+            <div class="chips">
+              {#each words as word}
+                <span class="chip">{word}</span>
+              {/each}
+            </div>
+          {:else if phase === 'listening'}
+            <p class="listening-hint">Listening…</p>
           {/if}
         </div>
-      {/if}
-    </div>
-
-    <div class="chips-area">
-      {#if words.length > 0}
-        <div class="chips">
-          {#each words as word}
-            <span class="chip">{word}</span>
-          {/each}
-        </div>
-      {:else if phase === 'listening'}
-        <p class="listening-hint">Listening…</p>
-      {/if}
+      </div>
     </div>
   </main>
 {/if}
 
 <style>
+  :global(html) {
+    scroll-behavior: smooth;
+  }
   :global(body) {
-    background: #0f0f0f;
-    color: #e8e4dc;
-    font-family: 'Georgia', serif;
-    min-height: 100vh;
-    overflow: hidden;
+    margin: 0;
+    background: #06090c;
   }
 
   main {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 20% 20%, #10161f 0%, #06090c 60%);
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
     display: flex;
-    flex-direction: column;
-    height: 100vh;
-    padding: 1.2rem 2rem 2rem;
-    max-width: 680px;
-    margin: 0 auto;
+    justify-content: center;
+    padding: 48px 24px;
+    box-sizing: border-box;
   }
 
-  /* Unsupported */
   main.unsupported {
-    justify-content: center;
     align-items: center;
-    gap: 1.5rem;
     text-align: center;
   }
 
   .unsupported-msg {
-    font-size: 1rem;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 17px;
     line-height: 1.7;
-    color: #c8c4bc;
-    max-width: 400px;
+    color: #d6dde3;
+    max-width: 420px;
   }
 
   .back-link {
-    font-size: 0.9rem;
-    color: #888;
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 14px;
+    color: #a3b0bd;
     text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+  }
+  .back-link:hover {
+    color: #e8e2d0;
   }
 
-  /* Top bar */
+  .page {
+    width: 100%;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+  }
+
   .top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-shrink: 0;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #1e2733;
+    margin-bottom: 56px;
   }
 
-  .back {
-    font-size: 0.85rem;
-    color: #666;
+  .home-link {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 15px;
+    color: #d6dde3;
     text-decoration: none;
+    letter-spacing: 0.02em;
   }
-  .back:hover { color: #e8e4dc; }
+  .home-link:hover {
+    color: #e8e2d0;
+  }
 
   .progress {
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #555;
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 13px;
+    color: #a3b0bd;
+    letter-spacing: 0.08em;
   }
 
-  /* Stage */
-  .stage {
+  .game-area {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2.5rem;
+    gap: 40px;
+    text-align: center;
+    padding-top: 80px;
   }
 
-  .word-block {
+  .prompt-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
+    gap: 15px;
+    margin-bottom: 30px;
   }
 
-  .word-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
+  .prompt {
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 13px;
+    letter-spacing: .1em;
     text-transform: uppercase;
-    color: #555;
+    color: #a3b0bd;
+    margin: 0;
   }
 
-  .word-text {
-    font-size: clamp(2.2rem, 6vw, 3.4rem);
-    color: #d4a853;
-    letter-spacing: -0.01em;
-    text-align: center;
+  .word {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 500;
+    color: hsl(43, 100%, 79%);
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    margin: 0;
   }
 
-  /* Timer */
   .timer-row {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.3rem;
+    gap: 6px;
   }
 
   .timer {
-    font-size: 3rem;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 48px;
     font-variant-numeric: tabular-nums;
-    color: #c8c4bc;
-    transition: color 0.3s;
+    color: #e8e2d0;
+    transition: color 0.3s ease;
     line-height: 1;
   }
 
-  .timer.urgent { color: #c0674a; }
-
-  .timer-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #444;
+  .timer.urgent {
+    color: #c0674a;
   }
 
-  /* Done state */
+  .timer-label {
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #a3b0bd;
+  }
+
   .done-row {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 16px;
   }
 
-  .no-input-msg {
-    font-size: 0.92rem;
-    color: #c0674a;
-    text-align: center;
+  .inline-warning {
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 13px;
+    color: #d89a84;
     max-width: 340px;
     line-height: 1.6;
+    margin: 0;
   }
 
-  /* Buttons */
-  .action-btn {
-    padding: 0.8rem 2rem;
-    font-family: 'Georgia', serif;
-    font-size: 1rem;
-    letter-spacing: 0.04em;
-    background: transparent;
-    border: 1px solid #555;
-    color: #c8c4bc;
-    cursor: pointer;
-    transition: border-color 0.15s, color 0.15s;
-  }
-
-  .action-btn:hover {
-    border-color: #e8e4dc;
-    color: #e8e4dc;
-  }
-
-  .next-btn {
-    padding: 0.8rem 2.2rem;
-    font-family: 'Georgia', serif;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
-    background: #e8e4dc;
-    color: #0f0f0f;
+  .continue-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 500;
+    background: hsl(43, 100%, 79%);
+    color: #14201c;
     border: none;
+    padding: 16px 25px;
+    font-size: 18px;
+    letter-spacing: .03em;
     cursor: pointer;
-    transition: opacity 0.15s;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(240,223,160,.2), 0 8px 36px rgba(201,161,59,.35);
+    transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .continue-btn:hover {
+    transform: translateY(-2px);
+  }
+  .continue-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0 0 1px rgba(240,223,160,.2), 0 4px 16px rgba(201,161,59,.35);
   }
 
-  .next-btn:hover { opacity: 0.85; }
-
-  /* Chips */
   .chips-area {
-    flex-shrink: 0;
-    min-height: 5rem;
-    padding: 1rem 0 0.5rem;
-    border-top: 1px solid #1a1a1a;
+    min-height: 60px;
+    padding-top: 16px;
   }
 
   .listening-hint {
-    font-size: 0.85rem;
-    color: #444;
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 13px;
+    color: #6b7684;
     font-style: italic;
   }
 
   .chips {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 8px;
   }
 
   .chip {
-    font-size: 0.88rem;
-    padding: 0.3rem 0.75rem;
-    border: 1px solid #2a2a2a;
-    color: #c8c4bc;
-    background: rgba(212, 168, 83, 0.05);
-    border-color: rgba(212, 168, 83, 0.2);
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+    font-size: 13px;
+    padding: 6px 14px;
+    border: 1px solid rgba(240, 223, 160, 0.25);
+    border-radius: 999px;
+    color: #d6dde3;
+    background: rgba(240, 223, 160, 0.06);
     animation: pop-in 0.15s ease;
   }
 
