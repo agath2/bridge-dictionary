@@ -16,9 +16,9 @@
   const options = [
     { value: 'Democrat',           label: 'Democrat',           color: '#6a9fd8' },
     { value: 'Republican',         label: 'Republican',         color: '#c0674a' },
-    { value: 'Independent',        label: 'Independent',        color: '#888' },
-    { value: 'Other',              label: 'Other',              color: '#888' },
-    { value: 'Prefer not to say',  label: 'Prefer not to say',  color: '#888' },
+    { value: 'Independent',        label: 'Independent',        color: '#a3b0bd' },
+    { value: 'Other',              label: 'Other',              color: '#a3b0bd' },
+    { value: 'Prefer not to say',  label: 'Prefer not to say',  color: '#a3b0bd' },
   ];
 
   let selected = $state(null);
@@ -60,123 +60,115 @@
 
 <svelte:head>
   <title>Bridging Dictionary · One quick question</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
 </svelte:head>
 
 <main>
-  <div class="top-bar">
-    <a href="/" class="home-link">Bridging Dictionary</a>
-  </div>
+  <div class="page">
+    <div class="content">
+      <p class="eyebrow">before the next game</p>
+      <h1>How do you identify politically?</h1>
+      <p class="intro">This helps us understand patterns across perspectives. Your answer is anonymous.</p>
 
-  <div class="content">
-    <p class="eyebrow">Before your results</p>
-    <h1>How do you identify politically?</h1>
-    <p class="sub">This helps us understand patterns across different perspectives. Your answer is anonymous.</p>
+      <div class="options">
+        {#each options as opt}
+          <button
+            class="option-btn"
+            class:selected={selected === opt.value}
+            style="--accent: {opt.color}"
+            onclick={() => choose(opt.value)}
+          >
+            {opt.label}
+          </button>
+        {/each}
+      </div>
 
-    <div class="options">
-      {#each options as opt}
-        <button
-          class="option-btn"
-          class:selected={selected === opt.value}
-          style="--accent: {opt.color}"
-          onclick={() => choose(opt.value)}
-        >
-          {opt.label}
-        </button>
-      {/each}
+      <button class="continue-btn" disabled={!selected} onclick={submit}>
+        Continue
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"/>
+          <path d="M13 6l6 6-6 6"/>
+        </svg>
+      </button>
     </div>
-
-    <button class="continue-btn" disabled={!selected} onclick={submit}>
-      See my results
-    </button>
   </div>
 </main>
 
 <style>
-  :global(*, *::before, *::after) {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  :global(html) {
+    scroll-behavior: smooth;
   }
-
   :global(body) {
-    background: #0f0f0f;
-    color: #e8e4dc;
-    font-family: 'Georgia', serif;
-    min-height: 100vh;
+    margin: 0;
+    background: #06090c;
   }
 
   main {
     min-height: 100vh;
+    background: radial-gradient(ellipse at 20% 20%, #10161f 0%, #06090c 60%);
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
     display: flex;
-    flex-direction: column;
-    padding: 1.5rem 2rem 3rem;
-    max-width: 720px;
-    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    box-sizing: border-box;
   }
 
-  .top-bar {
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #1e1e1e;
-    margin-bottom: 4rem;
-  }
-
-  .home-link {
-    font-size: 0.85rem;
-    color: #888;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-  }
-
-  .home-link:hover {
-    color: #e8e4dc;
+  .page {
+    width: 100%;
+    max-width: 640px;
   }
 
   .content {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 1.5rem;
-    max-width: 480px;
+    gap: 14px;
   }
 
   .eyebrow {
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
+    font-size: 13px;
+    letter-spacing: .1em;
     text-transform: uppercase;
-    color: #888;
+    color: #a3b0bd;
+    margin: 0;
   }
 
   h1 {
-    font-size: clamp(1.4rem, 4vw, 2rem);
-    font-weight: normal;
-    line-height: 1.3;
-    color: #e8e4dc;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 34px;
+    font-weight: 500;
+    color: #e8e2d0;
+    margin: 0;
+    line-height: 1.2;
   }
 
-  .sub {
-    font-size: 0.95rem;
-    color: #888;
+  .intro {
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 17px;
     line-height: 1.6;
+    color: #d6dde3;
+    margin: 0;
   }
 
   .options {
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    margin-top: 0.5rem;
+    gap: 10px;
   }
 
   .option-btn {
-    padding: 0.85rem 1.2rem;
-    font-family: 'Georgia', serif;
-    font-size: 1rem;
+    padding: 14px 18px;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-size: 16px;
     text-align: left;
     background: transparent;
-    border: 1px solid #2a2a2a;
-    color: #e8e4dc;
+    border: 1px solid #2a3440;
+    color: #e8e2d0;
     cursor: pointer;
-    transition: border-color 0.15s, background 0.15s, color 0.15s;
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
     border-radius: 2px;
   }
 
@@ -192,26 +184,34 @@
   }
 
   .continue-btn {
-    margin-top: 0.5rem;
-    padding: 0.9rem 1.5rem;
-    font-family: 'Georgia', serif;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
-    background: #e8e4dc;
-    color: #0f0f0f;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.15s;
     align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Google Sans Flex', sans-serif;
+    font-weight: 500;
+    background: hsl(43, 100%, 79%);
+    color: #14201c;
+    border: none;
+    padding: 16px 25px;
+    margin-top: 10px;
+    font-size: 18px;
+    letter-spacing: .03em;
+    cursor: pointer;
     border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(240,223,160,.2), 0 8px 36px rgba(201,161,59,.35);
+    transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, opacity 0.2s ease;
   }
-
+  .continue-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+  .continue-btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 0 0 1px rgba(240,223,160,.2), 0 4px 16px rgba(201,161,59,.35);
+  }
   .continue-btn:disabled {
-    opacity: 0.3;
+    opacity: 0.4;
     cursor: default;
-  }
-
-  .continue-btn:not(:disabled):hover {
-    opacity: 0.85;
+    box-shadow: none;
   }
 </style>
