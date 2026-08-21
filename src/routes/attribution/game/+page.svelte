@@ -43,7 +43,7 @@
 
     setTimeout(() => {
       if (currentIndex + 1 >= sessionWords.length) {
-        goto('/affiliation?next=/attribution/summary');
+        goto('/affiliation?next=/association');
       } else {
         currentIndex += 1;
         guess = null;

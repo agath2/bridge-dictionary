@@ -1,40 +1,17 @@
 <script>
   import { goto } from '$app/navigation';
   import { browser } from '$app/environment';
-  import { onMount } from 'svelte';
-  import { results, resetGame, politicalAffiliation, eligibleForRecording } from '$lib/gameStore.js';
+  import { results, resetGame } from '$lib/gameStore.js';
   import { get } from 'svelte/store';
 
+  // Recording now happens on exit from /attribution/game, not here — this
+  // page is currently unreached by the real flow (skipped in favor of
+  // going straight to /association) but left intact for direct access.
   let allResults = get(results);
 
   if (browser && allResults.length === 0) {
     goto('/attribution');
   }
-
-  onMount(() => {
-    if (allResults.length === 0) return;
-
-    // Ineligible participants still play, but their session never leaves
-    // the browser — /api/submit would also refuse to record it either way.
-    if (!get(eligibleForRecording)) return;
-
-    fetch('/api/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        game: 'attribution',
-        affiliation: get(politicalAffiliation),
-        eligible: true,
-        session_data: allResults.map(r => ({
-          word: r.word.word,
-          guess: r.guess,
-          correct: r.correct,
-          response_time_ms: r.response_time_ms,
-          type: r.type
-        }))
-      })
-    });
-  });
 
   const HESITATION_THRESHOLD_MS = 3000;
 

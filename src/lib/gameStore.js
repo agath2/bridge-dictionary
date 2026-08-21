@@ -16,6 +16,11 @@ export const politicalAffiliation = writable(null);
 // recorded. Participants never see which of these applied to them.
 export const eligibleForRecording = writable(false);
 
+// One random ID per participant's visit, generated once on /survey and
+// reused across every game they play — lets rows from different games in
+// the same sitting be joined together later. Not set until /survey runs.
+export const sessionId = writable(null);
+
 // Resets everything for a fresh game
 export function resetGame() {
   session.set([]);

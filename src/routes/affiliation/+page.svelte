@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
   import { get } from 'svelte/store';
-  import { politicalAffiliation } from '$lib/gameStore.js';
+  import { politicalAffiliation, results, eligibleForRecording, sessionId } from '$lib/gameStore.js';
 
   const next = $derived(get(page).url.searchParams.get('next') ?? '/');
 
@@ -30,6 +30,30 @@
   function submit() {
     if (!selected) return;
     politicalAffiliation.set(selected);
+
+    // Attribution finishes right before this page, so its recording waits
+    // until affiliation is known rather than posting with affiliation: null.
+    const attributionResults = get(results);
+    if (attributionResults.length > 0 && get(eligibleForRecording)) {
+      fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          game: 'attribution',
+          affiliation: selected,
+          session_id: get(sessionId),
+          eligible: true,
+          session_data: attributionResults.map(r => ({
+            word: r.word.word,
+            guess: r.guess,
+            correct: r.correct,
+            response_time_ms: r.response_time_ms,
+            type: r.type
+          }))
+        })
+      });
+    }
+
     goto(next);
   }
 </script>

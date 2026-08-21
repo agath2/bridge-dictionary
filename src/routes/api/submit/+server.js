@@ -3,7 +3,7 @@ import { DATABASE_URL } from '$env/static/private';
 import { json } from '@sveltejs/kit';
 
 export async function POST({ request }) {
-  const { game, affiliation, session_data, eligible } = await request.json();
+  const { game, affiliation, session_data, eligible, session_id } = await request.json();
 
   if (!game || !session_data) {
     return json({ error: 'Missing required fields' }, { status: 400 });
@@ -19,8 +19,8 @@ export async function POST({ request }) {
   const sql = neon(DATABASE_URL);
 
   await sql`
-    INSERT INTO game_sessions (game, affiliation, session_data)
-    VALUES (${game}, ${affiliation ?? null}, ${JSON.stringify(session_data)})
+    INSERT INTO game_sessions (game, affiliation, session_data, session_id)
+    VALUES (${game}, ${affiliation ?? null}, ${JSON.stringify(session_data)}, ${session_id ?? null})
   `;
 
   return json({ ok: true, recorded: true });

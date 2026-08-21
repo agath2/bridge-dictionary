@@ -1,6 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
-  import { eligibleForRecording } from '$lib/gameStore.js';
+  import { eligibleForRecording, sessionId } from '$lib/gameStore.js';
 
   let ageChecked = $state(false);
   let languageChecked = $state(false);
@@ -18,6 +18,7 @@
     attemptedContinue = true;
     if (!consentChecked) return;
     eligibleForRecording.set(meetsEligibility);
+    sessionId.set(crypto.randomUUID());
     goto('/attribution');
   }
 </script>

@@ -3,25 +3,28 @@
   import { browser } from '$app/environment';
   import { onMount } from 'svelte';
   import { get } from 'svelte/store';
-  import { freeAssociationResults, resetFreeAssociation } from '$lib/freeAssociationStore.js';
-  import { politicalAffiliation } from '$lib/gameStore.js';
+  import { associationResults, resetAssociation } from '$lib/associationStore.js';
+  import { politicalAffiliation, eligibleForRecording, sessionId } from '$lib/gameStore.js';
 
-  const results = get(freeAssociationResults);
+  const results = get(associationResults);
 
   if (browser && results.length === 0) {
-    goto('/freeassociation');
+    goto('/association');
   }
 
   onMount(async () => {
     if (results.length === 0) return;
+    if (!get(eligibleForRecording)) return;
 
     try {
       const res = await fetch('/api/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          game: 'freeassociation',
+          game: 'association',
           affiliation: get(politicalAffiliation),
+          session_id: get(sessionId),
+          eligible: true,
           session_data: results.map(r => ({ headword: r.headword, words: r.words }))
         })
       });
@@ -35,8 +38,8 @@
   });
 
   function playAgain() {
-    resetFreeAssociation();
-    goto('/freeassociation');
+    resetAssociation();
+    goto('/association');
   }
 </script>
 

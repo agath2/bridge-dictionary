@@ -1,6 +1,6 @@
 <script>
   import { goto } from '$app/navigation';
-  import { freeAssociationSession, freeAssociationResults } from '$lib/freeAssociationStore.js';
+  import { associationSession, associationResults } from '$lib/associationStore.js';
 
   let loading = $state(false);
   let error = $state(null);
@@ -10,15 +10,15 @@
     error = null;
 
     try {
-      const res = await fetch('/freeassociation/freeassociation_words.json');
+      const res = await fetch('/association/association_words.json');
       const all = await res.json();
 
       const shuffled = [...all].sort(() => Math.random() - 0.5).slice(0, 5);
 
-      freeAssociationSession.set(shuffled);
-      freeAssociationResults.set([]);
+      associationSession.set(shuffled);
+      associationResults.set([]);
 
-      goto('/freeassociation/game');
+      goto('/association/game');
     } catch (e) {
       error = 'Could not load game data. Please try again.';
       loading = false;
@@ -32,8 +32,6 @@
 
 <main>
   <div class="container">
-    <p class="back"><a href="/dev/landing">← All games</a></p>
-
     <div class="header">
       <div class="label">Game 4</div>
       <h1>Free Association</h1>
@@ -88,13 +86,6 @@
     flex-direction: column;
     gap: 1.8rem;
   }
-
-  .back a {
-    font-size: 0.85rem;
-    color: #666;
-    text-decoration: none;
-  }
-  .back a:hover { color: #e8e4dc; }
 
   .label {
     font-size: 0.75rem;

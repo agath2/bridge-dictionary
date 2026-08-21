@@ -3,12 +3,12 @@
   import { goto } from '$app/navigation';
   import { browser } from '$app/environment';
   import { get } from 'svelte/store';
-  import { freeAssociationSession, freeAssociationResults } from '$lib/freeAssociationStore.js';
+  import { associationSession, associationResults } from '$lib/associationStore.js';
 
-  const session = get(freeAssociationSession);
+  const session = get(associationSession);
 
   if (browser && session.length === 0) {
-    goto('/freeassociation');
+    goto('/association');
   }
 
   const TOTAL_TIME = 15;
@@ -90,13 +90,13 @@
   function advance() {
     if (words.length === 0) return;
 
-    freeAssociationResults.update(r => [
+    associationResults.update(r => [
       ...r,
       { headword: current, words: [...words] }
     ]);
 
     if (isLast) {
-      goto('/affiliation?next=/freeassociation/summary');
+      goto('/affiliation?next=/association/summary');
     } else {
       currentIndex += 1;
       phase = 'idle';
@@ -117,12 +117,12 @@
       Free Association requires speech recognition, which is only supported in Chrome and Edge.
       Please open this page in one of those browsers.
     </p>
-    <a href="/freeassociation" class="back-link">← Back</a>
+    <a href="/association" class="back-link">← Back</a>
   </main>
 {:else if current}
   <main>
     <div class="top-bar">
-      <a href="/freeassociation" class="back">← Back</a>
+      <a href="/association" class="back">← Back</a>
       <span class="progress">Word {currentIndex + 1} of {session.length}</span>
     </div>
 

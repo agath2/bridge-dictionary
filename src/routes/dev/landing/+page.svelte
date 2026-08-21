@@ -31,7 +31,7 @@
         <span class="card-cta">Play →</span>
       </a>
 
-      <a href="/freeassociation" class="card">
+      <a href="/association" class="card">
         <div class="card-label">Game 4</div>
         <h2 class="card-title">Free Association</h2>
         <p class="card-description">
