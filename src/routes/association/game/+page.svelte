@@ -279,7 +279,7 @@
     justify-content: center;
     gap: 40px;
     text-align: center;
-    padding-top: 80px;
+    padding-top: 120px;
   }
 
   .prompt-block {

@@ -1,21 +1,35 @@
 <script>
   import { goto } from '$app/navigation';
+  import { get } from 'svelte/store';
   import { associationSession, associationResults } from '$lib/associationStore.js';
+  import { session as attributionSession } from '$lib/gameStore.js';
 
   let loading = $state(false);
   let error = $state(null);
+
+  const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
   async function startGame() {
     loading = true;
     error = null;
 
     try {
-      const res = await fetch('/association/association_words.json');
-      const all = await res.json();
+      // Prefer words the participant actually saw in attribution, so the
+      // two games feel connected. Fall back to the standalone word list
+      // if they reached this page without an attribution session (direct
+      // link, dev testing, etc.).
+      const attributionWords = get(attributionSession).map(q => q.word);
 
-      const shuffled = [...all].sort(() => Math.random() - 0.5).slice(0, 5);
+      let picked;
+      if (attributionWords.length > 0) {
+        picked = shuffle(attributionWords).slice(0, 5);
+      } else {
+        const res = await fetch('/association/association_words.json');
+        const all = await res.json();
+        picked = shuffle(all).slice(0, 5);
+      }
 
-      associationSession.set(shuffled);
+      associationSession.set(picked);
       associationResults.set([]);
 
       goto('/association/game');
